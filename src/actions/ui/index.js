@@ -1,7 +1,7 @@
 import {reset} from 'redux-form';
 import {createAlias} from '../requests';
 import {apiRequest} from '../requests/helpers';
-import {closeModal} from '../views/modals';
+import {closeModal} from '../views/dialogs';
 
 // eslint-disable-next-line import/prefer-default-export
 export const submitAliasForm = (alias, source = null) => (dispatch) => {

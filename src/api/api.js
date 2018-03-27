@@ -42,17 +42,17 @@ export default class Api {
 		return `${this.getUrl()}/${this.getUrlVersion()}`;
 	}
 
-	getAliasesRoute() {
-		return `${this.getBaseRoute()}/aliases`;
+	getBookmarksRoute() {
+		return `${this.getBaseRoute()}/bookmarks`;
 	}
 
-	getAliases() {
-		return Api.get(this.getAliasesRoute());
+	getBookmarks() {
+		return Api.get(this.getBookmarksRoute());
 	}
 
 	createAlias(alias, href, description) {
-		return Api.post(this.getAliasesRoute(), {
-			alias, href, description,
+		return Api.post(this.getBookmarksRoute(), {
+			aliases: [alias], href, description,
 		});
 	}
 }
