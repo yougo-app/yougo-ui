@@ -1,4 +1,4 @@
-import {Modals} from '../../../utils/constants/index';
+import {Modals} from '../../../constants';
 import {createReduxFormDialog} from '../../form/index';
 import CreateBookmarkDialog from './CreateBookmarkDialog';
 

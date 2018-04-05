@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {openModal} from '../../actions/views';
-import {Modals} from '../../utils/constants';
+import {Modals} from '../../constants';
 import Header from './Header';
 
 

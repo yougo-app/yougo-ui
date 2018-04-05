@@ -1,6 +1,6 @@
 import {RSAA} from 'redux-api-middleware';
 import Api from '../../api';
-import {ActionTypes} from '../../utils/constants';
+import {ActionTypes} from '../../constants';
 
 export const getBookmarks = () => ({
 	[RSAA]: {
