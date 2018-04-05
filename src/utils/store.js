@@ -4,17 +4,20 @@ import {enableBatching} from 'redux-batched-actions';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
-let middleware = [thunk, apiMiddleware];
 
-// dev only middleware
-if(process.env.NODE_ENV !== 'production') {
-	const c = require('redux-logger');
-	middleware = [...middleware, c.createLogger()];
-}
+export const setupStore = () => {
+	let middleware = [thunk, apiMiddleware];
 
-const store = createStore(
-	enableBatching(reducer),
-	applyMiddleware(...middleware),
-);
+	// dev only middleware
+	if(process.env.NODE_ENV !== 'production') {
+		const c = require('redux-logger');
+		middleware = [...middleware, c.createLogger()];
+	}
 
-export default store;
+	return createStore(
+		enableBatching(reducer),
+		applyMiddleware(...middleware),
+	);
+};
+
+export default setupStore();
