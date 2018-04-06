@@ -7,20 +7,21 @@
     "jest/globals": true
   },
   "rules": {
+    "linebreak-style": "off", // git ensures appropriate line endings on different OS
+
+    // use tabs for indentation
     "no-tabs": 0,
-    "linebreak-style": "off",
-    "object-curly-spacing": ["error", "never"],
-    "indent": [
-      "error", "tab", {
-        "SwitchCase": 1
-      }
-    ],
+    "indent": ["error", "tab", {
+      "SwitchCase": 1 // also indent case statements
+    }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
-    "react/jsx-tag-spacing": [
-      "error", {
-        "beforeSelfClosing": "allow"
-      }
-    ]
+
+    // remove unnecessary spacing
+    "object-curly-spacing": ["error", "never"],
+    "keyword-spacing": ["error", { "after": false}],
+    "react/jsx-tag-spacing": ["error", {
+      "beforeSelfClosing": "allow"
+    }]
   }
 }
