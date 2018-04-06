@@ -20,10 +20,8 @@ export default (name) => {
 		}, dispatch),
 	});
 
-	return (Component) => {
-		return reduxForm({
-			form: name,
-			propNamespace: 'form',
-		})(connect(mapStateToProps, mapDispatchToProps)(Component));
-	};
+	return Component => reduxForm({
+		form: name,
+		propNamespace: 'form',
+	})(connect(mapStateToProps, mapDispatchToProps)(Component));
 };

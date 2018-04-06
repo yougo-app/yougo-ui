@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {withStyles} from 'material-ui';
 import React from 'react';
 import {Field} from 'redux-form';

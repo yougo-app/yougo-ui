@@ -6,6 +6,7 @@ import React from 'react';
 import Props from '../../utils/Props';
 import Bookmark from './Bookmark';
 
+
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
@@ -44,7 +45,6 @@ class Bookmarks extends React.Component {
 		);
 	}
 }
-
 
 
 export default withStyles(styles)(Bookmarks);

@@ -8,7 +8,7 @@ export const submitAliasForm = (alias, source = null) => (dispatch) => {
 	let onSuccess = [];
 
 	// if the source was a modal, close the modal and reset the form
-	if (source) {
+	if(source) {
 		onSuccess = [
 			...onSuccess,
 			closeModal(source),

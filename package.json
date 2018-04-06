@@ -16,6 +16,7 @@
     "redux-api-middleware": "^2.3.0",
     "redux-batched-actions": "^0.2.1",
     "redux-form": "^7.2.3",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "typeface-roboto": "0.0.54"
@@ -28,8 +29,7 @@
     "eslint-plugin-jest": "^21.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
-    "json-server": "^0.12.1",
-    "redux-logger": "^3.0.6"
+    "json-server": "^0.12.1"
   },
   "scripts": {
     "start": "react-scripts start",

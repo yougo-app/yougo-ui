@@ -3,6 +3,7 @@
   "plugins": ["jest"],
   "parser": "babel-eslint",
   "env": {
+    "node": true,
     "browser": true,
     "jest/globals": true
   },
@@ -19,7 +20,19 @@
 
     // remove unnecessary spacing
     "object-curly-spacing": ["error", "never"],
-    "keyword-spacing": ["error", { "after": false}],
+    "keyword-spacing": ["error", {
+      "overrides": {
+        "async": {"after": false},
+        "catch": {"after": false},
+        "if": {"after": false},
+        "for": {"after": false},
+        "function": {"after": false},
+        "super": {"after": false},
+        "switch": {"after": false},
+        "while": {"after": false},
+        "with": {"after": false},
+      }
+    }],
     "react/jsx-tag-spacing": ["error", {
       "beforeSelfClosing": "allow"
     }]

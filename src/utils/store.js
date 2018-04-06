@@ -1,17 +1,21 @@
 import {applyMiddleware, createStore} from 'redux';
 import {apiMiddleware} from 'redux-api-middleware';
 import {enableBatching} from 'redux-batched-actions';
+import {createLogger} from 'redux-logger';
 import thunk from 'redux-thunk';
-import reducer from '../reducers';
+import reducers from '../reducers';
 
 
-export const setupStore = () => {
-	let middleware = [thunk, apiMiddleware];
+export const setupStore = (reducer, extraMiddleware = []) => {
+	let middleware = [
+		...extraMiddleware,
+		thunk,
+		apiMiddleware,
+	];
 
 	// dev only middleware
 	if(process.env.NODE_ENV !== 'production') {
-		const c = require('redux-logger');
-		middleware = [...middleware, c.createLogger()];
+		middleware = [...middleware, createLogger()];
 	}
 
 	return createStore(
@@ -20,4 +24,4 @@ export const setupStore = () => {
 	);
 };
 
-export default setupStore();
+export default setupStore(reducers);

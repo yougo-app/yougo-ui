@@ -2,6 +2,7 @@ import {RSAA} from 'redux-api-middleware';
 import Api from '../../api';
 import {ActionTypes} from '../../constants';
 
+
 export const getBookmarks = () => ({
 	[RSAA]: {
 		...Api.getBookmarks(),
@@ -14,7 +15,7 @@ export const getBookmarks = () => ({
 });
 
 
-export const createAlias = (alias) => ({
+export const createAlias = alias => ({
 	[RSAA]: {
 		...Api.createAlias(alias.alias, alias.href, alias.desc),
 		types: [

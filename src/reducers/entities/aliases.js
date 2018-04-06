@@ -1,7 +1,8 @@
 import {ActionTypes} from '../../constants';
 
+
 export default (state = [], action) => {
-	switch (action.type) {
+	switch(action.type) {
 		case ActionTypes.ALIASES_SUCCESS:
 			return action.payload;
 		case ActionTypes.CREATE_ALIAS_SUCCESS:
