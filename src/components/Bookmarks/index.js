@@ -9,9 +9,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators({
-		load: getAliasesAction,
-	}, dispatch),
+	actions: bindActionCreators(
+		{
+			load: getAliasesAction,
+		},
+		dispatch,
+	),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bookmarks);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(Bookmarks);

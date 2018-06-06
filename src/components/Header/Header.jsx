@@ -8,7 +8,6 @@ import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
@@ -40,10 +39,10 @@ const Header = ({classes, actions}) => (
 						Yougo
 					</Typography>
 				</div>
-				<div className={classes.center}/>
+				<div className={classes.center} />
 				<div className={classes.right}>
 					<IconButton color="inherit" onClick={actions.openCreateBookmarkDialog}>
-						<AddIcon/>
+						<AddIcon />
 					</IconButton>
 					<IconButton>
 						<Avatar className={classes.avatar}>TS</Avatar>

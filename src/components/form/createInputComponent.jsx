@@ -1,7 +1,3 @@
 import React from 'react';
 
-
-export default WrappedComponent => props => (
-	<WrappedComponent {...props}/>
-);
-
+export default WrappedComponent => props => <WrappedComponent {...props} />;

@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Props from '../../utils/Props';
 
-
 const styles = theme => ({
 	root: {
 		paddingRight: theme.spacing.unit * 6,
@@ -26,24 +25,19 @@ const styles = theme => ({
 const Bookmark = ({classes, alias}) => (
 	<ListItem button className={classes.root}>
 		<ListItemAvatar className={classes.avatar}>
-			<Avatar src={alias.icon}/>
+			<Avatar src={alias.icon} />
 		</ListItemAvatar>
 		<ListItemText
 			className={classes.text}
 			primary={alias.name}
 			secondary={alias.aliases.join(', ')}
 		/>
-		<Typography
-			className={classes.subtext}
-			variant="caption"
-			align="right"
-			noWrap
-		>
+		<Typography className={classes.subtext} variant="caption" align="right" noWrap>
 			{alias.href}
 		</Typography>
 		<ListItemSecondaryAction className={classes.action}>
 			<IconButton>
-				<MoreVertIcon/>
+				<MoreVertIcon />
 			</IconButton>
 		</ListItemSecondaryAction>
 	</ListItem>

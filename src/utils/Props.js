@@ -7,10 +7,7 @@ const alias = PropTypes.shape({
 	aliases: PropTypes.arrayOf(PropTypes.string).isRequired,
 });
 
-const children = PropTypes.oneOfType([
-	PropTypes.node,
-	PropTypes.arrayOf(PropTypes.node),
-]);
+const children = PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]);
 
 export default {
 	alias,

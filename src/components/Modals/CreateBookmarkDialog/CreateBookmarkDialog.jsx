@@ -5,7 +5,6 @@ import {Field} from 'redux-form';
 import {TextField} from '../../form/index';
 import ReduxFormDialog from '../../form/ReduxFormDialog';
 
-
 const styles = {
 	root: {},
 	fields: {},
@@ -14,15 +13,9 @@ const styles = {
 	description: {},
 };
 
-const CreateBookmarkDialog = ({
-	classes, actions, formProps, ...other
-}) => (
+const CreateBookmarkDialog = ({classes, actions, formProps, ...other}) => (
 	<div className={classes.root}>
-		<ReduxFormDialog
-			title="Add a bookmark"
-			{...actions}
-			{...other}
-		>
+		<ReduxFormDialog title="Add a bookmark" {...actions} {...other}>
 			<div className={classes.fields}>
 				<div>
 					<Field

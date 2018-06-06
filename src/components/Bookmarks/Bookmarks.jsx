@@ -6,7 +6,6 @@ import React from 'react';
 import Props from '../../utils/Props';
 import Bookmark from './Bookmark';
 
-
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
@@ -38,13 +37,10 @@ class Bookmarks extends React.Component {
 
 		return (
 			<Paper className={classes.root}>
-				<List>
-					{aliases.map(alias => <Bookmark key={alias.id} alias={alias} />)}
-				</List>
+				<List>{aliases.map(alias => <Bookmark key={alias.id} alias={alias} />)}</List>
 			</Paper>
 		);
 	}
 }
-
 
 export default withStyles(styles)(Bookmarks);

@@ -52,7 +52,9 @@ export default class Api {
 
 	createAlias(alias, href, description) {
 		return Api.post(this.getBookmarksRoute(), {
-			aliases: [alias], href, description,
+			aliases: [alias],
+			href,
+			description,
 		});
 	}
 }

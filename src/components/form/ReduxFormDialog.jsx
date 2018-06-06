@@ -11,7 +11,6 @@ import {
 } from 'material-ui';
 import React from 'react';
 
-
 const titleSuffix = '-form-dialog-title';
 
 export const styles = {
@@ -45,20 +44,23 @@ const ReduxFormDialog = ({
 }) => {
 	const dialogContent = (
 		<div>
-			<DialogTitle id={`${name}${titleSuffix}`} className={classes.title}>{title}</DialogTitle>
+			<DialogTitle id={`${name}${titleSuffix}`} className={classes.title}>
+				{title}
+			</DialogTitle>
 			<DialogContent className={classes.content}>
-				<DialogContentText>
-					{description}
-				</DialogContentText>
+				<DialogContentText>{description}</DialogContentText>
 				{children}
 			</DialogContent>
 			<DialogActions className={classes.actions}>
-				<Button color="secondary" onClick={onClose}>Cancel</Button>
-				<Button type="submit" color="primary">Submit</Button>
+				<Button color="secondary" onClick={onClose}>
+					Cancel
+				</Button>
+				<Button type="submit" color="primary">
+					Submit
+				</Button>
 			</DialogActions>
 		</div>
 	);
-
 
 	return (
 		<Dialog
@@ -66,14 +68,10 @@ const ReduxFormDialog = ({
 			aria-labelledby={`${name}${titleSuffix}`}
 			{...other}
 		>
-			{form
-				? <form onSubmit={form.handleSubmit(onSubmit)}>{dialogContent}</form>
-				: dialogContent
-			}
+			{form ? <form onSubmit={form.handleSubmit(onSubmit)}>{dialogContent}</form> : dialogContent}
 		</Dialog>
 	);
 };
-
 
 ReduxFormDialog.defaultProps = {
 	title: '',

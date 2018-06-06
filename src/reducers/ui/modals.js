@@ -5,12 +5,12 @@ const defaultModalState = {
 };
 
 const defaultState = {};
-Object.keys(Modals).forEach((k) => {
+Object.keys(Modals).forEach(k => {
 	defaultState[Modals[k]] = defaultModalState;
 });
 
 const handleModal = (state = defaultModalState, action) => {
-	switch(action.type) {
+	switch (action.type) {
 		case ActionTypes.MODAL_OPEN:
 			return {
 				...state,
@@ -27,7 +27,7 @@ const handleModal = (state = defaultModalState, action) => {
 };
 
 export default (state = defaultState, action) => {
-	switch(action.type) {
+	switch (action.type) {
 		case ActionTypes.MODAL_OPEN:
 		case ActionTypes.MODAL_CLOSE: {
 			const modal = action.payload;
@@ -40,4 +40,3 @@ export default (state = defaultState, action) => {
 			return state;
 	}
 };
-
