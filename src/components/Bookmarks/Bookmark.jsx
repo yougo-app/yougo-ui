@@ -6,7 +6,7 @@ import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Props from '../../utils/Props';
+import AliasProp from '../../utils/AliasProp';
 
 const styles = theme => ({
 	root: {
@@ -45,7 +45,7 @@ const Bookmark = ({classes, alias}) => (
 
 Bookmark.propTypes = {
 	// eslint-disable-next-line react/no-typos
-	alias: Props.alias.isRequired,
+	alias: AliasProp.isRequired,
 
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,

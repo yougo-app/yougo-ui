@@ -1,10 +1,9 @@
 import {reset} from 'redux-form';
-import {createAlias} from '../requests';
-import {apiRequest} from '../requests/helpers';
-import {closeModal} from '../views/dialogs';
+import apiRequest from './apiRequest';
+import closeModal from './closeModal';
+import createAlias from './createAlias';
 
-// eslint-disable-next-line import/prefer-default-export
-export const submitAliasForm = (alias, source = null) => dispatch => {
+export default (alias, source = null) => dispatch => {
 	let onSuccess = [];
 
 	// if the source was a modal, close the modal and reset the form

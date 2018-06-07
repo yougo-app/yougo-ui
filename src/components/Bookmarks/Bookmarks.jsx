@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 import {withStyles} from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Props from '../../utils/Props';
+import AliasProp from '../../utils/AliasProp';
 import Bookmark from './Bookmark';
 
 const styles = theme => ({
@@ -14,8 +14,8 @@ const styles = theme => ({
 });
 
 class Bookmarks extends React.Component {
-	propTypes = {
-		aliases: PropTypes.arrayOf(Props.alias),
+	static propTypes = {
+		aliases: PropTypes.arrayOf(AliasProp),
 		actions: PropTypes.shape({
 			load: PropTypes.func.isRequired,
 		}).isRequired,
@@ -24,7 +24,7 @@ class Bookmarks extends React.Component {
 		}).isRequired,
 	};
 
-	defaultProps = {
+	static defaultProps = {
 		aliases: [],
 	};
 

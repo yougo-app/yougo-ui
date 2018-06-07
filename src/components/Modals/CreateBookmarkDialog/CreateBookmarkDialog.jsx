@@ -2,8 +2,8 @@
 import {withStyles} from 'material-ui';
 import React from 'react';
 import {Field} from 'redux-form';
-import {TextField} from '../../form/index';
-import ReduxFormDialog from '../../form/ReduxFormDialog';
+import TextField from '../../common/TextField';
+import ReduxFormDialog from '../../common/ReduxFormDialog';
 
 const styles = {
 	root: {},

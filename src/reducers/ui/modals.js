@@ -1,4 +1,5 @@
-import {ActionTypes, Modals} from '../../constants';
+import ActionTypes from '../../constants/ActionTypes';
+import Modals from '../../constants/Modals';
 
 const defaultModalState = {
 	open: false,

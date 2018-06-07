@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {reduxForm, reset} from 'redux-form';
-import {submitAliasForm} from '../../actions/ui/index';
-import {closeModal} from '../../actions/views/dialogs';
-import {isModalOpen} from '../../selectors/index';
+import closeModal from '../../actions/closeModal';
+import submitAliasForm from '../../actions/submitAliasForm';
+import isModalOpen from '../../selectors/isModalOpen';
 
 export default name => {
 	const mapStateToProps = state => ({

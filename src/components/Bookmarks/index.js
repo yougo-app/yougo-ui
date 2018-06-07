@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBookmarks as getAliasesAction} from '../../actions/requests';
-import {getAliases} from '../../selectors';
+import getBookmarks from '../../actions/getBookmarks';
+import getAliases from '../../selectors/getAliases';
 import Bookmarks from './Bookmarks';
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(
 		{
-			load: getAliasesAction,
+			load: getBookmarks,
 		},
 		dispatch,
 	),
