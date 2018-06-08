@@ -2,22 +2,14 @@
   "bookmarks": [
     {
       "id": "1",
-      "name": "Facey",
+      "alias": "facey",
       "href": "http://example.com",
-      "aliases": [
-        "1",
-        "test"
-      ],
       "icon": "https://www.facebook.com/apple-touch-icon.png"
     },
     {
       "id": "2",
-      "name": "Npm",
+      "alias": "npm",
       "href": "http://example.com",
-      "aliases": [
-        "2",
-        "example"
-      ],
       "icon": "https://static.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png"
     }
   ]

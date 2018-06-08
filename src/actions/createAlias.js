@@ -4,7 +4,7 @@ import ActionTypes from '../constants/ActionTypes';
 
 export default alias => ({
 	[RSAA]: {
-		...Client.createAlias(alias.alias, alias.href, alias.desc),
+		...Client.createAlias(alias.alias, alias.href),
 		types: [
 			ActionTypes.CREATE_ALIAS_REQUEST,
 			ActionTypes.CREATE_ALIAS_SUCCESS,

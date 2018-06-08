@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import openModal from '../../actions/openModal';
-import Modals from '../../constants/ActionTypes';
+import Modals from '../../constants/Modals';
 import Header from './Header';
 
 const mapDispatchToProps = dispatch => ({

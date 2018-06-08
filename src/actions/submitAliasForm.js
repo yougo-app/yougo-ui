@@ -3,7 +3,8 @@ import apiRequest from './apiRequest';
 import closeModal from './closeModal';
 import createAlias from './createAlias';
 
-export default (alias, source = null) => dispatch => {
+export default (alias, source) => dispatch => {
+	// console.log('submitting form');
 	let onSuccess = [];
 
 	// if the source was a modal, close the modal and reset the form

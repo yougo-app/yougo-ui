@@ -3,20 +3,14 @@ import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
 import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
-import AliasProp from '../../utils/AliasProp';
+import AliasProp from '../utils/AliasProp';
 
-const styles = theme => ({
-	root: {
-		paddingRight: theme.spacing.unit * 6,
-	},
+const styles = () => ({
+	root: {},
 	avatar: {},
 	text: {},
-	subtext: {
-		flex: 2,
-	},
 	action: {},
 });
 
@@ -27,14 +21,7 @@ const Bookmark = ({classes, alias}) => (
 		<ListItemAvatar className={classes.avatar}>
 			<Avatar src={alias.icon} />
 		</ListItemAvatar>
-		<ListItemText
-			className={classes.text}
-			primary={alias.name}
-			secondary={alias.aliases.join(', ')}
-		/>
-		<Typography className={classes.subtext} variant="caption" align="right" noWrap>
-			{alias.href}
-		</Typography>
+		<ListItemText className={classes.text} primary={alias.alias} secondary={alias.href} />
 		<ListItemSecondaryAction className={classes.action}>
 			<IconButton>
 				<MoreVertIcon />

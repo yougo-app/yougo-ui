@@ -13,9 +13,9 @@ const styles = {
 	description: {},
 };
 
-const CreateBookmarkDialog = ({classes, actions, formProps, ...other}) => (
+const CreateBookmarkDialog = ({classes, formProps, ...other}) => (
 	<div className={classes.root}>
-		<ReduxFormDialog title="Add a bookmark" {...actions} {...other}>
+		<ReduxFormDialog title="Add a bookmark" {...other}>
 			<div className={classes.fields}>
 				<div>
 					<Field
@@ -33,15 +33,6 @@ const CreateBookmarkDialog = ({classes, actions, formProps, ...other}) => (
 						name="href"
 						label="Href"
 						placeholder="http://www.google.com.au"
-					/>
-				</div>
-				<div>
-					<Field
-						className={classes.description}
-						component={TextField}
-						name="desc"
-						label="Description"
-						placeholder="Google"
 					/>
 				</div>
 			</div>

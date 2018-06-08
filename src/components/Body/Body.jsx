@@ -1,26 +1,28 @@
-import List from 'material-ui/List';
-import Paper from 'material-ui/Paper';
 import {withStyles} from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import AliasProp from '../../utils/AliasProp';
-import Bookmark from './Bookmark';
+import Bookmark from '../Bookmark';
+import Bookmarks from '../Bookmarks';
 
 const styles = theme => ({
 	root: {
-		flexGrow: 1,
+		padding: 20,
+		display: 'flex',
+		justifyContent: 'center',
+		textAlign: 'center',
 		maxWidth: theme.content.maxWidth,
 	},
 });
 
-class Bookmarks extends React.Component {
+class Body extends React.Component {
 	static propTypes = {
+		classes: PropTypes.shape({
+			root: PropTypes.string.isRequired,
+		}).isRequired,
 		aliases: PropTypes.arrayOf(AliasProp),
 		actions: PropTypes.shape({
 			load: PropTypes.func.isRequired,
-		}).isRequired,
-		classes: PropTypes.shape({
-			root: PropTypes.string.isRequired,
 		}).isRequired,
 	};
 
@@ -36,11 +38,11 @@ class Bookmarks extends React.Component {
 		const {classes, aliases} = this.props;
 
 		return (
-			<Paper className={classes.root}>
-				<List>{aliases.map(alias => <Bookmark key={alias.id} alias={alias} />)}</List>
-			</Paper>
+			<div className={classes.root}>
+				<Bookmarks>{aliases.map(alias => <Bookmark key={alias.id} alias={alias} />)}</Bookmarks>
+			</div>
 		);
 	}
 }
 
-export default withStyles(styles)(Bookmarks);
+export default withStyles(styles)(Body);

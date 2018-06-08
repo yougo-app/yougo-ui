@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
+    "eslint-watch": "^3.1.5",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.6.0",
@@ -30,7 +31,6 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.4.0",
-    "eslint-watch": "^3.1.5",
     "json-server": "^0.12.1",
     "prettier": "^1.13.4",
     "react-scripts": "^1.1.0"
@@ -42,7 +42,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,jsx src",
     "lint:fix": "eslint --fix --ext js,jsx src",
-    "lint:watch": "esw -w --ext js,jsx src",
+    "lint:watch": "esw --ext js,jsx --clear -w src",
     "api": "json-server -w api/db.json -r api/routes.json -p 3001"
   }
 }

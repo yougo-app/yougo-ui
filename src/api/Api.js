@@ -6,12 +6,7 @@ export default class Api {
 
 	getBookmarks = () => this.get(this.bookmarksUrl);
 
-	createAlias = (alias, href, description) =>
-		this.post(this.bookmarksUrl, {
-			aliases: [alias],
-			href,
-			description,
-		});
+	createAlias = (alias, href) => this.post(this.bookmarksUrl, {alias, href});
 
 	get = endpoint => ({
 		endpoint,
