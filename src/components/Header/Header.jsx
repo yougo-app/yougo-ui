@@ -1,10 +1,10 @@
-import AddIcon from 'material-ui-icons/Add';
-import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
-import {withStyles} from 'material-ui/styles';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import {withStyles} from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 import React from 'react';
 

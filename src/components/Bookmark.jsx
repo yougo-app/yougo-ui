@@ -1,8 +1,11 @@
-import MoreVertIcon from 'material-ui-icons/MoreVert';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
-import {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import {withStyles} from 'material-ui/styles';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import {withStyles} from '@material-ui/core/styles';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PropTypes from 'prop-types';
 import React from 'react';
 import AliasProp from '../utils/AliasProp';

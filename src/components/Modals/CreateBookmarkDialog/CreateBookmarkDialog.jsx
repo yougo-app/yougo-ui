@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import {withStyles} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles';
 import React from 'react';
 import {Field} from 'redux-form';
-import TextField from '../../common/TextField';
 import ReduxFormDialog from '../../common/ReduxFormDialog';
+import TextField from '../../common/TextField';
 
 const styles = {
 	root: {},

@@ -1,6 +1,6 @@
-import List from 'material-ui/List';
-import Paper from 'material-ui/Paper';
-import {withStyles} from 'material-ui/styles';
+import List from '@material-ui/core/List';
+import Paper from '@material-ui/core/Paper';
+import {withStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 

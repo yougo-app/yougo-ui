@@ -1,5 +1,5 @@
-import CssBaseline from 'material-ui/CssBaseline';
-import {MuiThemeProvider} from 'material-ui/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {MuiThemeProvider} from '@material-ui/core/styles';
 import React from 'react';
 import {Provider} from 'react-redux';
 import store from '../utils/store';
