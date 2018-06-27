@@ -1,6 +1,6 @@
 export default class Api {
-	constructor(props) {
-		this.url = props.url.replace(/\/$/, '');
+	constructor({url}) {
+		this.url = url.replace(/\/$/, '');
 		this.bookmarksUrl = `${this.url}/bookmarks`;
 	}
 

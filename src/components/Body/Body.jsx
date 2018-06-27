@@ -31,7 +31,8 @@ class Body extends React.Component {
 	};
 
 	componentDidMount() {
-		this.props.actions.load();
+		const {actions} = this.props;
+		actions.load();
 	}
 
 	render() {
