@@ -2,6 +2,16 @@
   "name": "yougo-ui",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext js,jsx src",
+    "lint:fix": "eslint --fix --ext js,jsx src",
+    "lint:watch": "esw --ext js,jsx --clear -w src",
+    "api": "json-server -w api/db.json -r api/routes.json -p 3001"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "eslint-watch": "^3.1.5",
@@ -35,14 +45,7 @@
     "prettier": "^1.13.4",
     "react-scripts": "^1.1.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint --ext js,jsx src",
-    "lint:fix": "eslint --fix --ext js,jsx src",
-    "lint:watch": "esw --ext js,jsx --clear -w src",
-    "api": "json-server -w api/db.json -r api/routes.json -p 3001"
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
   }
 }
