@@ -64,6 +64,7 @@ const ReduxFormDialog = ({
 		<Dialog
 			className={classNames(classes.root, className)}
 			aria-labelledby={`${name}${titleSuffix}`}
+			onClose={onClose}
 			{...other}
 		>
 			{form ? <form onSubmit={form.handleSubmit(onSubmit)}>{dialogContent}</form> : dialogContent}
