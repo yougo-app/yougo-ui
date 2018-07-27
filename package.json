@@ -7,9 +7,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext js,jsx src",
+    "lint": "esw --ext js,jsx src",
     "lint:fix": "npm run lint -- --fix",
-    "lint:watch": "esw --ext js,jsx --clear -w src",
+    "lint:watch": "npm run lint -- -w",
     "api": "json-server -w api/db.json -r api/routes.json -p 3001"
   },
   "dependencies": {
