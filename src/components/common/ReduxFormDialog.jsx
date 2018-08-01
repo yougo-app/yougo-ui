@@ -14,9 +14,6 @@ const titleSuffix = '-form-dialog-title';
 
 export const styles = {
 	root: {},
-	title: {},
-	content: {},
-	actions: {},
 };
 
 const ReduxFormDialog = ({
@@ -33,18 +30,16 @@ const ReduxFormDialog = ({
 }) => {
 	const dialogContent = (
 		<React.Fragment>
-			<DialogTitle id={`${name}${titleSuffix}`} className={classes.title}>
-				{title}
-			</DialogTitle>
-			<DialogContent className={classes.content}>
+			<DialogTitle id={`${name}${titleSuffix}`}>{title}</DialogTitle>
+			<DialogContent>
 				<DialogContentText>{description}</DialogContentText>
 				{children}
 			</DialogContent>
-			<DialogActions className={classes.actions}>
+			<DialogActions>
 				<Button color="secondary" onClick={onClose}>
 					Cancel
 				</Button>
-				<Button type="submit" color="primary">
+				<Button color="primary" type="submit">
 					Submit
 				</Button>
 			</DialogActions>
@@ -67,6 +62,7 @@ ReduxFormDialog.propTypes = {
 	children: PropTypes.node.isRequired,
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
+	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
 	description: PropTypes.string,
 	// eslint-disable-next-line react/require-default-props
@@ -79,7 +75,6 @@ ReduxFormDialog.propTypes = {
 
 ReduxFormDialog.defaultProps = {
 	description: '',
-	className: '',
 };
 
 export default withStyles(styles)(ReduxFormDialog);

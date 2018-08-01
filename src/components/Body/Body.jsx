@@ -1,4 +1,5 @@
 import {withStyles} from '@material-ui/core/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import AliasProp from '../../utils/AliasProp';
@@ -15,35 +16,31 @@ const styles = theme => ({
 	},
 });
 
-class Body extends React.Component {
-	static propTypes = {
-		classes: PropTypes.shape({
-			root: PropTypes.string.isRequired,
-		}).isRequired,
-		aliases: PropTypes.arrayOf(AliasProp),
-		actions: PropTypes.shape({
-			load: PropTypes.func.isRequired,
-		}).isRequired,
-	};
+const Body = ({aliases, classes, className, dispatch, ...other}) => (
+	<div className={classNames(classes.root, className)} {...other}>
+		<Bookmarks>
+			{aliases.map(alias => (
+				<Bookmark key={alias.id} alias={alias} />
+			))}
+		</Bookmarks>
+	</div>
+);
 
-	static defaultProps = {
-		aliases: [],
-	};
+Body.propTypes = {
+	aliases: PropTypes.arrayOf(AliasProp),
 
-	componentDidMount() {
-		const {actions} = this.props;
-		actions.load();
-	}
+	// eslint-disable-next-line react/forbid-prop-types
+	classes: PropTypes.object.isRequired,
 
-	render() {
-		const {classes, aliases} = this.props;
+	// eslint-disable-next-line react/no-unused-prop-types,react/require-default-props
+	className: PropTypes.string,
 
-		return (
-			<div className={classes.root}>
-				<Bookmarks>{aliases.map(alias => <Bookmark key={alias.id} alias={alias} />)}</Bookmarks>
-			</div>
-		);
-	}
-}
+	// eslint-disable-next-line react/require-default-props
+	dispatch: PropTypes.func,
+};
+
+Body.defaultProps = {
+	aliases: [],
+};
 
 export default withStyles(styles)(Body);
