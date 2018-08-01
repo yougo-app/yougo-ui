@@ -5,6 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -24,41 +25,38 @@ const styles = theme => ({
 		flex: '1 1 0',
 		textAlign: 'end',
 	},
-	search: {},
 	avatar: {
 		backgroundColor: theme.palette.secondary.light,
 	},
 });
 
-const Header = ({classes, actions}) => (
-	<div className={classes.root}>
-		<AppBar position="static">
-			<Toolbar>
-				<div className={classes.left}>
-					<Typography variant="title" color="inherit" className={classes.flex}>
-						Yougo
-					</Typography>
-				</div>
-				<div className={classes.center} />
-				<div className={classes.right}>
-					<IconButton color="inherit" onClick={actions.openCreateBookmarkDialog}>
-						<AddIcon />
-					</IconButton>
-					<IconButton>
-						<Avatar className={classes.avatar}>TS</Avatar>
-					</IconButton>
-				</div>
-			</Toolbar>
-		</AppBar>
-	</div>
+const Header = ({classes, className, openCreateBookmarkDialog, ...other}) => (
+	<AppBar className={classNames(classes.root, className)} position="static" {...other}>
+		<Toolbar>
+			<div className={classes.left}>
+				<Typography variant="title" color="inherit" className={classes.flex}>
+					Yougo
+				</Typography>
+			</div>
+			<div className={classes.center} />
+			<div className={classes.right}>
+				<IconButton color="inherit" onClick={openCreateBookmarkDialog}>
+					<AddIcon />
+				</IconButton>
+				<IconButton>
+					<Avatar className={classes.avatar}>TS</Avatar>
+				</IconButton>
+			</div>
+		</Toolbar>
+	</AppBar>
 );
 
 Header.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	actions: PropTypes.shape({
-		openCreateBookmarkDialog: PropTypes.func.isRequired,
-	}).isRequired,
+	// eslint-disable-next-line react/require-default-props
+	className: PropTypes.string,
+	openCreateBookmarkDialog: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

@@ -6,26 +6,24 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import {withStyles} from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import AliasProp from '../utils/AliasProp';
 
 const styles = () => ({
 	root: {},
-	avatar: {},
-	text: {},
-	action: {},
 });
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
 
-const Bookmark = ({classes, alias}) => (
-	<ListItem button className={classes.root}>
-		<ListItemAvatar className={classes.avatar}>
+const Bookmark = ({alias, classes, className, ...other}) => (
+	<ListItem button className={classNames(classes.root, className)} {...other}>
+		<ListItemAvatar>
 			<Avatar src={alias.icon} />
 		</ListItemAvatar>
-		<ListItemText className={classes.text} primary={alias.alias} secondary={alias.href} />
-		<ListItemSecondaryAction className={classes.action}>
+		<ListItemText primary={alias.alias} secondary={alias.href} />
+		<ListItemSecondaryAction>
 			<IconButton>
 				<MoreVertIcon />
 			</IconButton>
@@ -34,11 +32,13 @@ const Bookmark = ({classes, alias}) => (
 );
 
 Bookmark.propTypes = {
-	// eslint-disable-next-line react/no-typos
 	alias: AliasProp.isRequired,
 
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
+
+	// eslint-disable-next-line react/require-default-props
+	className: PropTypes.string,
 };
 
 export default withStyles(styles)(Bookmark);
