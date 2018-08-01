@@ -4,6 +4,12 @@ import {reduxForm, reset} from 'redux-form';
 import closeModal from '../../actions/closeModal';
 import submitAliasForm from '../../actions/submitAliasForm';
 import isModalOpen from '../../selectors/isModalOpen';
+import fixReduxFormProps from '../../utils/fixReduxFormProps';
+
+const propNamespace = 'form';
+
+const mergeProps = (stateProps, dispatchProps, ownProps) =>
+	Object.assign({}, fixReduxFormProps(ownProps, propNamespace), stateProps, dispatchProps);
 
 export default name => {
 	const mapStateToProps = state => ({
@@ -25,11 +31,12 @@ export default name => {
 	return Component =>
 		reduxForm({
 			form: name,
-			propNamespace: 'form',
+			propNamespace,
 		})(
 			connect(
 				mapStateToProps,
 				mapDispatchToProps,
+				mergeProps,
 			)(Component),
 		);
 };

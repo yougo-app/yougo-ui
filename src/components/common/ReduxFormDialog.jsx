@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -7,7 +6,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
+import {propTypes as FormPropTypes} from 'redux-form';
 
 const titleSuffix = '-form-dialog-title';
 
@@ -19,29 +20,19 @@ export const styles = {
 };
 
 const ReduxFormDialog = ({
-	name,
-	title,
+	children,
+	classes,
+	className,
 	description,
+	form,
+	name,
 	onClose,
 	onSubmit,
-	className,
-	classes,
-	form,
-	children,
-
-	/* remove/ignore these broken form props from other */
-	autofill,
-	clearAsyncError,
-	clearFields,
-	clearSubmitErrors,
-	pure,
-	submit,
-	triggerSubmit,
-
+	title,
 	...other
 }) => {
 	const dialogContent = (
-		<div>
+		<React.Fragment>
 			<DialogTitle id={`${name}${titleSuffix}`} className={classes.title}>
 				{title}
 			</DialogTitle>
@@ -57,7 +48,7 @@ const ReduxFormDialog = ({
 					Submit
 				</Button>
 			</DialogActions>
-		</div>
+		</React.Fragment>
 	);
 
 	return (
@@ -72,8 +63,21 @@ const ReduxFormDialog = ({
 	);
 };
 
+ReduxFormDialog.propTypes = {
+	children: PropTypes.node.isRequired,
+	// eslint-disable-next-line react/forbid-prop-types
+	classes: PropTypes.object.isRequired,
+	className: PropTypes.string,
+	description: PropTypes.string,
+	// eslint-disable-next-line react/require-default-props
+	form: PropTypes.shape(FormPropTypes.form),
+	name: PropTypes.string.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
+	title: PropTypes.string.isRequired,
+};
+
 ReduxFormDialog.defaultProps = {
-	title: '',
 	description: '',
 	className: '',
 };
