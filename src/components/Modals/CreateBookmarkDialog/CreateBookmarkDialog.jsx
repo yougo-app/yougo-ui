@@ -1,33 +1,33 @@
-import {withStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Field} from 'redux-form';
-import {TextField} from 'redux-form-material-ui';
-import ReduxFormDialog from '../../common/ReduxFormDialog';
+import BookmarkForm, {name} from '../../BookmarkForm';
 
 const styles = {
 	root: {},
 };
 
-const CreateBookmarkDialog = ({classes, className, ...other}) => (
-	<ReduxFormDialog
-		title="Add a bookmark"
-		className={classNames(classes.root, className)}
-		{...other}
-	>
-		<div>
-			<Field component={TextField} name="alias" label="Alias" placeholder="google" />
-		</div>
-		<div>
-			<Field
-				component={TextField}
-				name="href"
-				label="Href"
-				placeholder="http://www.google.com.au"
-			/>
-		</div>
-	</ReduxFormDialog>
+const CreateBookmarkDialog = ({classes, className, onClose, onSubmit, ...other}) => (
+	<Dialog className={classNames(classes.root, className)} onClose={onClose} {...other}>
+		<DialogTitle id="create-bookmark-dialog">Add bookmark</DialogTitle>
+		<DialogContent>
+			<BookmarkForm onSubmit={onSubmit} />
+		</DialogContent>
+		<DialogActions>
+			<Button color="secondary" onClick={onClose}>
+				Cancel
+			</Button>
+			<Button color="primary" type="submit" form={name}>
+				Submit
+			</Button>
+		</DialogActions>
+	</Dialog>
 );
 
 CreateBookmarkDialog.propTypes = {
@@ -35,6 +35,8 @@ CreateBookmarkDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+	onClose: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CreateBookmarkDialog);
