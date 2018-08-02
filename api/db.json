@@ -3,14 +3,12 @@
     {
       "id": "1",
       "alias": "facey",
-      "href": "http://example.com",
-      "icon": "https://www.facebook.com/apple-touch-icon.png"
+      "href": "http://example.com"
     },
     {
       "id": "2",
       "alias": "npm",
-      "href": "http://example.com",
-      "icon": "https://static.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png"
+      "href": "http://example.com"
     }
   ]
 }
