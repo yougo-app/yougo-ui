@@ -8,10 +8,10 @@ import Bookmarks from '../Bookmarks';
 
 const styles = theme => ({
 	root: {
-		padding: 20,
-		display: 'flex',
-		justifyContent: 'center',
-		textAlign: 'center',
+		paddingTop: 20,
+		marginLeft: 'auto',
+		marginRight: 'auto',
+		width: '100%',
 		maxWidth: theme.content.maxWidth,
 	},
 });
