@@ -1,10 +1,8 @@
 import React from 'react';
 import CreateBookmarkDialog from './CreateBookmarkDialog';
 
-const Modals = () => (
+export default () => (
 	<React.Fragment>
 		<CreateBookmarkDialog />,
 	</React.Fragment>
 );
-
-export default Modals;

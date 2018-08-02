@@ -16,7 +16,7 @@ const styles = () => ({
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
 
 const Bookmark = ({alias, classes, className, ...other}) => (
-	<ListItem inset button className={classNames(classes.root, className)} {...other}>
+	<ListItem button className={classNames(classes.root, className)} {...other}>
 		<ListItemText primary={alias.alias} secondary={alias.href} />
 		<ListItemSecondaryAction>
 			<IconButton>
