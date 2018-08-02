@@ -9,11 +9,11 @@ const styles = {
 	root: {},
 };
 
-const BookmarkForm = ({classes, className, dispatch, form, formName, onSubmit, ...other}) => (
+const BookmarkForm = ({classes, className, form, formName, onSubmit, ...other}) => (
 	<form
 		id={formName}
 		className={classNames(classes.root, className)}
-		onSubmit={form.handleSubmit(onSubmit)}
+		onSubmit={form.handleSubmit}
 		{...other}
 	>
 		<div>
@@ -30,7 +30,6 @@ BookmarkForm.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	dispatch: PropTypes.func.isRequired,
 	form: PropTypes.shape(FormPropTypes.form).isRequired,
 	formName: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
