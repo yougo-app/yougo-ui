@@ -10,6 +10,7 @@
     "lint": "esw --ext js,jsx src",
     "lint:fix": "npm run lint -- --fix",
     "lint:watch": "npm run lint -- -w",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "api": "json-server -w api/db.json -r api/routes.json -p 3001"
   },
   "dependencies": {
