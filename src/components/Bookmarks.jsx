@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const Bookmarks = ({children, classes, className, ...other}) => (
 	<Paper className={classNames(classes.root, className)} {...other}>
-		<List>{children}</List>
+		<List dense>{children}</List>
 	</Paper>
 );
 

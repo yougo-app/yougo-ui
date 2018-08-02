@@ -12,10 +12,11 @@ class Application extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Header />
-				<Body />
-				<Modals />
+			<div className="layout">
+				<Header className="header"/>
+				<div className="sidebar"/>
+				<Body className="content"/>
+				<Modals/>
 			</div>
 		);
 	}
