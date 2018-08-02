@@ -14,7 +14,7 @@ const styles = {
 };
 
 const CreateBookmarkDialog = ({classes, className, onClose, onSubmit, ...other}) => (
-	<Dialog className={classNames(classes.root, className)} onClose={onClose} {...other}>
+	<Dialog fullWidth className={classNames(classes.root, className)} onClose={onClose} {...other}>
 		<DialogTitle id="create-bookmark-dialog">Add bookmark</DialogTitle>
 		<DialogContent>
 			<BookmarkForm onSubmit={onSubmit} />

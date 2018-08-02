@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Field, propTypes as FormPropTypes} from 'redux-form';
 import {TextField} from 'redux-form-material-ui';
+import isAlias from '../../utils/validators/isAlias';
+import isRequired from '../../utils/validators/isRequired';
+import isUrl from '../../utils/validators/isUrl';
 
 const styles = {
 	root: {},
@@ -16,12 +19,24 @@ const BookmarkForm = ({classes, className, form, formName, onSubmit, ...other}) 
 		onSubmit={form.handleSubmit}
 		{...other}
 	>
-		<div>
-			<Field component={TextField} name="alias" label="Alias" placeholder="google" />
-		</div>
-		<div>
-			<Field component={TextField} name="href" label="URL" placeholder="http://example.com" />
-		</div>
+		<Field
+			component={TextField}
+			name="alias"
+			label="Alias"
+			placeholder="google"
+			validate={[isRequired, isAlias]}
+			fullWidth
+			margin="dense"
+		/>
+		<Field
+			component={TextField}
+			validate={[isRequired, isUrl]}
+			name="href"
+			label="URL"
+			placeholder="http://example.com"
+			fullWidth
+			margin="dense"
+		/>
 	</form>
 );
 
