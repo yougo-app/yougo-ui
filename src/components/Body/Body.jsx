@@ -8,7 +8,7 @@ import Bookmarks from '../Bookmarks';
 
 const styles = theme => ({
 	root: {
-		paddingTop: 20,
+		padding: theme.spacing.unit * 2,
 		marginLeft: 'auto',
 		marginRight: 'auto',
 		width: '100%',
