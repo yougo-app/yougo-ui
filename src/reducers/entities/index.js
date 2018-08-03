@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import aliases from './aliases';
+import gos from './gos';
 
 export default combineReducers({
-	aliases,
+	gos,
 });

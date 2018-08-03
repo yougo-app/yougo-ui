@@ -1,12 +1,12 @@
 export default class Api {
 	constructor({url}) {
 		this.url = url.replace(/\/$/, '');
-		this.bookmarksUrl = `${this.url}/bookmarks`;
+		this.gosUrl = `${this.url}/gos`;
 	}
 
-	getBookmarks = () => this.get(this.bookmarksUrl);
+	getGos = () => this.get(this.gosUrl);
 
-	createAlias = (alias, href) => this.post(this.bookmarksUrl, {alias, href});
+	createGo = (go, href) => this.post(this.gosUrl, {go, href});
 
 	get = endpoint => ({
 		endpoint,

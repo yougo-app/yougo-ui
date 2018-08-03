@@ -1,3 +1,3 @@
 export default Object.freeze({
-	CREATE_ALIAS: 'create-alias',
+	CREATE_GO: 'create-go',
 });

@@ -1,9 +1,9 @@
 import {reset} from 'redux-form';
 import apiRequest from './apiRequest';
 import closeModal from './closeModal';
-import createAlias from './createAlias';
+import createGoRequest from './createGoRequest';
 
-export default (alias, source) => dispatch => {
+export default (go, source) => dispatch => {
 	// console.log('submitting form');
 	let onSuccess = [];
 
@@ -12,5 +12,5 @@ export default (alias, source) => dispatch => {
 		onSuccess = [...onSuccess, closeModal(source), reset(`${source}-form`)];
 	}
 
-	dispatch(apiRequest(createAlias(alias), onSuccess));
+	dispatch(apiRequest(createGoRequest(go), onSuccess));
 };

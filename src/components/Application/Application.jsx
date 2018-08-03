@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Body from '../Body/index';
-import Header from '../Header/index';
-import Modals from '../Modals/index';
+import Body from '../Body';
+import Header from '../Header';
+import Modals from '../Modals';
 
 class Application extends React.Component {
 	componentDidMount() {
@@ -13,10 +13,10 @@ class Application extends React.Component {
 	render() {
 		return (
 			<div className="layout">
-				<Header className="header"/>
-				<div className="sidebar"/>
-				<Body className="content"/>
-				<Modals/>
+				<Header className="header" />
+				<div className="sidebar" />
+				<Body className="content" />
+				<Modals />
 			</div>
 		);
 	}

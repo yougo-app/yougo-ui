@@ -1,8 +1,8 @@
 import React from 'react';
-import CreateBookmarkDialog from './CreateBookmarkDialog';
+import CreateGoDialog from './CreateGoDialog';
 
 export default () => (
 	<React.Fragment>
-		<CreateBookmarkDialog />,
+		<CreateGoDialog />,
 	</React.Fragment>
 );

@@ -8,11 +8,11 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import AliasProp from '../utils/AliasProp';
+import GoPropType from '../propTypes/GoPropType';
 
 const styles = theme => ({
 	root: {},
-	alias: {
+	go: {
 		fontSize: theme.typography.pxToRem(16),
 	},
 	href: {
@@ -21,18 +21,18 @@ const styles = theme => ({
 });
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
-const Bookmark = ({alias, classes, className, ...other}) => (
+const Go = ({classes, className, go, ...other}) => (
 	<ListItem button className={classNames(classes.root, className)} {...other}>
 		<ListItemText
 			disableTypography
 			primary={
-				<Typography variant="subheading" component="span" className={classes.alias}>
-					{alias.alias}
+				<Typography variant="subheading" component="span" className={classes.go}>
+					{go.go}
 				</Typography>
 			}
 			secondary={
 				<Typography variant="body1" component="span" color="textSecondary" className={classes.href}>
-					{alias.href}
+					{go.href}
 				</Typography>
 			}
 		/>
@@ -44,8 +44,8 @@ const Bookmark = ({alias, classes, className, ...other}) => (
 	</ListItem>
 );
 
-Bookmark.propTypes = {
-	alias: AliasProp.isRequired,
+Go.propTypes = {
+	go: GoPropType.isRequired,
 
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
@@ -54,4 +54,4 @@ Bookmark.propTypes = {
 	className: PropTypes.string,
 };
 
-export default withStyles(styles)(Bookmark);
+export default withStyles(styles)(Go);

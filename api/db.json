@@ -1,14 +1,19 @@
 {
-  "bookmarks": [
+  "gos": [
     {
       "id": "1",
-      "alias": "facey",
+      "go": "facey",
       "href": "http://example.com"
     },
     {
       "id": "2",
-      "alias": "npm",
+      "go": "npm",
       "href": "http://example.com"
+    },
+    {
+      "go": "example",
+      "href": "http://example.com",
+      "id": "v22PnCE"
     }
   ]
 }
