@@ -1,9 +1,9 @@
-import connect from 'react-redux/es/connect/connect';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import getBookmarks from '../../actions/getBookmarks';
+import getGos from '../../actions/getGos';
 import Application from './Application';
 
-const mapDispatchToProps = dispatch => ({...bindActionCreators({load: getBookmarks}, dispatch)});
+const mapDispatchToProps = dispatch => ({...bindActionCreators({load: getGos}, dispatch)});
 
 export default connect(
 	null,

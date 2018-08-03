@@ -7,17 +7,17 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import BookmarkForm, {name} from '../../BookmarkForm';
+import GoForm, {name} from '../../GoForm';
 
 const styles = {
 	root: {},
 };
 
-const CreateBookmarkDialog = ({classes, className, onClose, onSubmit, ...other}) => (
+const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
 	<Dialog fullWidth className={classNames(classes.root, className)} onClose={onClose} {...other}>
-		<DialogTitle id="create-bookmark-dialog">Add bookmark</DialogTitle>
+		<DialogTitle id="create-go-dialog">Add a go</DialogTitle>
 		<DialogContent>
-			<BookmarkForm onSubmit={onSubmit} />
+			<GoForm onSubmit={onSubmit} />
 		</DialogContent>
 		<DialogActions>
 			<Button color="secondary" onClick={onClose}>
@@ -30,7 +30,7 @@ const CreateBookmarkDialog = ({classes, className, onClose, onSubmit, ...other})
 	</Dialog>
 );
 
-CreateBookmarkDialog.propTypes = {
+CreateGoDialog.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
@@ -39,4 +39,4 @@ CreateBookmarkDialog.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CreateBookmarkDialog);
+export default withStyles(styles)(CreateGoDialog);

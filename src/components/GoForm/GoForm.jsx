@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Field, propTypes as FormPropTypes} from 'redux-form';
 import {TextField} from 'redux-form-material-ui';
-import isAlias from '../../utils/validators/isAlias';
+import isGo from '../../utils/validators/isGo';
 import isRequired from '../../utils/validators/isRequired';
 import isUrl from '../../utils/validators/isUrl';
 
@@ -12,7 +12,7 @@ const styles = {
 	root: {},
 };
 
-const BookmarkForm = ({classes, className, form, formName, onSubmit, ...other}) => (
+const GoForm = ({classes, className, form, formName, onSubmit, ...other}) => (
 	<form
 		id={formName}
 		className={classNames(classes.root, className)}
@@ -21,10 +21,10 @@ const BookmarkForm = ({classes, className, form, formName, onSubmit, ...other}) 
 	>
 		<Field
 			component={TextField}
-			name="alias"
-			label="Alias"
-			placeholder="google"
-			validate={[isRequired, isAlias]}
+			name="go"
+			label="Go shortcut"
+			placeholder="example"
+			validate={[isRequired, isGo]}
 			fullWidth
 			margin="dense"
 		/>
@@ -40,7 +40,7 @@ const BookmarkForm = ({classes, className, form, formName, onSubmit, ...other}) 
 	</form>
 );
 
-BookmarkForm.propTypes = {
+GoForm.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
@@ -50,8 +50,8 @@ BookmarkForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 };
 
-BookmarkForm.defaultProps = {
-	formName: 'bookmark-form',
+GoForm.defaultProps = {
+	formName: 'go-form',
 };
 
-export default withStyles(styles)(BookmarkForm);
+export default withStyles(styles)(GoForm);

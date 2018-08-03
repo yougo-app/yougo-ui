@@ -30,7 +30,7 @@ const styles = theme => ({
 	},
 });
 
-const Header = ({classes, className, openCreateBookmarkDialog, ...other}) => (
+const Header = ({classes, className, createGo, ...other}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...other}>
 		<Toolbar>
 			<div className={classes.left}>
@@ -40,7 +40,7 @@ const Header = ({classes, className, openCreateBookmarkDialog, ...other}) => (
 			</div>
 			<div className={classes.center} />
 			<div className={classes.right}>
-				<IconButton color="inherit" onClick={openCreateBookmarkDialog}>
+				<IconButton color="inherit" onClick={createGo}>
 					<AddIcon />
 				</IconButton>
 				<IconButton>
@@ -56,7 +56,7 @@ Header.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	openCreateBookmarkDialog: PropTypes.func.isRequired,
+	createGo: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

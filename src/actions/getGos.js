@@ -4,7 +4,7 @@ import ActionTypes from '../constants/ActionTypes';
 
 export default () => ({
 	[RSAA]: {
-		...Client.getBookmarks(),
-		types: [ActionTypes.ALIASES_REQUEST, ActionTypes.ALIASES_SUCCESS, ActionTypes.ALIASES_FAILURE],
+		...Client.getGos(),
+		types: [ActionTypes.GOS_REQUEST, ActionTypes.GOS_SUCCESS, ActionTypes.GOS_FAILURE],
 	},
 });

@@ -1,9 +1,9 @@
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
 import {withStyles} from '@material-ui/core/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 
 const styles = theme => ({
 	root: {
@@ -12,13 +12,13 @@ const styles = theme => ({
 	},
 });
 
-const Bookmarks = ({children, classes, className, ...other}) => (
+const Gos = ({children, classes, className, ...other}) => (
 	<Paper className={classNames(classes.root, className)} {...other}>
 		<List dense>{children}</List>
 	</Paper>
 );
 
-Bookmarks.propTypes = {
+Gos.propTypes = {
 	children: PropTypes.node,
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
@@ -26,8 +26,8 @@ Bookmarks.propTypes = {
 	className: PropTypes.string,
 };
 
-Bookmarks.defaultProps = {
+Gos.defaultProps = {
 	children: [],
 };
 
-export default withStyles(styles)(Bookmarks);
+export default withStyles(styles)(Gos);

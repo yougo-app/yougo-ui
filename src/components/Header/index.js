@@ -5,7 +5,7 @@ import Modals from '../../constants/Modals';
 import Header from './Header';
 
 const mapDispatchToProps = dispatch => ({
-	...bindActionCreators({openCreateBookmarkDialog: () => openModal(Modals.CREATE_ALIAS)}, dispatch),
+	...bindActionCreators({createGo: () => openModal(Modals.CREATE_GO)}, dispatch),
 });
 
 export default connect(

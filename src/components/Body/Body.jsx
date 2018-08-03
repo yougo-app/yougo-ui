@@ -2,9 +2,9 @@ import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import AliasProp from '../../utils/AliasProp';
-import Bookmark from '../Bookmark';
-import Bookmarks from '../Bookmarks';
+import GoPropType from '../../propTypes/GoPropType';
+import Go from '../Go';
+import Gos from '../Gos';
 
 const styles = theme => ({
 	root: {
@@ -16,19 +16,17 @@ const styles = theme => ({
 	},
 });
 
-const Body = ({aliases, classes, className, dispatch, ...other}) => (
+const Body = ({gos, classes, className, dispatch, ...other}) => (
 	<div className={classNames(classes.root, className)} {...other}>
-		<Bookmarks>
-			{aliases.map(alias => (
-				<Bookmark key={alias.id} alias={alias} />
+		<Gos>
+			{gos.map(go => (
+				<Go key={go.id} go={go} />
 			))}
-		</Bookmarks>
+		</Gos>
 	</div>
 );
 
 Body.propTypes = {
-	aliases: PropTypes.arrayOf(AliasProp),
-
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
 
@@ -37,10 +35,12 @@ Body.propTypes = {
 
 	// eslint-disable-next-line react/require-default-props
 	dispatch: PropTypes.func,
+
+	gos: PropTypes.arrayOf(GoPropType),
 };
 
 Body.defaultProps = {
-	aliases: [],
+	gos: [],
 };
 
 export default withStyles(styles)(Body);

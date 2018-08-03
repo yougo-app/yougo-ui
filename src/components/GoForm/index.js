@@ -1,11 +1,11 @@
 import reduxForm from '../../utils/reduxForm';
-import BookmarkForm from './BookmarkForm';
+import GoForm from './GoForm';
 
-export const name = 'bookmark-form';
+export const name = 'go-form';
 
 const propNamespace = 'form';
 
 export default reduxForm({
 	form: name,
 	propNamespace,
-})(BookmarkForm);
+})(GoForm);
