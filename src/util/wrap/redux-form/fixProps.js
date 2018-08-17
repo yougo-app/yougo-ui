@@ -1,6 +1,3 @@
-import React from 'react';
-import {reduxForm} from 'redux-form';
-
 const badProps = [
 	'autofill',
 	'clearAsyncError',
@@ -12,7 +9,7 @@ const badProps = [
 ];
 
 // this is a workaround for https://github.com/erikras/redux-form/issues/3705
-const fixProps = (props, propNamespace) => {
+export default (props, propNamespace) => {
 	if (!propNamespace) {
 		return props;
 	}
@@ -26,9 +23,3 @@ const fixProps = (props, propNamespace) => {
 	});
 	return newProps;
 };
-
-const fixPropsHoc = reduxFormProps => WrappedComponent => props => (
-	<WrappedComponent {...fixProps(props, reduxFormProps.propNamespace)} />
-);
-
-export default props => WrappedComponent => reduxForm(props)(fixPropsHoc(props)(WrappedComponent));
