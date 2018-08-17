@@ -3,9 +3,7 @@ import GoForm from './GoForm';
 
 export const name = 'go-form';
 
-const propNamespace = 'form';
-
 export default reduxForm({
 	form: name,
-	propNamespace,
+	propNamespace: 'form',
 })(GoForm);
