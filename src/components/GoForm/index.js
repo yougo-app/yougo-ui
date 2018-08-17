@@ -1,4 +1,4 @@
-import reduxForm from '../../utils/reduxForm';
+import reduxForm from '../../util/reduxForm';
 import GoForm from './GoForm';
 
 export const name = 'go-form';

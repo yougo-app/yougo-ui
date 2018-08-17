@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Field, propTypes as FormPropTypes} from 'redux-form';
 import {TextField} from 'redux-form-material-ui';
-import isGo from '../../utils/validators/isGo';
-import isRequired from '../../utils/validators/isRequired';
-import isUrl from '../../utils/validators/isUrl';
+import isGo from '../../util/validators/isGo';
+import isRequired from '../../util/validators/isRequired';
+import isUrl from '../../util/validators/isUrl';
 
 const styles = {
 	root: {},
