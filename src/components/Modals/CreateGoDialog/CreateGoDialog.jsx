@@ -20,11 +20,9 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
 			<GoForm onSubmit={onSubmit} />
 		</DialogContent>
 		<DialogActions>
-			<Button color="secondary" onClick={onClose}>
-				Cancel
-			</Button>
-			<Button color="primary" type="submit" form={name}>
-				Submit
+			<Button onClick={onClose}>Cancel</Button>
+			<Button color="secondary" type="submit" form={name}>
+				Add go
 			</Button>
 		</DialogActions>
 	</Dialog>

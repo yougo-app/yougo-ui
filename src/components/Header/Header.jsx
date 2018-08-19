@@ -12,6 +12,7 @@ import React from 'react';
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
+		backgroundColor: theme.palette.primary.dark,
 	},
 	left: {
 		flex: '1 1 0',
@@ -26,7 +27,8 @@ const styles = theme => ({
 		textAlign: 'end',
 	},
 	avatar: {
-		backgroundColor: theme.palette.secondary.light,
+		backgroundColor: theme.palette.secondary.main,
+		color: theme.palette.secondary.contrastText,
 	},
 });
 
