@@ -1,14 +1,13 @@
-import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography/Typography';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import GoPropType from '../propTypes/GoPropType';
+import GoActions from './GoActions';
 
 const styles = theme => ({
 	root: {},
@@ -37,9 +36,7 @@ const Go = ({classes, className, go, ...other}) => (
 			}
 		/>
 		<ListItemSecondaryAction>
-			<IconButton>
-				<MoreVertIcon />
-			</IconButton>
+			<GoActions goId={go.id} />
 		</ListItemSecondaryAction>
 	</ListItem>
 );
