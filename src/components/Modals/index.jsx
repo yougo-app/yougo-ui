@@ -1,8 +1,9 @@
-import React from 'react';
-import CreateGoDialog from './CreateGoDialog';
+import {connect} from 'react-redux';
+import getModals from '../../selectors/getModals';
+import Modals from './Modals';
 
-export default () => (
-	<React.Fragment>
-		<CreateGoDialog />,
-	</React.Fragment>
-);
+const mapStateToProps = state => ({
+	currentModal: getModals(state),
+});
+
+export default connect(mapStateToProps)(Modals);

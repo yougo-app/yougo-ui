@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import deleteGo from '../../actions/deleteGo';
+import deleteGo from '../../actions/requests/deleteGo';
 import GoActions from './GoActions';
 
 const mapDispatchToProps = (dispatch, {goId}) => ({
