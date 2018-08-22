@@ -1,6 +1,6 @@
 import {RSAA} from 'redux-api-middleware';
-import Client from '../api/Client';
-import ActionTypes from '../constants/ActionTypes';
+import Client from '../../api/Client';
+import ActionTypes from '../../constants/ActionTypes';
 
 export default () => ({
 	[RSAA]: {
