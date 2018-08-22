@@ -8,9 +8,19 @@ export default class Api {
 
 	createGo = (go, href) => this.post(this.gosUrl, {go, href});
 
+	deleteGo = id => this.delete(`${this.gosUrl}/${id}`);
+
 	get = endpoint => ({
 		endpoint,
 		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+		},
+	});
+
+	delete = endpoint => ({
+		endpoint,
+		method: 'DELETE',
 		headers: {
 			Accept: 'application/json',
 		},
