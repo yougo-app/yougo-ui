@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import closeMenu from '../../actions/closeMenu';
 import openDeleteGoDialog from '../../actions/openDeleteGoDialog';
-import GoActions from './GoActions';
+import GoMenu from './GoMenu';
 
 const mapDispatchToProps = (dispatch, {go}) => ({
 	...bindActionCreators(
 		{
+			onClose: closeMenu,
 			onDelete: () => openDeleteGoDialog(go),
 		},
 		dispatch,
@@ -15,4 +17,4 @@ const mapDispatchToProps = (dispatch, {go}) => ({
 export default connect(
 	null,
 	mapDispatchToProps,
-)(GoActions);
+)(GoMenu);

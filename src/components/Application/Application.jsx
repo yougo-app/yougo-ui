@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Body from '../Body';
 import Header from '../Header';
+import Menus from '../Menus';
 import Modals from '../Modals';
 
 class Application extends React.Component {
@@ -17,6 +18,7 @@ class Application extends React.Component {
 				<div className="sidebar" />
 				<Body className="content" />
 				<Modals />
+				<Menus />
 			</div>
 		);
 	}

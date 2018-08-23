@@ -1,13 +1,14 @@
+import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography/Typography';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import GoPropType from '../propTypes/GoPropType';
-import GoActions from './GoActions';
+import GoPropType from '../../propTypes/GoPropType';
 
 const styles = theme => ({
 	root: {},
@@ -20,7 +21,7 @@ const styles = theme => ({
 });
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
-const Go = ({classes, className, go, ...other}) => (
+const Go = ({classes, className, go, openMenu, ...other}) => (
 	<ListItem button className={classNames(classes.root, className)} {...other}>
 		<ListItemText
 			disableTypography
@@ -36,7 +37,9 @@ const Go = ({classes, className, go, ...other}) => (
 			}
 		/>
 		<ListItemSecondaryAction>
-			<GoActions go={go} />
+			<IconButton onClick={openMenu}>
+				<MoreVertIcon />
+			</IconButton>
 		</ListItemSecondaryAction>
 	</ListItem>
 );
@@ -49,6 +52,8 @@ Go.propTypes = {
 
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+
+	openMenu: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Go);

@@ -9,11 +9,6 @@
       "id": "2",
       "go": "npm",
       "href": "http://example.com"
-    },
-    {
-      "go": "example",
-      "href": "http://example.com",
-      "id": "v22PnCE"
     }
   ]
 }
