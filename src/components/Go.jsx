@@ -36,7 +36,7 @@ const Go = ({classes, className, go, ...other}) => (
 			}
 		/>
 		<ListItemSecondaryAction>
-			<GoActions goId={go.id} />
+			<GoActions go={go} />
 		</ListItemSecondaryAction>
 	</ListItem>
 );

@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import deleteGo from '../../actions/requests/deleteGo';
+import openDeleteGoDialog from '../../actions/openDeleteGoDialog';
 import GoActions from './GoActions';
 
-const mapDispatchToProps = (dispatch, {goId}) => ({
+const mapDispatchToProps = (dispatch, {go}) => ({
 	...bindActionCreators(
 		{
-			onDelete: () => deleteGo(goId),
+			onDelete: () => openDeleteGoDialog(go),
 		},
 		dispatch,
 	),

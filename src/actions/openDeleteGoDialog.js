@@ -1,8 +1,10 @@
 import Modals from '../constants/Modals';
 import openModal from './openModal';
 
-export default () =>
+export default go =>
 	openModal({
-		key: Modals.CREATE_GO.key,
-		props: {},
+		key: Modals.DELETE_GO.key,
+		props: {
+			go,
+		},
 	});
