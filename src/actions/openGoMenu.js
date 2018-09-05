@@ -1,8 +1,4 @@
+import openMenu from '../util/ui/actions/openMenu';
 import Menus from '../constants/Menus';
-import openMenu from './openMenu';
 
-export default props =>
-	openMenu({
-		key: Menus.GO_MENU.key,
-		props,
-	});
+export default (anchorEl, go) => openMenu(Menus.GO_MENU, {anchorEl, go});

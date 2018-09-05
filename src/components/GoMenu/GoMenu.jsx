@@ -13,27 +13,37 @@ import GoPropType from '../../propTypes/GoPropType';
 
 const styles = () => ({
 	root: {},
+	text: {
+		paddingLeft: 0,
+	},
 });
 
-const GoMenu = ({classes, className, go, onDelete, ...other}) => (
-	<Menu open className={classNames(classes.root, className)} {...other}>
-		<MenuItem onClick={() => console.log(`editing ${go.id}`)}>
+const GoMenu = ({classes, className, go, onCopy, onDelete, onEdit, ...other}) => (
+	<Menu
+		open
+		MenuListProps={{
+			dense: true,
+		}}
+		className={classNames(classes.root, className)}
+		{...other}
+	>
+		<MenuItem onClick={onEdit}>
 			<ListItemIcon>
-				<EditIcon />
+				<EditIcon fontSize="inherit" />
 			</ListItemIcon>
-			<ListItemText>Edit</ListItemText>
+			<ListItemText className={classes.text}>Edit</ListItemText>
 		</MenuItem>
-		<MenuItem onClick={() => console.log(`copying ${go.id}`)}>
+		<MenuItem onClick={onCopy}>
 			<ListItemIcon>
-				<FileCopyIcon />
+				<FileCopyIcon fontSize="inherit" />
 			</ListItemIcon>
-			<ListItemText>Copy URL</ListItemText>
+			<ListItemText className={classes.text}>Copy URL</ListItemText>
 		</MenuItem>
 		<MenuItem onClick={onDelete}>
 			<ListItemIcon>
-				<DeleteIcon />
+				<DeleteIcon fontSize="inherit" />
 			</ListItemIcon>
-			<ListItemText>Delete</ListItemText>
+			<ListItemText className={classes.text}>Delete</ListItemText>
 		</MenuItem>
 	</Menu>
 );
@@ -43,10 +53,11 @@ GoMenu.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	go: GoPropType.isRequired,
+	// eslint-disable-next-line react/require-default-props
+	go: GoPropType,
+	onCopy: PropTypes.func.isRequired,
 	onDelete: PropTypes.func.isRequired,
+	onEdit: PropTypes.func.isRequired,
 };
-
-GoMenu.defaultProps = {};
 
 export default withStyles(styles)(GoMenu);

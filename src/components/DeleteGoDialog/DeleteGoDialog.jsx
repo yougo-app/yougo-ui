@@ -47,9 +47,17 @@ DeleteGoDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	go: GoPropType.isRequired,
+	go: GoPropType,
 	onClose: PropTypes.func.isRequired,
 	onConfirm: PropTypes.func.isRequired,
+};
+
+DeleteGoDialog.defaultProps = {
+	go: {
+		id: '',
+		go: 'Undefined...',
+		href: 'http://example.com',
+	},
 };
 
 export default withStyles(styles)(DeleteGoDialog);
