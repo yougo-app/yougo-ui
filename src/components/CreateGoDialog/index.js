@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import {reset} from 'redux-form';
-import createGo from '../../actions/requests/createGo';
+import createGo from '../../actions/createGo';
 import Modals from '../../constants/Components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import {name} from '../GoForm';
