@@ -26,6 +26,8 @@ const DeleteGoDialog = ({classes, className, go, onClose, onConfirm, ...other}) 
 		open
 		fullWidth
 		onClose={onClose}
+		disableBackdropClick
+		disableEscapeKeyDown
 		className={classNames(classes.root, className)}
 		{...other}
 	>
