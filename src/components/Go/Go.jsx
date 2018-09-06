@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import {withStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography/Typography';
+import Typography from '@material-ui/core/Typography';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

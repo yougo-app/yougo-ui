@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
-import openDeleteGoDialog from '../../actions/openDeleteGoDialog';
+import deleteGo from '../../actions/deleteGo';
 import Components from '../../constants/Components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import GoMenu from './GoMenu';
@@ -9,7 +9,7 @@ import GoMenu from './GoMenu';
 const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	...bindActionCreators(
 		{
-			onDelete: () => batchActions([openDeleteGoDialog(go), onClose()]),
+			onDelete: () => batchActions([deleteGo(go), onClose]),
 			onCopy: () => {
 				// eslint-disable-next-line no-console
 				console.log(`Copying ${go.href}...`);
