@@ -1,0 +1,7 @@
+export default Object.freeze({
+	MODAL_OPEN: 'MODAL_OPEN',
+	MODAL_CLOSE: 'MODAL_CLOSE',
+
+	MENU_OPEN: 'MENU_OPEN',
+	MENU_CLOSE: 'MENU_CLOSE',
+});

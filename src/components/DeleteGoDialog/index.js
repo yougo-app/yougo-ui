@@ -1,20 +1,23 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import closeModal from '../../actions/closeModal';
-import deleteGo from '../../actions/deleteGo';
+import {batchActions} from 'redux-batched-actions';
+import deleteGo from '../../actions/requests/deleteGo';
+import Modals from '../../constants/Modals';
+import reduxModal from '../../util/ui/reduxModal';
 import DeleteGoDialog from './DeleteGoDialog';
 
-const mapDispatchToProps = (dispatch, {go: {id}}) => ({
+const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	...bindActionCreators(
 		{
-			onConfirm: () => deleteGo(id),
-			onClose: () => closeModal(),
+			onConfirm: () => batchActions([deleteGo(go.id), onClose()]),
 		},
 		dispatch,
 	),
 });
 
-export default connect(
-	null,
-	mapDispatchToProps,
-)(DeleteGoDialog);
+export default reduxModal(Modals.DELETE_GO)(
+	connect(
+		null,
+		mapDispatchToProps,
+	)(DeleteGoDialog),
+);

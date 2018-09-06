@@ -1,8 +1,4 @@
 import Modals from '../constants/Modals';
-import openModal from './openModal';
+import openModal from '../util/ui/actions/openModal';
 
-export default () =>
-	openModal({
-		key: Modals.CREATE_GO.key,
-		props: {},
-	});
+export default () => openModal(Modals.CREATE_GO);
