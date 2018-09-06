@@ -8,8 +8,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "esw --ext js,jsx src",
-    "lint:fix": "npm run lint -- --fix",
-    "lint:watch": "npm run lint -- -w",
+    "lint:fix": "yarn lint --fix",
+    "lint:watch": "yarn lint -w",
     "format": "prettier --write src/**/*.{js,jsx}",
     "api": "json-server -w api/db.json -r api/routes.json -p 3001"
   },
