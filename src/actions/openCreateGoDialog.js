@@ -1,4 +1,4 @@
-import Modals from '../constants/Modals';
-import openModal from '../util/ui/actions/openModal';
+import Components from '../constants/Components';
+import openComponent from '../util/ui/actions/openComponent';
 
-export default () => openModal(Modals.CREATE_GO);
+export default () => openComponent(Components.CREATE_GO);

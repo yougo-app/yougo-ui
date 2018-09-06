@@ -2,8 +2,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import deleteGo from '../../actions/requests/deleteGo';
-import Modals from '../../constants/Modals';
-import reduxModal from '../../util/ui/reduxModal';
+import Components from '../../constants/Components';
+import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import DeleteGoDialog from './DeleteGoDialog';
 
 const mapDispatchToProps = (dispatch, {go, onClose}) => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	),
 });
 
-export default reduxModal(Modals.DELETE_GO)(
+export default reduxOpenComponent(Components.DELETE_GO)(
 	connect(
 		null,
 		mapDispatchToProps,

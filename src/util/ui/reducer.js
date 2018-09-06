@@ -1,3 +1,5 @@
+import ActionTypes from './constants/ActionTypes';
+
 const openReducer = props => ({
 	open: true,
 	props,
@@ -8,14 +10,14 @@ const closeReducer = state => ({
 	open: false,
 });
 
-export default (openType, closeType) => (state = {}, action) => {
+export default (state = {}, action) => {
 	switch (action.type) {
-		case openType:
+		case ActionTypes.OPEN_COMPONENT:
 			return {
 				...state,
 				[action.payload.id]: openReducer(action.payload.props),
 			};
-		case closeType:
+		case ActionTypes.CLOSE_COMPONENT:
 			return {
 				...state,
 				[action.payload.id]: closeReducer(state[action.payload.id]),
