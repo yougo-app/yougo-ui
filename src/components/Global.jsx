@@ -1,4 +1,6 @@
 import React from 'react';
+import CopyUrlFailSnackbar from './CopyUrlFailSnackbar';
+import CopyUrlSnackbar from './CopyUrlSnackbar';
 import CreateGoDialog from './CreateGoDialog';
 import CreateGoFailSnackBar from './CreateGoFailSnackbar';
 import CreateGoSnackBar from './CreateGoSnackbar';
@@ -14,5 +16,7 @@ export default () => (
 		<DeleteGoFailSnackBar />
 		<CreateGoSnackBar />
 		<CreateGoFailSnackBar />
+		<CopyUrlSnackbar />
+		<CopyUrlFailSnackbar />
 	</React.Fragment>
 );
