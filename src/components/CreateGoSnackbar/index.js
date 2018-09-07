@@ -1,5 +1,5 @@
-import Components from '../../constants/Components';
+import {CREATE_GO_SNACK} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import DeleteGoSnackbar from './CreateGoSnackbar';
 
-export default reduxOpenComponent(Components.CREATE_GO_SUCCESS)(DeleteGoSnackbar);
+export default reduxOpenComponent(CREATE_GO_SNACK)(DeleteGoSnackbar);

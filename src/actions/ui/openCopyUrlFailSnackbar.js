@@ -1,4 +1,4 @@
-import Components from '../../constants/Components';
+import {COPY_URL_FAIL_SNACK} from '../../constants/components';
 import openComponent from '../../util/ui/actions/openComponent';
 
-export default () => openComponent(Components.COPY_URL_FAIL);
+export default () => openComponent(COPY_URL_FAIL_SNACK);

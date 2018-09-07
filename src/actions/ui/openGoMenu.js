@@ -1,4 +1,4 @@
-import Components from '../../constants/Components';
+import {GO_MENU} from '../../constants/components';
 import openComponent from '../../util/ui/actions/openComponent';
 
-export default (anchorEl, go) => openComponent(Components.GO_MENU, {anchorEl, go});
+export default (anchorEl, go) => openComponent(GO_MENU, {anchorEl, go});

@@ -1,7 +1,7 @@
-import Defaults from '../constants/Defaults';
-import Env from '../constants/Env';
+import {API_URL} from '../constants/defaults';
+import env from '../util/env';
 import Api from './Api';
 
 export default new Api({
-	url: Env.API_URL || Defaults.API_URL,
+	url: env('API_URL', API_URL),
 });

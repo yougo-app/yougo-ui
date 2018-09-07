@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import {reset} from 'redux-form';
 import createGo from '../../actions/createGo';
-import Modals from '../../constants/Components';
+import {CREATE_GO_DIALOG} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import {name} from '../GoForm';
 import CreateGoDialog from './CreateGoDialog';
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, {onClose}) => ({
 	),
 });
 
-export default reduxOpenComponent(Modals.CREATE_GO)(
+export default reduxOpenComponent(CREATE_GO_DIALOG)(
 	connect(
 		null,
 		mapDispatchToProps,

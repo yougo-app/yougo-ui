@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import copyUrl from '../../actions/copyUrl';
 import deleteGo from '../../actions/deleteGo';
-import Components from '../../constants/Components';
+import {GO_MENU} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import GoMenu from './GoMenu';
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	),
 });
 
-export default reduxOpenComponent(Components.GO_MENU)(
+export default reduxOpenComponent(GO_MENU)(
 	connect(
 		null,
 		mapDispatchToProps,

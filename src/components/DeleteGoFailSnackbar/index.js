@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Components from '../../constants/Components';
+import {DELETE_GO_FAIL_SNACK} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import DeleteGoSnackbar from './DeleteGoFailSnackbar';
 
@@ -10,7 +10,7 @@ const mapDispatchToProps = () => ({
 	},
 });
 
-export default reduxOpenComponent(Components.DELETE_GO_FAIL)(
+export default reduxOpenComponent(DELETE_GO_FAIL_SNACK)(
 	connect(
 		null,
 		mapDispatchToProps,

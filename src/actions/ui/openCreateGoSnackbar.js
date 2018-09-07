@@ -1,4 +1,4 @@
-import Components from '../../constants/Components';
+import {CREATE_GO_SNACK} from '../../constants/components';
 import openComponent from '../../util/ui/actions/openComponent';
 
-export default go => openComponent(Components.CREATE_GO_SUCCESS, {go});
+export default go => openComponent(CREATE_GO_SNACK, {go});

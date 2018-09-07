@@ -1,4 +1,4 @@
-import Components from '../../constants/Components';
+import {DELETE_GO_FAIL_SNACK} from '../../constants/components';
 import openComponent from '../../util/ui/actions/openComponent';
 
-export default go => openComponent(Components.DELETE_GO_FAIL, {go});
+export default go => openComponent(DELETE_GO_FAIL_SNACK, {go});
