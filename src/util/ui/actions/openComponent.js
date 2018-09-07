@@ -1,5 +1,5 @@
 import createAction from 'redux-actions/es/createAction';
-import ActionTypes from '../constants/ActionTypes';
+import {OPEN_COMPONENT} from '../constants/actionTypes';
 
-const action = createAction(ActionTypes.OPEN_COMPONENT);
+const action = createAction(OPEN_COMPONENT);
 export default (id, props) => action({id, props});
