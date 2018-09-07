@@ -1,4 +1,0 @@
-export default Object.freeze({
-	OPEN_COMPONENT: 'OPEN_COMPONENT',
-	CLOSE_COMPONENT: 'CLOSE_COMPONENT',
-});
