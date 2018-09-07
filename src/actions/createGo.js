@@ -1,5 +1,5 @@
-import openCreateGoFailSnackbar from './openCreateGoFailSnackbar';
-import openCreateGoSnackbar from './openCreateGoSnackbar';
+import openCreateGoFailSnackbar from './ui/openCreateGoFailSnackbar';
+import openCreateGoSnackbar from './ui/openCreateGoSnackbar';
 import createGo from './requests/createGo';
 
 export default go => dispatch =>

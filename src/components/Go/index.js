@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import openGoMenu from '../../actions/openGoMenu';
+import openGoMenu from '../../actions/ui/openGoMenu';
 import Go from './Go';
 
 const mapDispatchToProps = (dispatch, {go}) => ({

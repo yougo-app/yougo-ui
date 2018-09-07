@@ -1,5 +1,5 @@
-import openDeleteGoFailSnackbar from './openDeleteGoFailSnackbar';
-import openDeleteGoSnackbar from './openDeleteGoSnackbar';
+import openDeleteGoFailSnackbar from './ui/openDeleteGoFailSnackbar';
+import openDeleteGoSnackbar from './ui/openDeleteGoSnackbar';
 import deleteGo from './requests/deleteGo';
 
 export default go => dispatch =>
