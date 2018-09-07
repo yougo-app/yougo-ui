@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {batchActions} from 'redux-batched-actions';
+import copyUrl from '../../actions/copyUrl';
 import deleteGo from '../../actions/deleteGo';
 import Components from '../../constants/Components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
@@ -10,11 +11,7 @@ const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	...bindActionCreators(
 		{
 			onDelete: () => batchActions([deleteGo(go), onClose]),
-			onCopy: () => {
-				// eslint-disable-next-line no-console
-				console.log(`Copying ${go.href}...`);
-				return onClose();
-			},
+			onCopy: () => batchActions([copyUrl(go.href), onClose]),
 			onEdit: () => {
 				// eslint-disable-next-line no-console
 				console.log(`Editing ${go.id}...`);

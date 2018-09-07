@@ -18,6 +18,7 @@
     "@material-ui/core": "^3.0.0",
     "@material-ui/icons": "^3.0.0",
     "classnames": "^2.2.5",
+    "copy-to-clipboard": "^3.0.8",
     "lodash.merge": "^4.6.1",
     "normalizr": "^3.2.4",
     "prop-types": "^15.6.0",
