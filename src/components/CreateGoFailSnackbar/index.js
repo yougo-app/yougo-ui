@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {CREATE_GO_FAIL_SNACK} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
 import DeleteGoSnackbar from './CreateGoFailSnackbar';
@@ -10,9 +11,12 @@ const mapDispatchToProps = () => ({
 	},
 });
 
-export default reduxOpenComponent(CREATE_GO_FAIL_SNACK)(
+const hoc = compose(
+	reduxOpenComponent(CREATE_GO_FAIL_SNACK),
 	connect(
 		null,
 		mapDispatchToProps,
-	)(DeleteGoSnackbar),
+	),
 );
+
+export default hoc(DeleteGoSnackbar);

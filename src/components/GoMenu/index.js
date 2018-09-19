@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {bindActionCreators, compose} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import copyUrl from '../../actions/copyUrl';
 import deleteGo from '../../actions/deleteGo';
@@ -22,9 +22,12 @@ const mapDispatchToProps = (dispatch, {go, onClose}) => ({
 	),
 });
 
-export default reduxOpenComponent(GO_MENU)(
+const hoc = compose(
+	reduxOpenComponent(GO_MENU),
 	connect(
 		null,
 		mapDispatchToProps,
-	)(GoMenu),
+	),
 );
+
+export default hoc(GoMenu);

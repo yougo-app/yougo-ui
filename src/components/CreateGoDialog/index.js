@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {bindActionCreators, compose} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import {reset} from 'redux-form';
 import createGo from '../../actions/createGo';
@@ -18,9 +18,12 @@ const mapDispatchToProps = (dispatch, {onClose}) => ({
 	),
 });
 
-export default reduxOpenComponent(CREATE_GO_DIALOG)(
+const hoc = compose(
+	reduxOpenComponent(CREATE_GO_DIALOG),
 	connect(
 		null,
 		mapDispatchToProps,
-	)(CreateGoDialog),
+	),
 );
+
+export default hoc(CreateGoDialog);

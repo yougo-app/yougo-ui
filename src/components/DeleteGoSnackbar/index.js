@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {bindActionCreators, compose} from 'redux';
 import clearDeleted from '../../actions/clearDeleted';
 import undoDelete from '../../actions/undoDelete';
 import {DELETE_GO_SNACK} from '../../constants/components';
@@ -16,9 +16,12 @@ const mapDispatchToProps = dispatch => ({
 	),
 });
 
-export default reduxOpenComponent(DELETE_GO_SNACK)(
+const hoc = compose(
+	reduxOpenComponent(DELETE_GO_SNACK),
 	connect(
 		null,
 		mapDispatchToProps,
-	)(DeleteGoSnackbar),
+	),
 );
+
+export default hoc(DeleteGoSnackbar);
