@@ -1,0 +1,13 @@
+# Note: this file is purely intended for build purposes
+version: '3.5'
+services:
+  ui:
+    image: yougo-develop-local-docker-u.artifactory.therealworld.info/yougo-ui
+    build:
+      context: .
+      dockerfile: docker/ui/Dockerfile
+  ui-config:
+    image: yougo-develop-local-docker-u.artifactory.therealworld.info/yougo-ui-config
+    build:
+      context: .
+      dockerfile: docker/ui-config/Dockerfile

@@ -3,7 +3,8 @@ FROM node:10.9 as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn
-COPY . ./
+COPY public ./public
+COPY src ./src
 RUN yarn build
 
 # Stage 2 - the production environment

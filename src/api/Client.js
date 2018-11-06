@@ -3,5 +3,5 @@ import env from '../util/env';
 import Api from './Api';
 
 export default new Api({
-	url: env('API_URL', API_URL),
+	url: env('REACT_APP_API_URL', API_URL),
 });
