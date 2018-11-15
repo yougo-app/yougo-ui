@@ -14,7 +14,6 @@ class Application extends React.Component {
 		return (
 			<div className="layout">
 				<Header className="header" />
-				<div className="sidebar" />
 				<Body className="content" />
 				<Global />
 			</div>

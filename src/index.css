@@ -9,12 +9,6 @@ body {
 	grid-area: header;
 }
 
-.sidebar {
-	grid-area: sidebar;
-	border-right: 1px solid lightgray;
-	height: 100vh;
-}
-
 .content {
 	grid-area: content;
 }
@@ -22,7 +16,7 @@ body {
 .layout {
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 300px auto;
+	grid-template-columns: auto;
 	grid-template-rows: min-content auto;
-	grid-template-areas: "header header" "sidebar content";
+	grid-template-areas: "header" "content";
 }
