@@ -1,5 +1,4 @@
 import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import {withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -44,9 +43,6 @@ const Header = ({classes, className, createGo, ...other}) => (
 			<div className={classes.right}>
 				<IconButton color="inherit" onClick={createGo}>
 					<AddIcon />
-				</IconButton>
-				<IconButton>
-					<Avatar className={classes.avatar}>TS</Avatar>
 				</IconButton>
 			</div>
 		</Toolbar>
