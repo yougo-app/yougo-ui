@@ -1,8 +1,10 @@
 import {withStyles} from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import GoPropType from '../../propTypes/GoPropType';
+import BodyMessage from '../BodyMessage';
 import Go from '../Go';
 import Gos from '../Gos';
 
@@ -16,13 +18,23 @@ const styles = theme => ({
 	},
 });
 
+const GosList = ({gos}) => (
+	<Gos>
+		{gos.map(go => (
+			<Go key={go.id} go={go} />
+		))}
+	</Gos>
+);
+
 const Body = ({gos, classes, className, dispatch, ...other}) => (
 	<div className={classNames(classes.root, className)} {...other}>
-		<Gos>
-			{gos.map(go => (
-				<Go key={go.id} go={go} />
-			))}
-		</Gos>
+		{gos.length ? (
+			<GosList gos={gos} />
+		) : (
+			<BodyMessage>
+				To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header bar
+			</BodyMessage>
+		)}
 	</div>
 );
 
