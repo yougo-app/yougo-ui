@@ -10,7 +10,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import GoPropType from '../../propTypes/GoPropType';
 
-const styles = {};
+const styles = theme => ({
+	href: {
+		fontSize: theme.typography.pxToRem(13),
+	},
+});
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
 const Go = ({classes, className, go, openMenu, ...other}) => (
