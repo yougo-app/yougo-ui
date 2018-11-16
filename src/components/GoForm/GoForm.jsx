@@ -27,6 +27,7 @@ const GoForm = ({classes, className, form, formName, onSubmit, ...other}) => (
 			validate={[isRequired, isGo]}
 			fullWidth
 			margin="dense"
+			autoFocus
 		/>
 		<Field
 			component={TextField}
