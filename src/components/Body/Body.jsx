@@ -18,18 +18,14 @@ const styles = theme => ({
 	},
 });
 
-const GosList = ({gos}) => (
-	<Gos>
-		{gos.map(go => (
-			<Go key={go.id} go={go} />
-		))}
-	</Gos>
-);
-
 const Body = ({gos, classes, className, dispatch, ...other}) => (
 	<div className={classNames(classes.root, className)} {...other}>
 		{gos.length ? (
-			<GosList gos={gos} />
+			<Gos>
+				{gos.map(go => (
+					<Go key={go.id} go={go} />
+				))}
+			</Gos>
 		) : (
 			<BodyMessage>
 				To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header bar

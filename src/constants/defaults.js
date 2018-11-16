@@ -1,1 +1,2 @@
-export const API_URL = 'http://localhost:3001/v1';
+/* eslint-disable import/prefer-default-export */
+export const API_URL = 'http://localhost:8080/v1';
