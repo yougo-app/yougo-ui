@@ -27,7 +27,7 @@ const Go = ({classes, className, go, openMenu, ...other}) => (
 				</Typography>
 			}
 			secondary={
-				<Typography color="textSecondary" className={classes.href}>
+				<Typography color="textSecondary" className={classes.href} noWrap>
 					{go.href}
 				</Typography>
 			}
