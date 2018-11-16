@@ -5,9 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
-import SearchBar from 'material-ui-search-bar';
 import PropTypes from 'prop-types';
 import React from 'react';
+import SearchBar from '../SearchBar';
 
 const styles = theme => ({
 	root: {
@@ -45,12 +45,7 @@ const Header = ({classes, className, clearSearch, createGo, search, ...other}) =
 				</Typography>
 			</div>
 			<div className={classes.center}>
-				<SearchBar
-					className={classes.searchbar}
-					onChange={search}
-					onCancelSearch={clearSearch}
-					cancelOnEscape
-				/>
+				<SearchBar className={classes.searchbar} cancelOnEscape />
 			</div>
 			<div className={classes.right}>
 				<IconButton color="inherit" onClick={createGo}>
