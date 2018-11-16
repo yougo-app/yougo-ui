@@ -11,7 +11,7 @@
     "lint:fix": "yarn lint --fix",
     "lint:watch": "yarn lint -w",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "api": "json-server -r api/routes.json -p 3001 api/db.json",
+    "api": "json-server -r api/routes.json -p 8080 api/db.json",
     "api:watch": "yarn api -w",
     "build-env": "NODE_ENV=development node scripts/build-env.js > public/config/env.js",
     "docker-compose": "scripts/docker-compose.sh"
@@ -30,7 +30,7 @@
     "react-redux": "^5.0.6",
     "redux": "^4.0.0",
     "redux-actions": "^2.3.0",
-    "redux-api-middleware": "^2.3.0",
+    "redux-api-middleware": "^3.0.1",
     "redux-batched-actions": "^0.3.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.2.3",
