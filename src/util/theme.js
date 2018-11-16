@@ -12,4 +12,7 @@ export default createMuiTheme({
 	content: {
 		maxWidth: 800,
 	},
+	typography: {
+		useNextVariants: true,
+	},
 });

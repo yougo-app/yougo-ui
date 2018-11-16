@@ -23,7 +23,7 @@ const BodyMessage = ({children, className, classes, disableTypography}) => (
 		{disableTypography ? (
 			children
 		) : (
-			<Typography className={classes.message} variant="body2">
+			<Typography className={classes.message} variant="body1">
 				{children}
 			</Typography>
 		)}

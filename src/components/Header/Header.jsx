@@ -40,7 +40,7 @@ const Header = ({classes, className, clearSearch, createGo, search, ...other}) =
 	<AppBar className={classNames(classes.root, className)} position="static" {...other}>
 		<Toolbar>
 			<div className={classes.left}>
-				<Typography variant="title" color="inherit" className={classes.flex}>
+				<Typography variant="h6" color="inherit" className={classes.flex}>
 					Yougo
 				</Typography>
 			</div>

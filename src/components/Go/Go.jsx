@@ -10,15 +10,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import GoPropType from '../../propTypes/GoPropType';
 
-const styles = theme => ({
-	root: {},
-	go: {
-		fontSize: theme.typography.pxToRem(16),
-	},
-	href: {
-		fontSize: 'inherit',
-	},
-});
+const styles = {};
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
 const Go = ({classes, className, go, openMenu, ...other}) => (
@@ -26,18 +18,18 @@ const Go = ({classes, className, go, openMenu, ...other}) => (
 		<ListItemText
 			disableTypography
 			primary={
-				<Typography variant="subheading" component="span" className={classes.go}>
+				<Typography variant="subtitle1" className={classes.go}>
 					{go.go}
 				</Typography>
 			}
 			secondary={
-				<Typography variant="body1" component="span" color="textSecondary" className={classes.href}>
+				<Typography color="textSecondary" className={classes.href}>
 					{go.href}
 				</Typography>
 			}
 		/>
 		<ListItemSecondaryAction>
-			<IconButton onClick={openMenu}>
+			<IconButton onClick={openMenu} className={classes.menuButton}>
 				<MoreVertIcon />
 			</IconButton>
 		</ListItemSecondaryAction>
