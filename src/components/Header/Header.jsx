@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
+import SearchBar from 'material-ui-search-bar';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -14,24 +15,28 @@ const styles = theme => ({
 		backgroundColor: theme.palette.primary.dark,
 	},
 	left: {
-		flex: '1 1 0',
+		flex: '1',
 	},
 	center: {
 		display: 'flex',
-		flex: '1 1 auto',
+		flex: '1',
 		maxWidth: theme.content.maxWidth,
+		justifyContent: 'center',
 	},
 	right: {
-		flex: '1 1 0',
+		flex: '1',
 		textAlign: 'end',
 	},
 	avatar: {
 		backgroundColor: theme.palette.secondary.main,
 		color: theme.palette.secondary.contrastText,
 	},
+	searchbar: {
+		width: '100%',
+	},
 });
 
-const Header = ({classes, className, createGo, ...other}) => (
+const Header = ({classes, className, clearSearch, createGo, search, ...other}) => (
 	<AppBar className={classNames(classes.root, className)} position="static" {...other}>
 		<Toolbar>
 			<div className={classes.left}>
@@ -39,7 +44,14 @@ const Header = ({classes, className, createGo, ...other}) => (
 					Yougo
 				</Typography>
 			</div>
-			<div className={classes.center} />
+			<div className={classes.center}>
+				<SearchBar
+					className={classes.searchbar}
+					onChange={search}
+					onCancelSearch={clearSearch}
+					cancelOnEscape
+				/>
+			</div>
 			<div className={classes.right}>
 				<IconButton color="inherit" onClick={createGo}>
 					<AddIcon />
@@ -54,7 +66,9 @@ Header.propTypes = {
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+	clearSearch: PropTypes.func.isRequired,
 	createGo: PropTypes.func.isRequired,
+	search: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

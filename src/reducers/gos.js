@@ -3,10 +3,12 @@ import {
 	DELETE_GO_CLEAR,
 	DELETE_GO_SUCCESS,
 	GOS_SUCCESS,
+	SEARCH,
 } from '../constants/actionTypes';
 
 const initialState = {
 	byId: [],
+	filter: '',
 };
 
 export default (state = initialState, action) => {
@@ -30,6 +32,12 @@ export default (state = initialState, action) => {
 		case DELETE_GO_CLEAR: {
 			const {deletedId, ...other} = state;
 			return other;
+		}
+		case SEARCH: {
+			return {
+				...state,
+				filter: action.payload.filter.toLowerCase(),
+			};
 		}
 		default:
 			return state;

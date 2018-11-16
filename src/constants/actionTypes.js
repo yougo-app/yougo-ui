@@ -10,3 +10,4 @@ export const DELETE_GO_REQUEST = `${prefix}DELETE_GO_REQUEST`;
 export const DELETE_GO_SUCCESS = `${prefix}DELETE_GO_SUCCESS`;
 export const DELETE_GO_FAILURE = `${prefix}DELETE_GO_FAILURE`;
 export const DELETE_GO_CLEAR = `${prefix}DELETE_GO_CLEAR`;
+export const SEARCH = `${prefix}SEARCH`;

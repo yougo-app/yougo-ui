@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import getGos from '../../selectors/getGos';
+import getFilteredGos from '../../selectors/getFilteredGos';
 import Body from './Body';
 
 const mapStateToProps = state => ({
-	gos: getGos(state),
+	gos: getFilteredGos(state),
 });
 
 export default connect(mapStateToProps)(Body);
