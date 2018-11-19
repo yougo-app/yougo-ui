@@ -15,4 +15,13 @@ export default createMuiTheme({
 	typography: {
 		useNextVariants: true,
 	},
+	props: {
+		MuiSnackbar: {
+			autoHideDuration: 4000,
+			anchorOrigin: {
+				vertical: 'bottom',
+				horizontal: 'left',
+			},
+		},
+	},
 });

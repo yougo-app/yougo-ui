@@ -1,5 +1,5 @@
+import Snackbar from '@material-ui/core/Snackbar';
 import React from 'react';
-import SnackBar from '../SnackBar';
 
 export default ({go, ...other}) =>
-	go ? <SnackBar message={`Added '${go.go}'`} {...other} /> : null;
+	go ? <Snackbar message={`Added '${go.go}'`} {...other} /> : null;

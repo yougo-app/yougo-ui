@@ -1,4 +1,4 @@
+import Snackbar from '@material-ui/core/Snackbar';
 import React from 'react';
-import SnackBar from '../SnackBar';
 
-export default props => <SnackBar message="URL copied" {...props} />;
+export default props => <Snackbar message="URL copied" {...props} />;

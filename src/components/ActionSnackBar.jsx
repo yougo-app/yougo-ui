@@ -1,9 +1,9 @@
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import React from 'react';
-import SnackBar from './SnackBar';
 
 const ActionSnackBar = ({action, actionMessage, ...other}) => (
-	<SnackBar
+	<Snackbar
 		action={[
 			<Button key="undo" color="secondary" size="small" onClick={action}>
 				{actionMessage}
