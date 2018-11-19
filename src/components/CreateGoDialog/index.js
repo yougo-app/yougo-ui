@@ -5,14 +5,13 @@ import {reset} from 'redux-form';
 import createGo from '../../actions/createGo';
 import {CREATE_GO_DIALOG} from '../../constants/components';
 import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
-import {name} from '../GoForm';
-import CreateGoDialog from './CreateGoDialog';
+import CreateGoDialog, {formName} from './CreateGoDialog';
 
 const mapDispatchToProps = (dispatch, {onClose}) => ({
 	...bindActionCreators(
 		{
 			onSubmit: values => batchActions([createGo(values), onClose()]),
-			onExit: () => reset(name),
+			onExit: () => reset(formName),
 		},
 		dispatch,
 	),

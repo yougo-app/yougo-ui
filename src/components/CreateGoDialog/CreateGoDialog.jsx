@@ -7,11 +7,13 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import GoForm, {name} from '../GoForm';
+import GoForm from '../GoForm/index';
 
 const styles = {
 	root: {},
 };
+
+export const formName = 'create-go-form';
 
 const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
 	<Dialog
@@ -23,11 +25,11 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
 	>
 		<DialogTitle>Add a go</DialogTitle>
 		<DialogContent>
-			<GoForm onSubmit={onSubmit} />
+			<GoForm form={formName} onSubmit={onSubmit} />
 		</DialogContent>
 		<DialogActions>
 			<Button onClick={onClose}>Cancel</Button>
-			<Button color="secondary" type="submit" form={name}>
+			<Button color="secondary" type="submit" form={formName}>
 				Add
 			</Button>
 		</DialogActions>

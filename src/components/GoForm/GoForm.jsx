@@ -12,9 +12,9 @@ const styles = {
 	root: {},
 };
 
-const GoForm = ({classes, className, form, formName, onSubmit, ...other}) => (
+const GoForm = ({classes, className, form, onSubmit, ...other}) => (
 	<form
-		id={formName}
+		id={form.form}
 		className={classNames(classes.root, className)}
 		onSubmit={form.handleSubmit}
 		{...other}
@@ -47,12 +47,7 @@ GoForm.propTypes = {
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
 	form: PropTypes.shape(FormPropTypes.form).isRequired,
-	formName: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
-};
-
-GoForm.defaultProps = {
-	formName: 'go-form',
 };
 
 export default withStyles(styles)(GoForm);
