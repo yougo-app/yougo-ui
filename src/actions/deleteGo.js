@@ -5,8 +5,8 @@ import deleteGo from './requests/deleteGo';
 export default go => dispatch =>
 	dispatch(deleteGo(go.id)).then(({error}) => {
 		if (error) {
-			dispatch(openDeleteGoFailSnackbar(go));
+			dispatch(openDeleteGoFailSnackbar(go.go));
 		} else {
-			dispatch(openDeleteGoSnackbar(go));
+			dispatch(openDeleteGoSnackbar(go.go));
 		}
 	});

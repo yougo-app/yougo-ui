@@ -2,11 +2,11 @@ import {SNACKBAR} from '../../constants/components';
 import openComponent from '../../util/ui/actions/openComponent';
 import undoDelete from '../undoDelete';
 
-export default go => dispatch =>
+export default name => (dispatch, getState) =>
 	dispatch(
 		openComponent(SNACKBAR, {
-			message: `Deleted '${go.go}'`,
+			message: `Deleted '${name}'`,
 			actionText: 'Undo',
-			actionFunc: () => dispatch(undoDelete()),
+			actionFunc: () => undoDelete(dispatch, getState),
 		}),
 	);

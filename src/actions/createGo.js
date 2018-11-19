@@ -5,8 +5,8 @@ import createGo from './requests/createGo';
 export default go => dispatch =>
 	dispatch(createGo(go)).then(({error}) => {
 		if (error) {
-			dispatch(openCreateGoFailSnackbar(go));
+			dispatch(openCreateGoFailSnackbar(go.go));
 		} else {
-			dispatch(openCreateGoSnackbar(go));
+			dispatch(openCreateGoSnackbar(go.go));
 		}
 	});

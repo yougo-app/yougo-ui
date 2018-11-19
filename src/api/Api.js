@@ -10,6 +10,8 @@ export default class Api {
 
 	deleteGo = id => this.delete(`${this.gosUrl}/${id}`);
 
+	editGo = (id, patch) => this.patch(`${this.gosUrl}/${id}`, patch);
+
 	get = endpoint => ({
 		endpoint,
 		method: 'GET',
@@ -29,6 +31,16 @@ export default class Api {
 	post = (endpoint, body) => ({
 		endpoint,
 		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(body),
+	});
+
+	patch = (endpoint, body) => ({
+		endpoint,
+		method: 'PATCH',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',

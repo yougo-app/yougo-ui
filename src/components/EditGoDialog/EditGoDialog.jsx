@@ -13,9 +13,9 @@ const styles = {
 	root: {},
 };
 
-export const formName = 'create-go-form';
+export const formName = 'edit-go-form';
 
-const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
+const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => (
 	<Dialog
 		open
 		fullWidth
@@ -23,26 +23,32 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => (
 		className={classNames(classes.root, className)}
 		{...other}
 	>
-		<DialogTitle>Add a go</DialogTitle>
+		<DialogTitle>Update {go.go}</DialogTitle>
 		<DialogContent>
-			<GoForm form={formName} onSubmit={onSubmit} />
+			<GoForm go={go} form={formName} onSubmit={onSubmit} />
 		</DialogContent>
 		<DialogActions>
 			<Button onClick={onClose}>Cancel</Button>
 			<Button color="secondary" type="submit" form={formName}>
-				Add
+				Update
 			</Button>
 		</DialogActions>
 	</Dialog>
 );
 
-CreateGoDialog.propTypes = {
+EditGoDialog.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+	// eslint-disable-next-line react/forbid-prop-types
+	go: PropTypes.object,
 	onClose: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CreateGoDialog);
+EditGoDialog.defaultProps = {
+	go: {},
+};
+
+export default withStyles(styles)(EditGoDialog);
