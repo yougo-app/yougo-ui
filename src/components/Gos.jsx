@@ -5,12 +5,11 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const styles = theme => ({
+const styles = {
 	root: {
-		flexGrow: 1,
-		maxWidth: theme.content.maxWidth,
+		flex: 1,
 	},
-});
+};
 
 const Gos = ({children, classes, className, ...other}) => (
 	<Paper className={classNames(classes.root, className)} {...other}>

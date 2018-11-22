@@ -10,10 +10,11 @@ import Gos from '../Gos';
 
 const styles = theme => ({
 	root: {
-		paddingTop: theme.spacing.unit * 3,
+		padding: theme.spacing.unit * 3,
+	},
+	gos: {
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		width: '100%',
 		maxWidth: theme.content.maxWidth,
 	},
 });
@@ -21,7 +22,7 @@ const styles = theme => ({
 const Body = ({gos, classes, className, dispatch, ...other}) => (
 	<div className={classNames(classes.root, className)} {...other}>
 		{gos.length ? (
-			<Gos>
+			<Gos className={classes.gos}>
 				{gos.map(go => (
 					<Go key={go.id} go={go} />
 				))}
