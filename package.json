@@ -5,6 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:docker": "yarn docker-compose build ui",
+    "push": "yarn docker-compose push ui",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "esw --ext js,jsx src",
