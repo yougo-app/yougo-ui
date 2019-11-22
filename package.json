@@ -5,8 +5,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:docker": "npm run docker-compose build ui",
-    "push": "npm run docker-compose push ui",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "esw --ext js,jsx src",
@@ -14,9 +12,7 @@
     "lint:watch": "npm run lint -w",
     "format": "prettier --write src/**/*.{js,jsx}",
     "api": "json-server -r api/routes.json -p 8080 api/db.json",
-    "api:watch": "npm run api -w",
-    "build-env": "NODE_ENV=development node scripts/build-env.js > public/config/env.js",
-    "docker-compose": "scripts/docker-compose.sh"
+    "api:watch": "npm run api -w"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
