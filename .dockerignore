@@ -1,21 +1,8 @@
-# NodeJS + CRA
-node_modules/
-build/
-
-# IDE - Jetbrains
-.idea/
-*.iml
-
-# misc
-Dockerfile
-api/
+*
 .*
-*.log
-*.md
-
-# need to re-add dockerignore to the context or it doesn't get used
-!.dockerignore
-
+!src/
+!public/
+!package*.json
 
 # Created by https://www.gitignore.io/api/linux,macos,windows
 # Edit at https://www.gitignore.io/?templates=linux,macos,windows
