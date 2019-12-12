@@ -1,4 +1,4 @@
-import createAction from 'redux-actions/es/createAction';
+import {createAction} from 'redux-actions';
 import {OPEN_COMPONENT} from '../constants/actionTypes';
 
 const action = createAction(OPEN_COMPONENT);
