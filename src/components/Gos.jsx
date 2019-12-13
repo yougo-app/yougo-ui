@@ -1,5 +1,4 @@
-import List from '@material-ui/core/List';
-import Paper from '@material-ui/core/Paper';
+import {List, Paper} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

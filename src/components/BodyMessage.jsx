@@ -1,9 +1,9 @@
-import withStyles from '@material-ui/core/styles/withStyles';
-import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import grey from '@material-ui/core/colors/grey';
+import {grey} from '@material-ui/core/colors';
+import {withStyles} from '@material-ui/core/styles';
+import {Typography} from '@material-ui/core';
 
 const styles = {
 	root: {

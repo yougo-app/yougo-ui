@@ -1,5 +1,4 @@
-import Button from '@material-ui/core/Button';
-import MuiSnackbar from '@material-ui/core/Snackbar';
+import {Button, Snackbar as MuiSnackbar} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 

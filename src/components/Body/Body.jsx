@@ -10,7 +10,7 @@ import Gos from '../Gos';
 
 const styles = theme => ({
 	root: {
-		padding: theme.spacing.unit * 3,
+		padding: theme.spacing(3),
 	},
 	gos: {
 		marginLeft: 'auto',
