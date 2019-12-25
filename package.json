@@ -1,65 +1,82 @@
 {
-  "name": "yougo-ui",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "api": "json-server -r api/routes.json -p 8080 api/db.json",
-    "api:watch": "npm run api -w"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.0.0",
-    "@material-ui/icons": "^4.0.0",
-    "classnames": "^2.2.5",
-    "copy-to-clipboard": "^3.0.8",
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.1",
-    "material-ui-search-bar": "^1.0.0-beta.14",
-    "normalizr": "^3.2.4",
-    "object-diff": "^0.0.4",
-    "prop-types": "^15.6.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-redux": "^7.0.0",
-    "redux": "^4.0.0",
-    "redux-actions": "^2.3.0",
-    "redux-api-middleware": "^3.0.1",
-    "redux-batched-actions": "^0.3.0",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-form": "^8.2.6",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "reselect": "^4.0.0",
-    "typeface-roboto": "^0.0.75",
-    "validator": "^12.0.0"
-  },
-  "devDependencies": {
-    "@material-ui/codemod": "^4.5.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.3",
-    "@testing-library/user-event": "^8.0.0",
-    "jscodeshift": "^0.7.0",
-    "json-server": "^0.15.0",
-    "prettier": "^1.13.7",
-    "react-scripts": "3.3.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "yougo-ui",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"format": "prettier --write src/**/*.{js,jsx}",
+		"api": "json-server -r api/routes.json -p 8080 api/db.json",
+		"api:watch": "npm run api -w"
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.0.0",
+		"@material-ui/icons": "^4.0.0",
+		"classnames": "^2.2.5",
+		"copy-to-clipboard": "^3.0.8",
+		"lodash.get": "^4.4.2",
+		"lodash.merge": "^4.6.1",
+		"material-ui-search-bar": "^1.0.0-beta.14",
+		"normalizr": "^3.2.4",
+		"object-diff": "^0.0.4",
+		"prop-types": "^15.6.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-redux": "^7.0.0",
+		"redux": "^4.0.0",
+		"redux-actions": "^2.3.0",
+		"redux-api-middleware": "^3.0.1",
+		"redux-batched-actions": "^0.3.0",
+		"redux-devtools-extension": "^2.13.2",
+		"redux-form": "^8.2.6",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.2.0",
+		"reselect": "^4.0.0",
+		"typeface-roboto": "^0.0.75",
+		"validator": "^12.0.0"
+	},
+	"devDependencies": {
+		"@material-ui/codemod": "^4.5.0",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.3",
+		"@testing-library/user-event": "^8.0.0",
+		"husky": "^3.1.0",
+		"jscodeshift": "^0.7.0",
+		"json-server": "^0.15.0",
+		"lint-staged": "^9.5.0",
+		"prettier": "^1.13.7",
+		"react-scripts": "3.3.0"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write",
+			"git add"
+		],
+		"*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write",
+			"git add"
+		]
+	}
 }
