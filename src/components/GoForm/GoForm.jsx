@@ -1,12 +1,12 @@
 import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
-import TextField from '../common/TextField';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Field, propTypes as FormPropTypes} from 'redux-form';
 import isGo from '../../util/validators/isGo';
 import isRequired from '../../util/validators/isRequired';
 import isUrl from '../../util/validators/isUrl';
+import TextField from '../common/TextField';
 
 const styles = {
 	root: {},

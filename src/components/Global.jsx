@@ -5,10 +5,10 @@ import GoMenu from './GoMenu';
 import Snackbar from './Snackbar';
 
 export default () => (
-	<React.Fragment>
+	<>
 		<CreateGoDialog />
 		<EditGoDialog />
 		<GoMenu />
 		<Snackbar />
-	</React.Fragment>
+	</>
 );
