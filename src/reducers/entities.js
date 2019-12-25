@@ -1,5 +1,5 @@
+import {prefix} from 'constants/actionTypes';
 import merge from 'lodash.merge';
-import {prefix} from '../constants/actionTypes';
 
 export default (state = {}, {type, payload}) =>
 	type.startsWith(prefix) && payload && 'entities' in payload

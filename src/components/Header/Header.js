@@ -2,9 +2,9 @@ import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
+import SearchBar from 'components/SearchBar';
 import PropTypes from 'prop-types';
 import React from 'react';
-import SearchBar from '../SearchBar';
 
 const styles = theme => ({
 	root: {

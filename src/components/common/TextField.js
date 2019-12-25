@@ -1,7 +1,7 @@
 import {TextField as MuiTextField} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import mapMuiProps from '../../util/wrap/redux-form/mapMuiProps';
+import mapMuiProps from 'util/wrap/redux-form/mapMuiProps';
 
 const TextField = ({defaultValue, ...props}) => <MuiTextField {...mapMuiProps(props)} />;
 

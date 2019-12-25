@@ -1,8 +1,8 @@
+import Client from 'api/Client';
+import {CREATE_GO_FAILURE, CREATE_GO_REQUEST, CREATE_GO_SUCCESS} from 'constants/actionTypes';
 import {RSAA} from 'redux-api-middleware';
-import Client from '../../api/Client';
-import {CREATE_GO_FAILURE, CREATE_GO_REQUEST, CREATE_GO_SUCCESS} from '../../constants/actionTypes';
-import goSchema from '../../schemas/goSchema';
-import normalizeApiResponse from '../../util/normalizeApiResponse';
+import goSchema from 'schemas/goSchema';
+import normalizeApiResponse from 'util/normalizeApiResponse';
 
 export default go => ({
 	[RSAA]: {

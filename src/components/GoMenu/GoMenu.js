@@ -5,8 +5,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
-import GoPropType from '../../propTypes/GoPropType';
 
 const styles = () => ({
 	root: {},

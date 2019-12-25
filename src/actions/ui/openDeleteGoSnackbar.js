@@ -1,6 +1,6 @@
-import {SNACKBAR} from '../../constants/components';
-import openComponent from '../../util/ui/actions/openComponent';
-import undoDelete from '../undoDelete';
+import undoDelete from 'actions/undoDelete';
+import {SNACKBAR} from 'constants/components';
+import openComponent from 'util/ui/actions/openComponent';
 
 export default name => (dispatch, getState) =>
 	dispatch(

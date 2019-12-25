@@ -1,7 +1,7 @@
+import search from 'actions/search';
+import openCreateGoDialog from 'actions/ui/openCreateGoDialog';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import search from '../../actions/search';
-import openCreateGoDialog from '../../actions/ui/openCreateGoDialog';
 import Header from './Header';
 
 const mapDispatchToProps = dispatch => ({
@@ -15,7 +15,4 @@ const mapDispatchToProps = dispatch => ({
 	),
 });
 
-export default connect(
-	null,
-	mapDispatchToProps,
-)(Header);
+export default connect(null, mapDispatchToProps)(Header);

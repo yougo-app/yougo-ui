@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import getFilteredGos from '../../selectors/getFilteredGos';
+import getFilteredGos from 'selectors/getFilteredGos';
 import Body from './Body';
 
 const mapStateToProps = state => ({

@@ -1,8 +1,8 @@
+import Client from 'api/Client';
+import {EDIT_GO_FAILURE, EDIT_GO_REQUEST, EDIT_GO_SUCCESS} from 'constants/actionTypes';
 import {RSAA} from 'redux-api-middleware';
-import Client from '../../api/Client';
-import {EDIT_GO_FAILURE, EDIT_GO_REQUEST, EDIT_GO_SUCCESS} from '../../constants/actionTypes';
-import goSchema from '../../schemas/goSchema';
-import normalizeApiResponse from '../../util/normalizeApiResponse';
+import goSchema from 'schemas/goSchema';
+import normalizeApiResponse from 'util/normalizeApiResponse';
 
 export default (id, patch) => ({
 	[RSAA]: {

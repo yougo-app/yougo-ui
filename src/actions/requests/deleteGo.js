@@ -1,6 +1,6 @@
+import Client from 'api/Client';
+import {DELETE_GO_FAILURE, DELETE_GO_REQUEST, DELETE_GO_SUCCESS} from 'constants/actionTypes';
 import {RSAA} from 'redux-api-middleware';
-import Client from '../../api/Client';
-import {DELETE_GO_FAILURE, DELETE_GO_REQUEST, DELETE_GO_SUCCESS} from '../../constants/actionTypes';
 
 export default id => ({
 	[RSAA]: {
