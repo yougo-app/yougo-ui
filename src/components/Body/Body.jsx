@@ -18,7 +18,6 @@ const styles = theme => ({
 		maxWidth: theme.content.maxWidth,
 	},
 });
-
 const Body = ({gos, classes, className, dispatch, ...other}) => (
 	<div className={classNames(classes.root, className)} {...other}>
 		{gos.length ? (

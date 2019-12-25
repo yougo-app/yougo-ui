@@ -1,7 +1,4 @@
-export default (
-	{meta: {touched, error, warning} = {}, input, ...props},
-	errorProp = 'helperText',
-) =>
+export default ({meta: {touched, error, warning} = {}, input, ...props}) =>
 	touched && (error || warning)
 		? {
 				...props,

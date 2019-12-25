@@ -3,11 +3,14 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "EXTEND_ESLINT=true BROWSER=none react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
+		"lint": "eslint --ext js,jsx src",
+		"lint:fix": "npm run lint -- --fix",
 		"format": "prettier --write **/*.{js,jsx,ts,tsx,json,css,scss,md}",
+		"format:check": "npm run format -- -c",
 		"api": "json-server -r api/routes.json -p 8080 api/db.json",
 		"api:watch": "npm run api -w"
 	},
@@ -42,6 +45,8 @@
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.3",
 		"@testing-library/user-event": "^8.0.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.7.0",
 		"husky": "^3.1.0",
 		"jscodeshift": "^0.7.0",
 		"json-server": "^0.15.0",
@@ -50,7 +55,19 @@
 		"react-scripts": "3.3.0"
 	},
 	"eslintConfig": {
-		"extends": "react-app"
+		"extends": [
+			"react-app",
+			"airbnb",
+			"prettier",
+			"prettier/react"
+		],
+		"rules": {
+			"react/jsx-props-no-spreading": "off"
+		},
+		"parser": "babel-eslint",
+		"env": {
+			"browser": true
+		}
 	},
 	"browserslist": {
 		"production": [
@@ -70,7 +87,11 @@
 		}
 	},
 	"lint-staged": {
-		"**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+		"*.+(js|jsx)": [
+			"eslint --fix",
+			"git add"
+		],
+		"*.+(js|jsx|ts|tsx|json|css|scss|md)": [
 			"prettier --write",
 			"git add"
 		]

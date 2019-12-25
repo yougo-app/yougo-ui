@@ -14,7 +14,7 @@ export default (props, propNamespace) => {
 		return props;
 	}
 
-	const newProps = Object.assign({}, props);
+	const newProps = {...props};
 	badProps.forEach(prop => {
 		if (prop in newProps) {
 			newProps[propNamespace][prop] = newProps[prop];
