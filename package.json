@@ -68,6 +68,16 @@
 		"parser": "babel-eslint",
 		"env": {
 			"browser": true
+		},
+		"settings": {
+			"import/resolver": {
+				"node": {
+					"moduleDirectory": [
+						"node_modules",
+						"src/"
+					]
+				}
+			}
 		}
 	},
 	"browserslist": {

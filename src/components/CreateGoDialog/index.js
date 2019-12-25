@@ -1,10 +1,10 @@
+import createGo from 'actions/createGo';
+import {CREATE_GO_DIALOG} from 'constants/components';
 import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import {reset} from 'redux-form';
-import createGo from '../../actions/createGo';
-import {CREATE_GO_DIALOG} from '../../constants/components';
-import reduxOpenComponent from '../../util/ui/reduxOpenComponent';
+import reduxOpenComponent from 'util/ui/reduxOpenComponent';
 import CreateGoDialog, {formName} from './CreateGoDialog';
 
 const mapDispatchToProps = (dispatch, {onClose}) => ({
@@ -17,12 +17,6 @@ const mapDispatchToProps = (dispatch, {onClose}) => ({
 	),
 });
 
-const hoc = compose(
-	reduxOpenComponent(CREATE_GO_DIALOG),
-	connect(
-		null,
-		mapDispatchToProps,
-	),
-);
+const hoc = compose(reduxOpenComponent(CREATE_GO_DIALOG), connect(null, mapDispatchToProps));
 
 export default hoc(CreateGoDialog);

@@ -14,9 +14,5 @@ export default componentId => {
 		...bindActionCreators({onClose: () => closeComponent(componentId)}, dispatch),
 	});
 
-	return WrappedComponent =>
-		connect(
-			mapState,
-			mapDispatch,
-		)(WrappedComponent);
+	return WrappedComponent => connect(mapState, mapDispatch)(WrappedComponent);
 };

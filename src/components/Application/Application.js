@@ -1,8 +1,8 @@
+import Body from 'components/Body';
+import Global from 'components/Global';
+import Header from 'components/Header';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Body from '../Body';
-import Header from '../Header';
-import Global from '../Global';
 
 class Application extends React.Component {
 	componentDidMount() {

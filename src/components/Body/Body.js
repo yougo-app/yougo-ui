@@ -1,12 +1,12 @@
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
+import BodyMessage from 'components/BodyMessage';
+import Go from 'components/Go';
+import Gos from 'components/Gos';
 import PropTypes from 'prop-types';
+import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
-import GoPropType from '../../propTypes/GoPropType';
-import BodyMessage from '../BodyMessage';
-import Go from '../Go';
-import Gos from '../Gos';
 
 const styles = theme => ({
 	root: {

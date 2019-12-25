@@ -4,7 +4,7 @@ import {
 	DELETE_GO_SUCCESS,
 	GOS_SUCCESS,
 	SEARCH,
-} from '../constants/actionTypes';
+} from 'constants/actionTypes';
 
 const initialState = {
 	byId: [],

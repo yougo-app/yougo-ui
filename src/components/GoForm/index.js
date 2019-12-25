@@ -1,5 +1,5 @@
 import React from 'react';
-import reduxForm from '../../util/wrap/redux-form/reduxForm';
+import reduxForm from 'util/wrap/redux-form/reduxForm';
 import GoForm from './GoForm';
 
 const setInitialValues = WrappedComponent => props => {

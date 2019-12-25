@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import {reducer as form} from 'redux-form';
+import uiReducer from 'util/ui/reducer';
 import entities from './entities';
-import uiReducer from '../util/ui/reducer';
 import gos from './gos';
 
 export default combineReducers({
