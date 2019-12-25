@@ -7,7 +7,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"format": "prettier --write src/**/*.{js,jsx}",
+		"format": "prettier --write **/*.{js,jsx,ts,tsx,json,css,scss,md}",
 		"api": "json-server -r api/routes.json -p 8080 api/db.json",
 		"api:watch": "npm run api -w"
 	},

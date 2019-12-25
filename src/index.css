@@ -18,5 +18,5 @@ body {
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: min-content auto;
-	grid-template-areas: "header" "content";
+	grid-template-areas: 'header' 'content';
 }
