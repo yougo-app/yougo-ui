@@ -42,7 +42,7 @@ const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => 
 EditGoDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	go: GoPropType.isRequired,
+	go: GoPropType,
 	onClose: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };

@@ -17,7 +17,6 @@ const styles = () => ({
 
 const GoMenu = ({classes, className, go, onCopy, onDelete, onEdit, ...other}) => (
 	<Menu
-		open
 		MenuListProps={{
 			dense: true,
 		}}
@@ -48,7 +47,7 @@ const GoMenu = ({classes, className, go, onCopy, onDelete, onEdit, ...other}) =>
 GoMenu.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	go: GoPropType,
+	go: GoPropType.isRequired,
 	onCopy: PropTypes.func.isRequired,
 	onDelete: PropTypes.func.isRequired,
 	onEdit: PropTypes.func.isRequired,
