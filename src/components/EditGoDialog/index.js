@@ -3,16 +3,12 @@ import {EDIT_GO_DIALOG} from 'constants/components';
 import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
 import {batchActions} from 'redux-batched-actions';
-import {reset} from 'redux-form';
 import reduxOpenComponent from 'util/ui/reduxOpenComponent';
-import EditGoDialog, {formName} from './EditGoDialog';
+import EditGoDialog from './EditGoDialog';
 
-const mapDispatchToProps = (dispatch, {onClose}) => ({
+const mapDispatchToProps = (dispatch, {onClose, go}) => ({
 	...bindActionCreators(
-		{
-			onSubmit: values => batchActions([editGo(values), onClose()]),
-			onExit: () => reset(formName),
-		},
+		{onSubmit: values => batchActions([editGo(values, go), onClose()])},
 		dispatch,
 	),
 });

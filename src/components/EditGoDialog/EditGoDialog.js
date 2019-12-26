@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import GoForm from 'components/GoForm';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {FormContext, useForm} from 'react-hook-form';
 
 const styles = {
 	root: {},
@@ -11,26 +12,31 @@ const styles = {
 
 export const formName = 'edit-go-form';
 
-const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => (
-	<Dialog
-		open
-		fullWidth
-		onClose={onClose}
-		className={classNames(classes.root, className)}
-		{...other}
-	>
-		<DialogTitle>Update {go.go}</DialogTitle>
-		<DialogContent>
-			<GoForm go={go} form={formName} onSubmit={onSubmit} />
-		</DialogContent>
-		<DialogActions>
-			<Button onClick={onClose}>Cancel</Button>
-			<Button color="secondary" type="submit" form={formName}>
-				Update
-			</Button>
-		</DialogActions>
-	</Dialog>
-);
+const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => {
+	const formMethods = useForm({mode: 'onBlur'});
+	return (
+		<Dialog
+			open
+			fullWidth
+			onClose={onClose}
+			className={classNames(classes.root, className)}
+			{...other}
+		>
+			<DialogTitle>Update {go.go}</DialogTitle>
+			<DialogContent>
+				<FormContext {...formMethods}>
+					<GoForm go={go} form={formName} onSubmit={onSubmit} />
+				</FormContext>
+			</DialogContent>
+			<DialogActions>
+				<Button onClick={onClose}>Cancel</Button>
+				<Button color="secondary" type="submit" form={formName}>
+					Update
+				</Button>
+			</DialogActions>
+		</Dialog>
+	);
+};
 
 EditGoDialog.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
