@@ -8,6 +8,8 @@ import {
 import {withStyles} from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
+import GoMenu from 'components/GoMenu';
+import {bindMenu, bindTrigger, usePopupState} from 'material-ui-popup-state/hooks';
 import PropTypes from 'prop-types';
 import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
@@ -19,34 +21,38 @@ const styles = theme => ({
 });
 
 // todo: https://material.io/guidelines/components/lists.html#lists-usage
-const Go = ({classes, className, go, openMenu, ...other}) => (
-	<ListItem button className={classNames(classes.root, className)} {...other}>
-		<ListItemText
-			disableTypography
-			primary={
-				<Typography variant="subtitle1" className={classes.go}>
-					{go.go}
-				</Typography>
-			}
-			secondary={
-				<Typography color="textSecondary" className={classes.href} noWrap>
-					{go.href}
-				</Typography>
-			}
-		/>
-		<ListItemSecondaryAction>
-			<IconButton onClick={openMenu} className={classes.menuButton}>
-				<MoreVertIcon />
-			</IconButton>
-		</ListItemSecondaryAction>
-	</ListItem>
-);
+const Go = ({classes, className, go, ...other}) => {
+	const popupState = usePopupState({variant: 'popover', popupId: `go-menu-${go.id}`});
+
+	return (
+		<ListItem button className={classNames(classes.root, className)} {...other}>
+			<ListItemText
+				disableTypography
+				primary={
+					<Typography variant="subtitle1" className={classes.go}>
+						{go.go}
+					</Typography>
+				}
+				secondary={
+					<Typography color="textSecondary" className={classes.href} noWrap>
+						{go.href}
+					</Typography>
+				}
+			/>
+			<ListItemSecondaryAction>
+				<IconButton className={classes.menuButton} {...bindTrigger(popupState)}>
+					<MoreVertIcon />
+				</IconButton>
+				<GoMenu go={go} {...bindMenu(popupState)} />
+			</ListItemSecondaryAction>
+		</ListItem>
+	);
+};
 
 Go.propTypes = {
 	go: GoPropType.isRequired,
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	openMenu: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Go);
