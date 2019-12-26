@@ -39,17 +39,11 @@ const TextField = ({
 
 TextField.propTypes = {
 	name: PropTypes.string.isRequired,
-	// eslint-disable-next-line react/forbid-prop-types
 	rules: PropTypes.object,
-	// eslint-disable-next-line react/require-default-props
 	defaultValue: PropTypes.string,
-	// eslint-disable-next-line react/require-default-props
 	onChange: PropTypes.func,
-	// eslint-disable-next-line react/require-default-props
 	onBlur: PropTypes.func,
-	// eslint-disable-next-line react/require-default-props
 	onChangeName: PropTypes.string,
-	// eslint-disable-next-line react/require-default-props
 	onBlurName: PropTypes.string,
 };
 

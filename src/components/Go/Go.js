@@ -44,13 +44,8 @@ const Go = ({classes, className, go, openMenu, ...other}) => (
 
 Go.propTypes = {
 	go: GoPropType.isRequired,
-
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-
 	openMenu: PropTypes.func.isRequired,
 };
 

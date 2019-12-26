@@ -63,7 +63,9 @@
 		],
 		"rules": {
 			"react/jsx-props-no-spreading": "off",
-			"react/jsx-filename-extension": "off"
+			"react/jsx-filename-extension": "off",
+			"react/forbid-prop-types": "off",
+			"react/require-default-props": "off"
 		},
 		"parser": "babel-eslint",
 		"env": {

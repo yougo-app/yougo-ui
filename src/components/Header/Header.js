@@ -54,9 +54,7 @@ const Header = ({classes, className, clearSearch, createGo, search, ...other}) =
 );
 
 Header.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
 	clearSearch: PropTypes.func.isRequired,
 	createGo: PropTypes.func.isRequired,

@@ -17,7 +17,6 @@ const Snackbar = ({actionFunc, actionText, ...other}) =>
 	);
 
 Snackbar.propTypes = {
-	// eslint-disable-next-line react/require-default-props
 	actionFunc: PropTypes.func,
 	actionText: PropTypes.string,
 };

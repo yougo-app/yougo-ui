@@ -46,11 +46,8 @@ const GoMenu = ({classes, className, go, onCopy, onDelete, onEdit, ...other}) =>
 );
 
 GoMenu.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	// eslint-disable-next-line react/require-default-props
 	go: GoPropType,
 	onCopy: PropTypes.func.isRequired,
 	onDelete: PropTypes.func.isRequired,

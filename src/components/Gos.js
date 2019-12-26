@@ -18,9 +18,7 @@ const Gos = ({children, classes, className, ...other}) => (
 
 Gos.propTypes = {
 	children: PropTypes.node,
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
 };
 

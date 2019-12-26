@@ -1,9 +1,9 @@
+import {Typography} from '@material-ui/core';
+import {grey} from '@material-ui/core/colors';
+import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {grey} from '@material-ui/core/colors';
-import {withStyles} from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core';
 
 const styles = {
 	root: {
@@ -33,7 +33,6 @@ const BodyMessage = ({children, className, classes, disableTypography}) => (
 BodyMessage.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
 	disableTypography: PropTypes.bool,
 };
