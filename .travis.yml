@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 10
+- 12
+
+script:
+- npm run lint
+- npm run format:check
+- npm test
+
+after_success:
+- npm build
