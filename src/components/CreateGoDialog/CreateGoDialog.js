@@ -40,9 +40,7 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => {
 };
 
 CreateGoDialog.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
 	onClose: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,

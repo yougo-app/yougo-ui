@@ -2,6 +2,7 @@ import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import TextField from 'components/common/TextField';
 import PropTypes from 'prop-types';
+import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
 import {useFormContext} from 'react-hook-form';
 import isGo from 'util/validators/isGo';
@@ -40,11 +41,8 @@ const GoForm = ({classes, className, form, onSubmit, go, ...other}) => {
 };
 
 GoForm.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/forbid-prop-types,react/require-default-props
-	go: PropTypes.object,
-	// eslint-disable-next-line react/require-default-props
+	go: GoPropType,
 	className: PropTypes.string,
 	form: PropTypes.string.isRequired,
 	onSubmit: PropTypes.func.isRequired,

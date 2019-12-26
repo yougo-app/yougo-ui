@@ -35,15 +35,9 @@ const Body = ({gos, classes, className, dispatch, ...other}) => (
 );
 
 Body.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-
-	// eslint-disable-next-line react/no-unused-prop-types,react/require-default-props
 	className: PropTypes.string,
-
-	// eslint-disable-next-line react/require-default-props
 	dispatch: PropTypes.func,
-
 	gos: PropTypes.arrayOf(GoPropType),
 };
 

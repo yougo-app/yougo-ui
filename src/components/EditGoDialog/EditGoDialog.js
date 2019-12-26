@@ -3,6 +3,7 @@ import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
 import PropTypes from 'prop-types';
+import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
 import {FormContext, useForm} from 'react-hook-form';
 
@@ -22,7 +23,7 @@ const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => 
 			className={classNames(classes.root, className)}
 			{...other}
 		>
-			<DialogTitle>Update {go.go}</DialogTitle>
+			<DialogTitle>Update {go && go.go}</DialogTitle>
 			<DialogContent>
 				<FormContext {...formMethods}>
 					<GoForm go={go} form={formName} onSubmit={onSubmit} />
@@ -39,18 +40,11 @@ const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => 
 };
 
 EditGoDialog.propTypes = {
-	// eslint-disable-next-line react/forbid-prop-types
 	classes: PropTypes.object.isRequired,
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	// eslint-disable-next-line react/forbid-prop-types
-	go: PropTypes.object,
+	go: GoPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
-};
-
-EditGoDialog.defaultProps = {
-	go: {},
 };
 
 export default withStyles(styles)(EditGoDialog);
