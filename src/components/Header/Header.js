@@ -35,7 +35,7 @@ const styles = theme => ({
 	},
 });
 
-const Header = ({classes, className, clearSearch, search, ...other}) => {
+const Header = ({classes, className, ...other}) => {
 	const [showModal, hideModal] = useModal(() => {
 		return <CreateGoDialog hideModal={hideModal} />;
 	});
@@ -69,8 +69,6 @@ const Header = ({classes, className, clearSearch, search, ...other}) => {
 Header.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	clearSearch: PropTypes.func.isRequired,
-	search: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

@@ -1,12 +1,3 @@
-import editGo from 'actions/editGo';
-import EditGoDialog from 'components/EditGoDialog/EditGoDialog';
-import {connect} from 'react-redux';
+import EditGoDialog from './EditGoDialog';
 
-const mapDispatchToProps = (dispatch, {go, hideModal}) => ({
-	onSubmit: values => {
-		dispatch(editGo(values, go));
-		hideModal();
-	},
-});
-
-export default connect(null, mapDispatchToProps)(EditGoDialog);
+export default EditGoDialog;
