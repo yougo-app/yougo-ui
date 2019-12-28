@@ -2,9 +2,11 @@ import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
+import CreateGoDialog from 'components/CreateGoDialog';
 import SearchBar from 'components/SearchBar';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {useModal} from 'react-modal-hook';
 
 const styles = theme => ({
 	root: {
@@ -33,31 +35,41 @@ const styles = theme => ({
 	},
 });
 
-const Header = ({classes, className, clearSearch, createGo, search, ...other}) => (
-	<AppBar className={classNames(classes.root, className)} position="static" {...other}>
-		<Toolbar>
-			<div className={classes.left}>
-				<Typography variant="h6" color="inherit" className={classes.flex}>
-					Yougo
-				</Typography>
-			</div>
-			<div className={classes.center}>
-				<SearchBar className={classes.searchbar} cancelOnEscape />
-			</div>
-			<div className={classes.right}>
-				<IconButton color="inherit" onClick={createGo}>
-					<AddIcon />
-				</IconButton>
-			</div>
-		</Toolbar>
-	</AppBar>
-);
+const Header = ({classes, className, clearSearch, search, ...other}) => {
+	const [showModal, hideModal] = useModal(() => {
+		return <CreateGoDialog hideModal={hideModal} />;
+	});
+
+	return (
+		<AppBar className={classNames(classes.root, className)} position="static" {...other}>
+			<Toolbar>
+				<div className={classes.left}>
+					<Typography variant="h6" color="inherit" className={classes.flex}>
+						Yougo
+					</Typography>
+				</div>
+				<div className={classes.center}>
+					<SearchBar className={classes.searchbar} cancelOnEscape />
+				</div>
+				<div className={classes.right}>
+					<IconButton
+						color="inherit"
+						onClick={() => {
+							showModal();
+						}}
+					>
+						<AddIcon />
+					</IconButton>
+				</div>
+			</Toolbar>
+		</AppBar>
+	);
+};
 
 Header.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	clearSearch: PropTypes.func.isRequired,
-	createGo: PropTypes.func.isRequired,
 	search: PropTypes.func.isRequired,
 };
 

@@ -1,14 +1,9 @@
 import copyUrl from 'actions/copyUrl';
 import deleteGo from 'actions/deleteGo';
-import openEditGoDialog from 'actions/ui/openEditGoDialog';
 import {connect} from 'react-redux';
 import GoMenu from './GoMenu';
 
 const mapDispatchToProps = (dispatch, {go, onClose}) => ({
-	onEdit: () => {
-		dispatch(openEditGoDialog(go));
-		onClose();
-	},
 	onDelete: () => {
 		dispatch(deleteGo(go));
 		onClose();

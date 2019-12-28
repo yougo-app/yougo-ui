@@ -13,13 +13,13 @@ const styles = {
 
 export const formName = 'edit-go-form';
 
-const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => {
+const EditGoDialog = ({classes, className, go, hideModal, onSubmit, ...other}) => {
 	const formMethods = useForm({mode: 'onBlur'});
 	return (
 		<Dialog
 			open
 			fullWidth
-			onClose={onClose}
+			onClose={hideModal}
 			className={classNames(classes.root, className)}
 			{...other}
 		>
@@ -30,7 +30,7 @@ const EditGoDialog = ({classes, className, go, onClose, onSubmit, ...other}) => 
 				</FormContext>
 			</DialogContent>
 			<DialogActions>
-				<Button onClick={onClose}>Cancel</Button>
+				<Button onClick={hideModal}>Cancel</Button>
 				<Button color="secondary" type="submit" form={formName}>
 					Update
 				</Button>
@@ -43,7 +43,7 @@ EditGoDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	go: GoPropType,
-	onClose: PropTypes.func.isRequired,
+	hideModal: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };
 
