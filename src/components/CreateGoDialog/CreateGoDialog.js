@@ -1,10 +1,12 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
+import createGo from 'actions/createGo';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormContext, useForm} from 'react-hook-form';
+import {useDispatch} from 'react-redux';
 
 const styles = {
 	root: {},
@@ -12,8 +14,13 @@ const styles = {
 
 export const formName = 'create-go-form';
 
-const CreateGoDialog = ({classes, className, hideModal, onSubmit, ...other}) => {
+const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
+	const dispatch = useDispatch();
 	const formMethods = useForm({mode: 'onBlur'});
+	const onSubmit = values => {
+		dispatch(createGo(values));
+		hideModal();
+	};
 
 	return (
 		<Dialog
@@ -43,7 +50,6 @@ CreateGoDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	hideModal: PropTypes.func.isRequired,
-	onSubmit: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CreateGoDialog);

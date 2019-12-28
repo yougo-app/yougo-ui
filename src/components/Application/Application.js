@@ -1,28 +1,21 @@
+import getGos from 'actions/requests/getGos';
 import Body from 'components/Body';
 import Global from 'components/Global';
 import Header from 'components/Header';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 
-class Application extends React.Component {
-	componentDidMount() {
-		const {load} = this.props;
-		load();
-	}
+export default () => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getGos());
+	}, [dispatch]);
 
-	render() {
-		return (
-			<div className="layout">
-				<Header className="header" />
-				<Body className="content" />
-				<Global />
-			</div>
-		);
-	}
-}
-
-Application.propTypes = {
-	load: PropTypes.func.isRequired,
+	return (
+		<div className="layout">
+			<Header className="header" />
+			<Body className="content" />
+			<Global />
+		</div>
+	);
 };
-
-export default Application;
