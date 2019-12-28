@@ -14,3 +14,6 @@ export const DELETE_GO_SUCCESS = `${prefix}DELETE_GO_SUCCESS`;
 export const DELETE_GO_FAILURE = `${prefix}DELETE_GO_FAILURE`;
 export const DELETE_GO_CLEAR = `${prefix}DELETE_GO_CLEAR`;
 export const SEARCH = `${prefix}SEARCH`;
+export const ENQUEUE_SNACKBAR = `${prefix}ENQUEUE_SNACKBAR`;
+export const CLOSE_SNACKBAR = `${prefix}CLOSE_SNACKBAR`;
+export const REMOVE_SNACKBAR = `${prefix}REMOVE_SNACKBAR`;

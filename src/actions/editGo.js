@@ -1,14 +1,14 @@
+import enqueueEditGo from 'actions/ui/snackbars/enqueueEditGo';
+import enqueueEditGoFail from 'actions/ui/snackbars/enqueueEditGoFail';
 import diff from 'object-diff';
 import editGo from './requests/editGo';
-import openEditGoFailSnackbar from './ui/openEditGoFailSnackbar';
-import openEditGoSnackbar from './ui/openEditGoSnackbar';
 
 export default (updated, orig) => dispatch => {
 	return dispatch(editGo(orig.id, diff(orig, updated))).then(({error}) => {
 		if (error) {
-			dispatch(openEditGoFailSnackbar(orig));
+			dispatch(enqueueEditGoFail(orig));
 		} else {
-			dispatch(openEditGoSnackbar(updated));
+			dispatch(enqueueEditGo(updated));
 		}
 	});
 };

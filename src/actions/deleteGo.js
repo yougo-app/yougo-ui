@@ -1,12 +1,12 @@
-import openDeleteGoFailSnackbar from './ui/openDeleteGoFailSnackbar';
-import openDeleteGoSnackbar from './ui/openDeleteGoSnackbar';
+import enqueueDeleteGo from 'actions/ui/snackbars/enqueueDeleteGo';
+import enqueueDeleteGoFail from 'actions/ui/snackbars/enqueueDeleteGoFail';
 import deleteGo from './requests/deleteGo';
 
 export default go => dispatch =>
 	dispatch(deleteGo(go.id)).then(({error}) => {
 		if (error) {
-			dispatch(openDeleteGoFailSnackbar(go.go));
+			dispatch(enqueueDeleteGoFail(go.go));
 		} else {
-			dispatch(openDeleteGoSnackbar(go.go));
+			dispatch(enqueueDeleteGo(go.go));
 		}
 	});

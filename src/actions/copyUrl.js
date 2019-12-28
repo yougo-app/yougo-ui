@@ -1,11 +1,11 @@
+import enqueueCopyUrl from 'actions/ui/snackbars/enqueueCopyUrl';
+import enqueueCopyUrlFail from 'actions/ui/snackbars/enqueueCopyUrlFail';
 import copy from 'copy-to-clipboard';
-import openCopyUrlFailSnackbar from './ui/openCopyUrlFailSnackbar';
-import openCopyUrlSnackbar from './ui/openCopyUrlSnackbar';
 
 export default url => dispatch => {
 	if (copy(url)) {
-		dispatch(openCopyUrlSnackbar());
+		dispatch(enqueueCopyUrl());
 	} else {
-		dispatch(openCopyUrlFailSnackbar());
+		dispatch(enqueueCopyUrlFail());
 	}
 };
