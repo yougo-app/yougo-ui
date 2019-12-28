@@ -12,14 +12,14 @@ const styles = {
 
 export const formName = 'create-go-form';
 
-const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => {
+const CreateGoDialog = ({classes, className, hideModal, onSubmit, ...other}) => {
 	const formMethods = useForm({mode: 'onBlur'});
 
 	return (
 		<Dialog
 			open
 			fullWidth
-			onClose={onClose}
+			onClose={hideModal}
 			className={classNames(classes.root, className)}
 			{...other}
 		>
@@ -30,7 +30,7 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => {
 				</FormContext>
 			</DialogContent>
 			<DialogActions>
-				<Button onClick={onClose}>Cancel</Button>
+				<Button onClick={hideModal}>Cancel</Button>
 				<Button color="secondary" type="submit" form={formName}>
 					Add
 				</Button>
@@ -42,7 +42,7 @@ const CreateGoDialog = ({classes, className, onClose, onSubmit, ...other}) => {
 CreateGoDialog.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	onClose: PropTypes.func.isRequired,
+	hideModal: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };
 
