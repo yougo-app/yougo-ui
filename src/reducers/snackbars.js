@@ -20,19 +20,17 @@ export default (state = defaultState, action) => {
 		case CLOSE_SNACKBAR:
 			return {
 				...state,
-				notifications: state.notifications.map(notification =>
+				notifications: state.notifications.map((notification) =>
 					!action?.payload?.key || notification.key === action?.payload?.key
 						? {...notification, dismissed: true}
-						: notification,
+						: notification
 				),
 			};
 
 		case REMOVE_SNACKBAR:
 			return {
 				...state,
-				notifications: state.notifications.filter(
-					notification => notification.key !== action?.payload?.key,
-				),
+				notifications: state.notifications.filter((notification) => notification.key !== action?.payload?.key),
 			};
 
 		default:

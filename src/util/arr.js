@@ -1,1 +1,1 @@
-export default obj => (Array.isArray(obj) ? obj : [obj]);
+export default (obj) => (Array.isArray(obj) ? obj : [obj]);

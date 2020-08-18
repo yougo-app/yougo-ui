@@ -1,1 +1,1 @@
-export default state => state.snackbars.notifications;
+export default (state) => state.snackbars.notifications;

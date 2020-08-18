@@ -18,18 +18,12 @@ export const formName = 'edit-go-form';
 const EditGoDialog = ({classes, className, go, hideModal, ...other}) => {
 	const dispatch = useDispatch();
 	const formMethods = useForm({mode: 'onBlur'});
-	const onSubmit = values => {
+	const onSubmit = (values) => {
 		dispatch(editGo(values, go));
 		hideModal();
 	};
 	return (
-		<Dialog
-			open
-			fullWidth
-			onClose={hideModal}
-			className={classNames(classes.root, className)}
-			{...other}
-		>
+		<Dialog open fullWidth onClose={hideModal} className={classNames(classes.root, className)} {...other}>
 			<DialogTitle>Update {go && go.go}</DialogTitle>
 			<DialogContent>
 				<FormContext {...formMethods}>

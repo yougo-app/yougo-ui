@@ -1,10 +1,4 @@
-import {
-	CREATE_GO_SUCCESS,
-	DELETE_GO_CLEAR,
-	DELETE_GO_SUCCESS,
-	GOS_SUCCESS,
-	SEARCH,
-} from 'constants/actionTypes';
+import {CREATE_GO_SUCCESS, DELETE_GO_CLEAR, DELETE_GO_SUCCESS, GOS_SUCCESS, SEARCH} from 'constants/actionTypes';
 
 const initialState = {
 	byId: [],
@@ -26,7 +20,7 @@ export default (state = initialState, action) => {
 		case DELETE_GO_SUCCESS:
 			return {
 				...state,
-				byId: state.byId.filter(id => id !== action.payload.id),
+				byId: state.byId.filter((id) => id !== action.payload.id),
 				deletedId: action.payload.id,
 			};
 		case DELETE_GO_CLEAR: {

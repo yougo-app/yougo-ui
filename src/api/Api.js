@@ -8,11 +8,11 @@ export default class Api {
 
 	createGo = (go, href) => this.post(this.gosUrl, {go, href});
 
-	deleteGo = id => this.delete(`${this.gosUrl}/${id}`);
+	deleteGo = (id) => this.delete(`${this.gosUrl}/${id}`);
 
 	editGo = (id, patch) => this.patch(`${this.gosUrl}/${id}`, patch);
 
-	get = endpoint => ({
+	get = (endpoint) => ({
 		endpoint,
 		method: 'GET',
 		headers: {
@@ -20,7 +20,7 @@ export default class Api {
 		},
 	});
 
-	delete = endpoint => ({
+	delete = (endpoint) => ({
 		endpoint,
 		method: 'DELETE',
 		headers: {

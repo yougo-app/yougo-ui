@@ -3,16 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Controller, useFormContext} from 'react-hook-form';
 
-const TextField = ({
-	name,
-	defaultValue,
-	rules,
-	onChange,
-	onBlur,
-	onChangeName,
-	onBlurName,
-	...props
-}) => {
+const TextField = ({name, defaultValue, rules, onChange, onBlur, onChangeName, onBlurName, ...props}) => {
 	const {control, errors} = useFormContext();
 	return (
 		<Controller

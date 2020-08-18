@@ -9,7 +9,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import getFilteredGos from 'selectors/getFilteredGos';
 
-const styles = theme => ({
+const styles = (theme) => ({
 	root: {
 		padding: theme.spacing(3),
 	},
@@ -25,14 +25,13 @@ const Body = ({classes, className, dispatch, ...other}) => {
 		<div className={classNames(classes.root, className)} {...other}>
 			{gos.length ? (
 				<Gos className={classes.gos}>
-					{gos.map(go => (
+					{gos.map((go) => (
 						<Go key={go.id} go={go} />
 					))}
 				</Gos>
 			) : (
 				<BodyMessage>
-					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header
-					bar
+					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header bar
 				</BodyMessage>
 			)}
 		</div>

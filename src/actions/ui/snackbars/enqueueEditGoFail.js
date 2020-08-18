@@ -1,6 +1,6 @@
 import enqueueActionSnackbar from 'actions/ui/enqueueActionSnackbar';
 
-export default go =>
+export default (go) =>
 	enqueueActionSnackbar(`Can't update '${go.go}'`, {
 		variant: 'error',
 		actionText: 'Retry',

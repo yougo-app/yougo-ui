@@ -1,1 +1,1 @@
-export default state => state.gos.deletedId;
+export default (state) => state.gos.deletedId;

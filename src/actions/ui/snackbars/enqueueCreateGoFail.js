@@ -1,6 +1,6 @@
 import enqueueActionSnackbar from 'actions/ui/enqueueActionSnackbar';
 
-export default go =>
+export default (go) =>
 	enqueueActionSnackbar(`Can't create '${go.go}'`, {
 		variant: 'error',
 		actionText: 'Retry',

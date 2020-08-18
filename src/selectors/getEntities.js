@@ -1,1 +1,1 @@
-export default state => state.entities;
+export default (state) => state.entities;

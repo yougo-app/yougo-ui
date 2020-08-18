@@ -9,8 +9,8 @@
 		"eject": "react-scripts eject",
 		"lint": "eslint --ext js,jsx src",
 		"lint:fix": "yarn lint --fix",
-		"format": "prettier --write **/*.{js,jsx,ts,tsx,json,css,scss,md}",
-		"format:check": "yarn format -c",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
 		"api": "json-server -r api/routes.json -p 8080 api/db.json",
 		"api:watch": "yarn api -w"
 	},
@@ -54,7 +54,7 @@
 		"jscodeshift": "^0.7.0",
 		"json-server": "^0.15.0",
 		"lint-staged": "^9.5.0",
-		"prettier": "^1.13.7",
+		"prettier": "^2.0.5",
 		"react-scripts": "3.3.0"
 	},
 	"eslintConfig": {

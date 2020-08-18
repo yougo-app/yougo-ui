@@ -4,17 +4,17 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import getSearchFilter from 'selectors/getSearchFilter';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	value: getSearchFilter(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	...bindActionCreators(
 		{
-			onChange: value => search({filter: value}),
+			onChange: (value) => search({filter: value}),
 			onCancelSearch: () => search({filter: ''}),
 		},
-		dispatch,
+		dispatch
 	),
 });
 

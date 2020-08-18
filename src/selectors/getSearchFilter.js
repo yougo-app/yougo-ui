@@ -1,1 +1,1 @@
-export default state => state.gos.filter;
+export default (state) => state.gos.filter;

@@ -4,11 +4,11 @@ import enqueueSnackbar from 'actions/ui/enqueueSnackbar';
 import React from 'react';
 import {batchActions} from 'redux-batched-actions';
 
-export default (message, {action, actionText, ...options}) => dispatch => {
+export default (message, {action, actionText, ...options}) => (dispatch) => {
 	dispatch(
 		enqueueSnackbar(message, {
 			...options,
-			action: key => (
+			action: (key) => (
 				<Button
 					onClick={() => {
 						dispatch(batchActions([action, closeSnackbar(key)]));
@@ -18,6 +18,6 @@ export default (message, {action, actionText, ...options}) => dispatch => {
 					{actionText}
 				</Button>
 			),
-		}),
+		})
 	);
 };

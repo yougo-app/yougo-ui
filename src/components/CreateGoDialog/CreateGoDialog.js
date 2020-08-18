@@ -17,19 +17,13 @@ export const formName = 'create-go-form';
 const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
 	const dispatch = useDispatch();
 	const formMethods = useForm({mode: 'onBlur'});
-	const onSubmit = values => {
+	const onSubmit = (values) => {
 		dispatch(createGo(values));
 		hideModal();
 	};
 
 	return (
-		<Dialog
-			open
-			fullWidth
-			onClose={hideModal}
-			className={classNames(classes.root, className)}
-			{...other}
-		>
+		<Dialog open fullWidth onClose={hideModal} className={classNames(classes.root, className)} {...other}>
 			<DialogTitle>Add a go</DialogTitle>
 			<DialogContent>
 				<FormContext {...formMethods}>

@@ -1,2 +1,11 @@
+/build/
+/src/serviceWorker.js
+/api/live.json
+
+# npm
 package-lock.json
-src/serviceworker.js
+
+# yarn
+yarn.lock
+.yarn/
+.pnp.js

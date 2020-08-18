@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useModal} from 'react-modal-hook';
 
-const styles = theme => ({
+const styles = (theme) => ({
 	root: {
 		flexGrow: 1,
 		backgroundColor: theme.palette.primary.dark,

@@ -16,9 +16,9 @@ export default ({enqueueSnackbar, closeSnackbar}) => {
 				enqueueSnackbar(message, {
 					key,
 					...options,
-					onExited: event => {
+					onExited: (event) => {
 						dispatch(removeSnackbar(key));
-						setDisplayed(displayed.filter(k => key !== k));
+						setDisplayed(displayed.filter((k) => key !== k));
 						if (options.onExited) {
 							options.onExited(event, key);
 						}

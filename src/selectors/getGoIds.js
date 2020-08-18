@@ -1,1 +1,1 @@
-export default state => state.gos.byId || [];
+export default (state) => state.gos.byId || [];

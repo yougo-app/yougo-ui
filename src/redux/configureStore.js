@@ -3,7 +3,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import devMiddleware from './devMiddleware';
 import middleware from './middleware';
 
-export default reducer => {
+export default (reducer) => {
 	const enhancer =
 		process.env.NODE_ENV === 'production'
 			? applyMiddleware(...middleware)

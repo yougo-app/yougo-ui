@@ -6,7 +6,5 @@ export default createSelector(getGos, getSearchFilter, (gos, filter) => {
 	if (filter.length <= 2) {
 		return gos;
 	}
-	return gos.filter(go =>
-		Object.values(go).some(value => value.toLowerCase().indexOf(filter) >= 0),
-	);
+	return gos.filter((go) => Object.values(go).some((value) => value.toLowerCase().indexOf(filter) >= 0));
 });

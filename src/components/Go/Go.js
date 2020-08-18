@@ -1,10 +1,4 @@
-import {
-	IconButton,
-	ListItem,
-	ListItemSecondaryAction,
-	ListItemText,
-	Typography,
-} from '@material-ui/core';
+import {IconButton, ListItem, ListItemSecondaryAction, ListItemText, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
@@ -14,7 +8,7 @@ import PropTypes from 'prop-types';
 import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
 
-const styles = theme => ({
+const styles = (theme) => ({
 	href: {
 		fontSize: theme.typography.pxToRem(13),
 	},
