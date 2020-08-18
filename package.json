@@ -8,11 +8,11 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"lint": "eslint --ext js,jsx src",
-		"lint:fix": "yarn lint --fix",
+		"lint:fix": "npm run lint -- --fix",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"api": "json-server -r api/routes.json -p 8080 api/db.json",
-		"api:watch": "yarn api -w"
+		"api:watch": "npm run api -- -w"
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.0.0",
