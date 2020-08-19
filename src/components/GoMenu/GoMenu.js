@@ -5,8 +5,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
+import {goPropType} from 'util/types';
 
 import useGoMenu from './useGoMenu';
 
@@ -52,7 +52,7 @@ const GoMenu = ({classes, className, go, onClose, ...other}) => {
 GoMenu.propTypes = {
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	go: GoPropType.isRequired,
+	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
 };
 

@@ -11,8 +11,8 @@ import classNames from 'classnames';
 import GoMenu from 'components/GoMenu';
 import {bindMenu, bindTrigger, usePopupState} from 'material-ui-popup-state/hooks';
 import PropTypes from 'prop-types';
-import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
+import {goPropType} from 'util/types';
 
 const styles = (theme) => ({
 	href: {
@@ -50,7 +50,7 @@ const Go = ({classes, className, go, ...other}) => {
 };
 
 Go.propTypes = {
-	go: GoPropType.isRequired,
+	go: goPropType.isRequired,
 	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 };
