@@ -1,12 +1,13 @@
 import enqueueCreateGo from 'actions/ui/snackbars/enqueueCreateGo';
 import enqueueCreateGoFail from 'actions/ui/snackbars/enqueueCreateGoFail';
-import createGo from './requests/createGo';
+import createGoReq from './requests/createGo';
 
-export default (go) => (dispatch) =>
-	dispatch(createGo(go)).then(({error}) => {
+const createGo = (go) => (dispatch) =>
+	dispatch(createGoReq(go)).then(({error}) => {
 		if (error) {
 			dispatch(enqueueCreateGoFail(go.go));
 		} else {
 			dispatch(enqueueCreateGo(go.go));
 		}
 	});
+export default createGo;

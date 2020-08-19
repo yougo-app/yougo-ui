@@ -1,1 +1,2 @@
-export default () => new Date().getTime() + Math.random();
+const generateId = () => new Date().getTime() + Math.random();
+export default generateId;

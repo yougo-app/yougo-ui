@@ -4,7 +4,7 @@ import {RSAA} from 'redux-api-middleware';
 import goSchema from 'schemas/goSchema';
 import normalizeApiResponse from 'util/normalizeApiResponse';
 
-export default () => ({
+const getGos = () => ({
 	[RSAA]: {
 		...Client.getGos(),
 		types: [
@@ -17,3 +17,4 @@ export default () => ({
 		],
 	},
 });
+export default getGos;

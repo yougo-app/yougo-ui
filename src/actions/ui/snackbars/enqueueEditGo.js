@@ -1,3 +1,4 @@
 import enqueueSnackbar from 'actions/ui/enqueueSnackbar';
 
-export default (go) => enqueueSnackbar(`Updated '${go.go}'`);
+const enqueueEditGo = (go) => enqueueSnackbar(`Updated '${go.go}'`);
+export default enqueueEditGo;

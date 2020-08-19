@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import getSnackbars from 'selectors/getSnackbars';
 
-export default ({enqueueSnackbar, closeSnackbar}) => {
+const Snackbars = ({enqueueSnackbar, closeSnackbar}) => {
 	const [displayed, setDisplayed] = useState([]);
 	const snackbars = useSelector(getSnackbars);
 	const dispatch = useDispatch();
@@ -31,3 +31,4 @@ export default ({enqueueSnackbar, closeSnackbar}) => {
 
 	return null;
 };
+export default Snackbars;

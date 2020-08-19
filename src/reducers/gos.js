@@ -5,7 +5,7 @@ const initialState = {
 	filter: '',
 };
 
-export default (state = initialState, action) => {
+const gos = (state = initialState, action) => {
 	switch (action.type) {
 		case GOS_SUCCESS:
 			return {
@@ -37,3 +37,4 @@ export default (state = initialState, action) => {
 			return state;
 	}
 };
+export default gos;

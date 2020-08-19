@@ -1,1 +1,2 @@
-export default (state) => state.gos.deletedId;
+const getDeletedGoId = (state) => state.gos.deletedId;
+export default getDeletedGoId;

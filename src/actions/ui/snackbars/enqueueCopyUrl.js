@@ -1,3 +1,4 @@
 import enqueueSnackbar from 'actions/ui/enqueueSnackbar';
 
-export default () => enqueueSnackbar('URL copied');
+const enqueueCopyUrl = () => enqueueSnackbar('URL copied');
+export default enqueueCopyUrl;

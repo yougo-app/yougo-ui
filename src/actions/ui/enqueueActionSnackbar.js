@@ -4,7 +4,7 @@ import enqueueSnackbar from 'actions/ui/enqueueSnackbar';
 import React from 'react';
 import {batchActions} from 'redux-batched-actions';
 
-export default (message, {action, actionText, ...options}) => (dispatch) => {
+const enqueueActionSnackbar = (message, {action, actionText, ...options}) => (dispatch) => {
 	dispatch(
 		enqueueSnackbar(message, {
 			...options,
@@ -21,3 +21,4 @@ export default (message, {action, actionText, ...options}) => (dispatch) => {
 		})
 	);
 };
+export default enqueueActionSnackbar;

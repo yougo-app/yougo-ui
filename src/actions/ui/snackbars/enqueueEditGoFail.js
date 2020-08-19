@@ -1,6 +1,6 @@
 import enqueueActionSnackbar from 'actions/ui/enqueueActionSnackbar';
 
-export default (go) =>
+const enqueueEditGoFail = (go) =>
 	enqueueActionSnackbar(`Can't update '${go.go}'`, {
 		variant: 'error',
 		actionText: 'Retry',
@@ -9,3 +9,4 @@ export default (go) =>
 			console.log('Retrying...');
 		},
 	});
+export default enqueueEditGoFail;

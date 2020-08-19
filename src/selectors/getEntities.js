@@ -1,1 +1,2 @@
-export default (state) => state.entities;
+const getEntities = (state) => state.entities;
+export default getEntities;

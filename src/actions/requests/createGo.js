@@ -4,7 +4,7 @@ import {RSAA} from 'redux-api-middleware';
 import goSchema from 'schemas/goSchema';
 import normalizeApiResponse from 'util/normalizeApiResponse';
 
-export default (go) => ({
+const createGo = (go) => ({
 	[RSAA]: {
 		...Client.createGo(go.go, go.href),
 		types: [
@@ -17,3 +17,4 @@ export default (go) => ({
 		],
 	},
 });
+export default createGo;

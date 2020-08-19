@@ -8,7 +8,7 @@ import store from 'redux/store';
 import theme from 'util/theme';
 import Application from './Application';
 
-export default () => (
+const Root = () => (
 	<Provider store={store}>
 		<MuiThemeProvider theme={theme}>
 			<SnackbarProvider maxSnack={1}>
@@ -20,3 +20,5 @@ export default () => (
 		</MuiThemeProvider>
 	</Provider>
 );
+
+export default Root;

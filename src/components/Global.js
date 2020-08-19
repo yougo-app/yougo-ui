@@ -1,8 +1,9 @@
 import Snackbars from 'components/Snackbars';
 import React from 'react';
 
-export default () => (
+const Global = () => (
 	<>
 		<Snackbars />
 	</>
 );
+export default Global;

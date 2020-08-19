@@ -4,7 +4,7 @@ const defaultState = {
 	notifications: [],
 };
 
-export default (state = defaultState, action) => {
+const snackbars = (state = defaultState, action) => {
 	switch (action.type) {
 		case ENQUEUE_SNACKBAR:
 			return {
@@ -37,3 +37,4 @@ export default (state = defaultState, action) => {
 			return state;
 	}
 };
+export default snackbars;

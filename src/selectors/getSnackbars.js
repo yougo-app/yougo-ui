@@ -1,1 +1,2 @@
-export default (state) => state.snackbars.notifications;
+const getSnackbars = (state) => state.snackbars.notifications;
+export default getSnackbars;

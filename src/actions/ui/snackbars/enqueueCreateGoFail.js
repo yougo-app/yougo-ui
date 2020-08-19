@@ -1,6 +1,6 @@
 import enqueueActionSnackbar from 'actions/ui/enqueueActionSnackbar';
 
-export default (go) =>
+const enqueueCreateGoFail = (go) =>
 	enqueueActionSnackbar(`Can't create '${go.go}'`, {
 		variant: 'error',
 		actionText: 'Retry',
@@ -9,3 +9,4 @@ export default (go) =>
 			console.log('Retrying...');
 		},
 	});
+export default enqueueCreateGoFail;

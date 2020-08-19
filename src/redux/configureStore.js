@@ -3,7 +3,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import devMiddleware from './devMiddleware';
 import middleware from './middleware';
 
-export default (reducer) => {
+const configureStore = (reducer) => {
 	const enhancer =
 		process.env.NODE_ENV === 'production'
 			? applyMiddleware(...middleware)
@@ -11,3 +11,4 @@ export default (reducer) => {
 
 	return createStore(reducer, enhancer);
 };
+export default configureStore;

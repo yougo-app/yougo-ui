@@ -1,1 +1,2 @@
-export default (predicate, message) => (value) => (predicate(value) ? undefined : message);
+const makeValidator = (predicate, message) => (value) => (predicate(value) ? undefined : message);
+export default makeValidator;

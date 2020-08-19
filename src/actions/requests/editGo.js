@@ -4,7 +4,7 @@ import {RSAA} from 'redux-api-middleware';
 import goSchema from 'schemas/goSchema';
 import normalizeApiResponse from 'util/normalizeApiResponse';
 
-export default (id, patch) => ({
+const editGo = (id, patch) => ({
 	[RSAA]: {
 		...Client.editGo(id, patch),
 		types: [
@@ -17,3 +17,4 @@ export default (id, patch) => ({
 		],
 	},
 });
+export default editGo;

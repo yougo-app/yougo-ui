@@ -1,1 +1,2 @@
-export default (state) => state.gos.byId || [];
+const getGoIds = (state) => state.gos.byId || [];
+export default getGoIds;
