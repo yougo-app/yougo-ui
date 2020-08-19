@@ -1,13 +1,13 @@
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+import GosAPI from 'api/gos';
 import classNames from 'classnames';
 import BodyMessage from 'components/BodyMessage';
 import Go from 'components/Go';
 import Gos from 'components/Gos';
+import {useSearchContext} from 'context/SearchContext';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {useSelector} from 'react-redux';
-import getFilteredGos from 'selectors/getFilteredGos';
 
 const styles = (theme) => ({
 	root: {
@@ -20,7 +20,13 @@ const styles = (theme) => ({
 	},
 });
 const Body = ({classes, className, dispatch, ...other}) => {
-	const gos = useSelector(getFilteredGos);
+	const filter = useSearchContext();
+	const {isLoading, data: gos} = GosAPI.findFiltered(filter);
+
+	if (isLoading) {
+		return <span>Loading...</span>;
+	}
+
 	return (
 		<div className={classNames(classes.root, className)} {...other}>
 			{gos.length ? (
@@ -31,7 +37,8 @@ const Body = ({classes, className, dispatch, ...other}) => {
 				</Gos>
 			) : (
 				<BodyMessage>
-					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header bar
+					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header
+					bar
 				</BodyMessage>
 			)}
 		</div>

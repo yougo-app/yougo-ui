@@ -1,12 +1,12 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import createGo from 'actions/createGo';
+import Gos from 'api/gos';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
+import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {FormContext, useForm} from 'react-hook-form';
-import {useDispatch} from 'react-redux';
 
 const styles = {
 	root: {},
@@ -15,15 +15,27 @@ const styles = {
 export const formName = 'create-go-form';
 
 const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
-	const dispatch = useDispatch();
+	const snackbar = useSnackbar();
 	const formMethods = useForm({mode: 'onBlur'});
-	const onSubmit = (values) => {
-		dispatch(createGo(values));
-		hideModal();
-	};
+	const [create] = Gos.create();
+	const onSubmit = useCallback(
+		(values) => {
+			create(values)
+				.then(() => snackbar.showMessage(`Created ${values.go}`))
+				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
+				.finally(() => hideModal());
+		},
+		[create, hideModal, snackbar]
+	);
 
 	return (
-		<Dialog open fullWidth onClose={hideModal} className={classNames(classes.root, className)} {...other}>
+		<Dialog
+			open
+			fullWidth
+			onClose={hideModal}
+			className={classNames(classes.root, className)}
+			{...other}
+		>
 			<DialogTitle>Add a go</DialogTitle>
 			<DialogContent>
 				<FormContext {...formMethods}>

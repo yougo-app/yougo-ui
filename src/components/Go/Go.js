@@ -1,4 +1,10 @@
-import {IconButton, ListItem, ListItemSecondaryAction, ListItemText, Typography} from '@material-ui/core';
+import {
+	IconButton,
+	ListItem,
+	ListItemSecondaryAction,
+	ListItemText,
+	Typography,
+} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';

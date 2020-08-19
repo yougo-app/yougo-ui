@@ -3,15 +3,12 @@ import {withStyles} from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
-import copyUrl from 'actions/copyUrl';
-import deleteGo from 'actions/deleteGo';
 import classNames from 'classnames';
-import EditGoDialog from 'components/EditGoDialog';
 import PropTypes from 'prop-types';
 import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
-import {useModal} from 'react-modal-hook';
-import {useDispatch} from 'react-redux';
+
+import useGoMenu from './useGoMenu';
 
 const styles = () => ({
 	root: {},
@@ -21,11 +18,7 @@ const styles = () => ({
 });
 
 const GoMenu = ({classes, className, go, onClose, ...other}) => {
-	const dispatch = useDispatch();
-	const [showModal, hideModal] = useModal(() => {
-		return <EditGoDialog go={go} hideModal={hideModal} />;
-	}, [go]);
-
+	const [onEdit, onCopy, onDelete] = useGoMenu(go, onClose);
 	return (
 		<Menu
 			MenuListProps={{
@@ -34,34 +27,19 @@ const GoMenu = ({classes, className, go, onClose, ...other}) => {
 			className={classNames(classes.root, className)}
 			{...other}
 		>
-			<MenuItem
-				onClick={() => {
-					showModal();
-					onClose();
-				}}
-			>
+			<MenuItem onClick={onEdit}>
 				<ListItemIcon>
 					<EditIcon fontSize="inherit" />
 				</ListItemIcon>
 				<ListItemText className={classes.text}>Edit</ListItemText>
 			</MenuItem>
-			<MenuItem
-				onClick={() => {
-					dispatch(copyUrl(go.href));
-					onClose();
-				}}
-			>
+			<MenuItem onClick={onCopy}>
 				<ListItemIcon>
 					<FileCopyIcon fontSize="inherit" />
 				</ListItemIcon>
 				<ListItemText className={classes.text}>Copy URL</ListItemText>
 			</MenuItem>
-			<MenuItem
-				onClick={() => {
-					dispatch(deleteGo(go));
-					onClose();
-				}}
-			>
+			<MenuItem onClick={onDelete}>
 				<ListItemIcon>
 					<DeleteIcon fontSize="inherit" />
 				</ListItemIcon>
