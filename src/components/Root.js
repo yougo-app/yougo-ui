@@ -9,6 +9,7 @@ import {Provider} from 'react-redux';
 import store from 'redux/store';
 import theme from 'util/theme';
 
+import {SearchProvider} from '../context/SearchContext';
 import Application from './Application';
 
 const Root = () => (
@@ -17,8 +18,10 @@ const Root = () => (
 			<SnackbarProvider maxSnack={1}>
 				<ModalProvider>
 					<ReactQueryConfigProvider config={queryConfig}>
-						<CssBaseline />
-						<Application />
+						<SearchProvider>
+							<CssBaseline />
+							<Application />
+						</SearchProvider>
 					</ReactQueryConfigProvider>
 				</ModalProvider>
 			</SnackbarProvider>

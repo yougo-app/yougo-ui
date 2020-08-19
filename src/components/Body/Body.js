@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import BodyMessage from 'components/BodyMessage';
 import Go from 'components/Go';
 import Gos from 'components/Gos';
+import {useSearchContext} from 'context/SearchContext';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {useSelector} from 'react-redux';
-import getFilteredGos from 'selectors/getFilteredGos';
 
 const styles = (theme) => ({
 	root: {
@@ -21,8 +20,8 @@ const styles = (theme) => ({
 	},
 });
 const Body = ({classes, className, dispatch, ...other}) => {
-	useSelector(getFilteredGos);
-	const {isLoading, data: gos} = GosAPI.findAll();
+	const filter = useSearchContext();
+	const {isLoading, data: gos} = GosAPI.findFiltered(filter);
 
 	if (isLoading) {
 		return <span>Loading...</span>;
