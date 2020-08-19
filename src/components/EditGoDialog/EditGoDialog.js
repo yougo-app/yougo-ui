@@ -1,15 +1,14 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import enqueueEditGo from 'actions/ui/snackbars/enqueueEditGo';
 import Gos from 'api/gos';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
+import {useSnackbar} from 'material-ui-snackbar-provider';
 import diff from 'object-diff';
 import PropTypes from 'prop-types';
 import GoPropType from 'propTypes/GoPropType';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {FormContext, useForm} from 'react-hook-form';
-import {useDispatch} from 'react-redux';
 
 const styles = {
 	root: {},
@@ -18,15 +17,18 @@ const styles = {
 export const formName = 'edit-go-form';
 
 const EditGoDialog = ({classes, className, go, hideModal, ...other}) => {
-	const dispatch = useDispatch();
+	const snackbar = useSnackbar();
 	const formMethods = useForm({mode: 'onBlur'});
 	const [edit] = Gos.edit();
-	const onSubmit = (values) => {
-		edit({id: go.id, patch: diff(go, values)})
-			.then(() => dispatch(enqueueEditGo(values)))
-			.catch(() => dispatch(enqueueEditGo(values)))
-			.finally(() => hideModal());
-	};
+	const onSubmit = useCallback(
+		(values) => {
+			edit({id: go.id, patch: diff(go, values)})
+				.then(() => snackbar.showMessage(`Updated ${values.go}`))
+				.catch(() => snackbar.showMessage(`Can't update ${values.go}`))
+				.finally(() => hideModal());
+		},
+		[edit, go, hideModal, snackbar]
+	);
 	return (
 		<Dialog
 			open

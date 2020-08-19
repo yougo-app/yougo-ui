@@ -1,14 +1,12 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import enqueueCreateGo from 'actions/ui/snackbars/enqueueCreateGo';
-import enqueueCreateGoFail from 'actions/ui/snackbars/enqueueCreateGoFail';
 import Gos from 'api/gos';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
+import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {FormContext, useForm} from 'react-hook-form';
-import {useDispatch} from 'react-redux';
 
 const styles = {
 	root: {},
@@ -17,15 +15,18 @@ const styles = {
 export const formName = 'create-go-form';
 
 const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
-	const dispatch = useDispatch();
+	const snackbar = useSnackbar();
 	const formMethods = useForm({mode: 'onBlur'});
 	const [create] = Gos.create();
-	const onSubmit = (values) => {
-		create(values)
-			.then(() => dispatch(enqueueCreateGo(values.go)))
-			.catch(() => dispatch(enqueueCreateGoFail(values.go)))
-			.finally(() => hideModal());
-	};
+	const onSubmit = useCallback(
+		(values) => {
+			create(values)
+				.then(() => snackbar.showMessage(`Created ${values.go}`))
+				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
+				.finally(() => hideModal());
+		},
+		[create, hideModal, snackbar]
+	);
 
 	return (
 		<Dialog
