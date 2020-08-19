@@ -9,14 +9,14 @@ const useGoMenu = (go, closeMenu) => {
 	const snackbar = useSnackbar();
 	const [deleteGo] = Gos.delete();
 
-	const [showEditModal, hideEditModal] = useModal(() => {
-		return <EditGoDialog go={go} hideModal={hideEditModal} />;
+	const [openEditDialog, closeEditDialog] = useModal(() => {
+		return <EditGoDialog go={go} onClose={closeEditDialog} />;
 	}, [go]);
 
 	const onEdit = useCallback(() => {
-		showEditModal();
+		openEditDialog();
 		closeMenu();
-	}, [closeMenu, showEditModal]);
+	}, [closeMenu, openEditDialog]);
 
 	const onCopy = useCallback(() => {
 		if (copy(go.href)) {
