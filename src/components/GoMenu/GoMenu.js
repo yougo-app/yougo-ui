@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import copyUrl from 'actions/copyUrl';
-import deleteGo from 'actions/deleteGo';
+import Gos from 'api/gos';
 import classNames from 'classnames';
 import EditGoDialog from 'components/EditGoDialog';
 import PropTypes from 'prop-types';
@@ -12,6 +12,9 @@ import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
 import {useModal} from 'react-modal-hook';
 import {useDispatch} from 'react-redux';
+
+import enqueueDeleteGo from '../../actions/ui/snackbars/enqueueDeleteGo';
+import enqueueDeleteGoFail from '../../actions/ui/snackbars/enqueueDeleteGoFail';
 
 const styles = () => ({
 	root: {},
@@ -22,6 +25,7 @@ const styles = () => ({
 
 const GoMenu = ({classes, className, go, onClose, ...other}) => {
 	const dispatch = useDispatch();
+	const [deleteGo] = Gos.delete();
 	const [showModal, hideModal] = useModal(() => {
 		return <EditGoDialog go={go} hideModal={hideModal} />;
 	}, [go]);
@@ -58,7 +62,9 @@ const GoMenu = ({classes, className, go, onClose, ...other}) => {
 			</MenuItem>
 			<MenuItem
 				onClick={() => {
-					dispatch(deleteGo(go));
+					deleteGo(go.id)
+						.then(() => dispatch(enqueueDeleteGo(go.go)))
+						.catch(() => dispatch(enqueueDeleteGoFail(go.go)));
 					onClose();
 				}}
 			>
