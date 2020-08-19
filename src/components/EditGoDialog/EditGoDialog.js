@@ -1,5 +1,6 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
+import enqueueEditGo from 'actions/ui/snackbars/enqueueEditGo';
 import Gos from 'api/gos';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
@@ -9,8 +10,6 @@ import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
 import {FormContext, useForm} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
-
-import enqueueEditGo from '../../actions/ui/snackbars/enqueueEditGo';
 
 const styles = {
 	root: {},

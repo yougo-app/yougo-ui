@@ -1,6 +1,8 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import createGo from 'actions/createGo';
+import enqueueCreateGo from 'actions/ui/snackbars/enqueueCreateGo';
+import enqueueCreateGoFail from 'actions/ui/snackbars/enqueueCreateGoFail';
+import Gos from 'api/gos';
 import classNames from 'classnames';
 import GoForm from 'components/GoForm';
 import PropTypes from 'prop-types';
@@ -17,13 +19,22 @@ export const formName = 'create-go-form';
 const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
 	const dispatch = useDispatch();
 	const formMethods = useForm({mode: 'onBlur'});
+	const [create] = Gos.create();
 	const onSubmit = (values) => {
-		dispatch(createGo(values));
-		hideModal();
+		create(values)
+			.then(() => dispatch(enqueueCreateGo(values.go)))
+			.catch(() => dispatch(enqueueCreateGoFail(values.go)))
+			.finally(() => hideModal());
 	};
 
 	return (
-		<Dialog open fullWidth onClose={hideModal} className={classNames(classes.root, className)} {...other}>
+		<Dialog
+			open
+			fullWidth
+			onClose={hideModal}
+			className={classNames(classes.root, className)}
+			{...other}
+		>
 			<DialogTitle>Add a go</DialogTitle>
 			<DialogContent>
 				<FormContext {...formMethods}>
