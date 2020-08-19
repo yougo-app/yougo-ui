@@ -7,25 +7,21 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {ModalProvider} from 'react-modal-hook';
 import {ReactQueryConfigProvider} from 'react-query';
-import {Provider} from 'react-redux';
-import store from 'redux/store';
 import theme from 'util/theme';
 
 const Providers = ({children}) => (
-	<Provider store={store}>
-		<MuiThemeProvider theme={theme}>
-			<SnackbarProvider maxSnack={1}>
-				<ModalProvider>
-					<ReactQueryConfigProvider config={queryConfig}>
-						<SearchProvider>
-							<CssBaseline />
-							{children}
-						</SearchProvider>
-					</ReactQueryConfigProvider>
-				</ModalProvider>
-			</SnackbarProvider>
-		</MuiThemeProvider>
-	</Provider>
+	<MuiThemeProvider theme={theme}>
+		<SnackbarProvider maxSnack={1}>
+			<ModalProvider>
+				<ReactQueryConfigProvider config={queryConfig}>
+					<SearchProvider>
+						<CssBaseline />
+						{children}
+					</SearchProvider>
+				</ReactQueryConfigProvider>
+			</ModalProvider>
+		</SnackbarProvider>
+	</MuiThemeProvider>
 );
 
 Providers.propTypes = {
