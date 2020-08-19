@@ -6,6 +6,7 @@ import {ModalProvider} from 'react-modal-hook';
 import {Provider} from 'react-redux';
 import store from 'redux/store';
 import theme from 'util/theme';
+
 import Application from './Application';
 
 const Root = () => (

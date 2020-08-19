@@ -1,5 +1,6 @@
 {
 	"extends": ["react-app", "airbnb", "prettier", "prettier/react"],
+	"plugins": ["simple-import-sort"],
 	"settings": {
 		"import/resolver": {
 			"node": {
@@ -12,6 +13,8 @@
 		"react/forbid-prop-types": "off",
 		"react/jsx-filename-extension": ["warn", {"extensions": [".js", ".jsx"]}],
 		"react/jsx-props-no-spreading": "off",
-		"react/require-default-props": "off"
+		"react/require-default-props": "off",
+		"simple-import-sort/sort": "error",
+		"sort-imports": "off"
 	}
 }

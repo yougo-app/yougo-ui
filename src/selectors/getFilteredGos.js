@@ -1,4 +1,5 @@
 import {createSelector} from 'reselect';
+
 import getGos from './getGos';
 import getSearchFilter from './getSearchFilter';
 

@@ -1,5 +1,6 @@
 import {applyMiddleware, createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
+
 import devMiddleware from './devMiddleware';
 import middleware from './middleware';
 

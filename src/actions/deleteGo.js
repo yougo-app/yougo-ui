@@ -1,5 +1,6 @@
 import enqueueDeleteGo from 'actions/ui/snackbars/enqueueDeleteGo';
 import enqueueDeleteGoFail from 'actions/ui/snackbars/enqueueDeleteGoFail';
+
 import deleteGoReq from './requests/deleteGo';
 
 const deleteGo = (go) => (dispatch) =>

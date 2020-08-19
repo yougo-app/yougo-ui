@@ -1,6 +1,7 @@
 import enqueueEditGo from 'actions/ui/snackbars/enqueueEditGo';
 import enqueueEditGoFail from 'actions/ui/snackbars/enqueueEditGoFail';
 import diff from 'object-diff';
+
 import editGoReq from './requests/editGo';
 
 const editGo = (updated, orig) => (dispatch) => {

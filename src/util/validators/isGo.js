@@ -1,4 +1,5 @@
 import validator from 'validator';
+
 import makeValidator from './makeValidator';
 
 export default makeValidator(
