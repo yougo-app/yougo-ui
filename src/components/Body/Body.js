@@ -1,5 +1,6 @@
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+import GoAPI from 'api/goAPI';
 import classNames from 'classnames';
 import BodyMessage from 'components/BodyMessage';
 import Go from 'components/Go';
@@ -20,7 +21,13 @@ const styles = (theme) => ({
 	},
 });
 const Body = ({classes, className, dispatch, ...other}) => {
-	const gos = useSelector(getFilteredGos);
+	useSelector(getFilteredGos);
+	const {isLoading, data: gos} = GoAPI.all();
+
+	if (isLoading) {
+		return <span>Loading...</span>;
+	}
+
 	return (
 		<div className={classNames(classes.root, className)} {...other}>
 			{gos.length ? (
