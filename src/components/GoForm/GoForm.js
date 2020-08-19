@@ -1,51 +1,52 @@
-import {withStyles} from '@material-ui/core/styles';
-import classNames from 'classnames';
-import TextField from 'components/common/TextField';
+import Box from '@material-ui/core/Box';
+import {Field, Form, Formik} from 'formik';
+import {TextField} from 'formik-material-ui';
 import PropTypes from 'prop-types';
-import GoPropType from 'propTypes/GoPropType';
 import React from 'react';
-import {useFormContext} from 'react-hook-form';
-import isGo from 'util/validators/isGo';
-import isUrl from 'util/validators/isUrl';
+import {goPropType, goSchema} from 'util/types';
 
-const styles = {
-	root: {},
+const initialValues = {
+	go: '',
+	href: '',
 };
 
-const GoForm = ({classes, className, form, onSubmit, go, ...other}) => {
-	const {handleSubmit} = useFormContext();
+const GoForm = ({className, onSubmit, presetValues, innerRef, ...other}) => {
 	return (
-		<form
-			id={form}
-			className={classNames(classes.root, className)}
-			onSubmit={handleSubmit(onSubmit)}
+		<Formik
+			initialValues={presetValues || initialValues}
+			validationSchema={goSchema}
+			onSubmit={onSubmit}
+			innerRef={innerRef}
 			{...other}
 		>
-			<TextField
-				name="go"
-				label="Go shortcut"
-				placeholder="example"
-				rules={{required: 'Required', validate: isGo}}
-				defaultValue={go && go.go}
-				autoFocus
-			/>
-			<TextField
-				name="href"
-				label="URL"
-				placeholder="http://example.com"
-				rules={{required: 'Required', validate: isUrl}}
-				defaultValue={go && go.href}
-			/>
-		</form>
+			<Form>
+				<Field
+					component={TextField}
+					name="go"
+					label="Go shortcut"
+					placeholder="example"
+					fullWidth
+				/>
+				<Field
+					component={TextField}
+					name="href"
+					label="URL"
+					placeholder="http://example.com"
+					fullWidth
+				/>
+				<Box hidden>
+					<button type="submit">Submit</button>
+				</Box>
+			</Form>
+		</Formik>
 	);
 };
 
 GoForm.propTypes = {
-	classes: PropTypes.object.isRequired,
-	go: GoPropType,
 	className: PropTypes.string,
-	form: PropTypes.string.isRequired,
+	presetValues: goPropType,
+	innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({current: PropTypes.any})]),
 	onSubmit: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(GoForm);
+export default GoForm;

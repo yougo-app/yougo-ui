@@ -1,50 +1,44 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
 import Gos from 'api/gos';
-import classNames from 'classnames';
 import GoForm from 'components/GoForm';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
-import {FormContext, useForm} from 'react-hook-form';
-
-const styles = {
-	root: {},
-};
+import React, {useCallback, useRef} from 'react';
 
 export const formName = 'create-go-form';
 
-const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
+const CreateGoDialog = ({className, hideModal, ...other}) => {
+	const formRef = useRef();
 	const snackbar = useSnackbar();
-	const formMethods = useForm({mode: 'onBlur'});
 	const [create] = Gos.create();
 	const onSubmit = useCallback(
-		(values) => {
+		(values, {setSubmitting}) => {
 			create(values)
 				.then(() => snackbar.showMessage(`Created ${values.go}`))
 				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
-				.finally(() => hideModal());
+				.finally(() => {
+					setSubmitting(false);
+					hideModal();
+				});
 		},
 		[create, hideModal, snackbar]
 	);
 
+	const handleSubmit = useCallback(() => {
+		if (formRef.current) {
+			formRef.current.submitForm();
+		}
+	}, []);
+
 	return (
-		<Dialog
-			open
-			fullWidth
-			onClose={hideModal}
-			className={classNames(classes.root, className)}
-			{...other}
-		>
+		<Dialog open fullWidth onClose={hideModal} className={className} {...other}>
 			<DialogTitle>Add a go</DialogTitle>
 			<DialogContent>
-				<FormContext {...formMethods}>
-					<GoForm form={formName} onSubmit={onSubmit} />
-				</FormContext>
+				<GoForm onSubmit={onSubmit} innerRef={formRef} />
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={hideModal}>Cancel</Button>
-				<Button color="secondary" type="submit" form={formName}>
+				<Button color="secondary" onClick={handleSubmit}>
 					Add
 				</Button>
 			</DialogActions>
@@ -53,9 +47,8 @@ const CreateGoDialog = ({classes, className, hideModal, ...other}) => {
 };
 
 CreateGoDialog.propTypes = {
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	hideModal: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CreateGoDialog);
+export default CreateGoDialog;
