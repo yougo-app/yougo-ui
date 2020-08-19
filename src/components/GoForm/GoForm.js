@@ -26,6 +26,7 @@ const GoForm = ({className, onSubmit, initialValues, innerRef, ...other}) => {
 					label="Go shortcut"
 					placeholder="example"
 					fullWidth
+					autoFocus
 				/>
 				<Field
 					component={TextField}
