@@ -37,7 +37,7 @@
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-modal-hook": "^2.0.0",
-		"react-query": "^2.5.14",
+		"react-query": "^2.7.0",
 		"typeface-roboto": "^0.0.75",
 		"yup": "^0.29.3"
 	},
