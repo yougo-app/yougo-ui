@@ -25,6 +25,7 @@ const GoMenu = ({classes, className, go, onClose, ...other}) => {
 				dense: true,
 			}}
 			className={classNames(classes.root, className)}
+			onClose={onClose}
 			{...other}
 		>
 			<MenuItem onClick={onEdit}>
