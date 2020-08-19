@@ -20,7 +20,6 @@ const styles = (theme) => ({
 	},
 });
 
-// todo: https://material.io/guidelines/components/lists.html#lists-usage
 const Go = ({classes, className, go, ...other}) => {
 	const popupState = usePopupState({variant: 'popover', popupId: `go-menu-${go.id}`});
 
