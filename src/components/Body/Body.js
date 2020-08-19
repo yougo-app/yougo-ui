@@ -1,6 +1,6 @@
 import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
-import GoAPI from 'api/goAPI';
+import GosAPI from 'api/gos';
 import classNames from 'classnames';
 import BodyMessage from 'components/BodyMessage';
 import Go from 'components/Go';
@@ -22,7 +22,7 @@ const styles = (theme) => ({
 });
 const Body = ({classes, className, dispatch, ...other}) => {
 	useSelector(getFilteredGos);
-	const {isLoading, data: gos} = GoAPI.all();
+	const {isLoading, data: gos} = GosAPI.findAll();
 
 	if (isLoading) {
 		return <span>Loading...</span>;
@@ -38,7 +38,8 @@ const Body = ({classes, className, dispatch, ...other}) => {
 				</Gos>
 			) : (
 				<BodyMessage>
-					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header bar
+					To add a go, click the <AddIcon color="inherit" /> on the right-hand side of the header
+					bar
 				</BodyMessage>
 			)}
 		</div>

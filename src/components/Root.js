@@ -1,6 +1,6 @@
 import {CssBaseline} from '@material-ui/core';
 import {MuiThemeProvider} from '@material-ui/core/styles';
-import {queryConfig} from 'api/base';
+import {queryConfig} from 'api/core';
 import {SnackbarProvider} from 'notistack';
 import React from 'react';
 import {ModalProvider} from 'react-modal-hook';
