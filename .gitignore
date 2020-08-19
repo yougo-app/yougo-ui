@@ -1,4 +1,5 @@
 /build/
+/api/live.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,yarn
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn
@@ -75,8 +76,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-.env.test
+# .env
+.env.*
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
