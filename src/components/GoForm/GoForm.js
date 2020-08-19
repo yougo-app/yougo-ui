@@ -15,7 +15,12 @@ const styles = {
 const GoForm = ({classes, className, form, onSubmit, go, ...other}) => {
 	const {handleSubmit} = useFormContext();
 	return (
-		<form id={form} className={classNames(classes.root, className)} onSubmit={handleSubmit(onSubmit)} {...other}>
+		<form
+			id={form}
+			className={classNames(classes.root, className)}
+			onSubmit={handleSubmit(onSubmit)}
+			{...other}
+		>
 			<TextField
 				name="go"
 				label="Go shortcut"
