@@ -4,6 +4,5 @@ import React from 'react';
 import Root from './Root';
 
 test('renders without crashing', () => {
-	// eslint-disable-next-line no-unused-vars
-	const {getByText} = render(<Root />);
+	render(<Root />);
 });
