@@ -1,14 +1,12 @@
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core';
 import Gos from 'api/gos';
 import GoForm from 'components/GoForm';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback} from 'react';
 
-export const formName = 'create-go-form';
+import FormDialog from '../FormDialog/FormDialog';
 
-const CreateGoDialog = ({className, hideModal, ...other}) => {
-	const formRef = useRef();
+const CreateGoDialog = ({onClose, ...other}) => {
 	const snackbar = useSnackbar();
 	const [create] = Gos.create();
 	const onSubmit = useCallback(
@@ -18,37 +16,21 @@ const CreateGoDialog = ({className, hideModal, ...other}) => {
 				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
 				.finally(() => {
 					setSubmitting(false);
-					hideModal();
+					onClose();
 				});
 		},
-		[create, hideModal, snackbar]
+		[create, onClose, snackbar]
 	);
 
-	const handleSubmit = useCallback(() => {
-		if (formRef.current) {
-			formRef.current.submitForm();
-		}
-	}, []);
-
 	return (
-		<Dialog open fullWidth onClose={hideModal} className={className} {...other}>
-			<DialogTitle>Add a go</DialogTitle>
-			<DialogContent>
-				<GoForm onSubmit={onSubmit} innerRef={formRef} />
-			</DialogContent>
-			<DialogActions>
-				<Button onClick={hideModal}>Cancel</Button>
-				<Button color="secondary" onClick={handleSubmit}>
-					Add
-				</Button>
-			</DialogActions>
-		</Dialog>
+		<FormDialog title="Add a go" action="Add" onClose={onClose} {...other}>
+			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} />}
+		</FormDialog>
 	);
 };
 
 CreateGoDialog.propTypes = {
-	className: PropTypes.string,
-	hideModal: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
 };
 
 export default CreateGoDialog;

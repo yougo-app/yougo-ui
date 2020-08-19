@@ -36,8 +36,8 @@ const styles = (theme) => ({
 });
 
 const Header = ({classes, className, ...other}) => {
-	const [showModal, hideModal] = useModal(() => {
-		return <CreateGoDialog hideModal={hideModal} />;
+	const [openCreateDialog, closeCreateDialog] = useModal(() => {
+		return <CreateGoDialog onClose={closeCreateDialog} />;
 	});
 
 	return (
@@ -55,7 +55,7 @@ const Header = ({classes, className, ...other}) => {
 					<IconButton
 						color="inherit"
 						onClick={() => {
-							showModal();
+							openCreateDialog();
 						}}
 					>
 						<AddIcon />

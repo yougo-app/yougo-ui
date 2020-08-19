@@ -3,17 +3,17 @@ import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {goPropType, goSchema} from 'util/types';
+import {goPropType, goSchema, ref} from 'util/types';
 
-const initialValues = {
+const defaultInitialValues = {
 	go: '',
 	href: '',
 };
 
-const GoForm = ({className, onSubmit, presetValues, innerRef, ...other}) => {
+const GoForm = ({className, onSubmit, initialValues, innerRef, ...other}) => {
 	return (
 		<Formik
-			initialValues={presetValues || initialValues}
+			initialValues={initialValues || defaultInitialValues}
 			validationSchema={goSchema}
 			onSubmit={onSubmit}
 			innerRef={innerRef}
@@ -44,8 +44,8 @@ const GoForm = ({className, onSubmit, presetValues, innerRef, ...other}) => {
 
 GoForm.propTypes = {
 	className: PropTypes.string,
-	presetValues: goPropType,
-	innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({current: PropTypes.any})]),
+	initialValues: goPropType,
+	innerRef: ref.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };
 
