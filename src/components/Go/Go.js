@@ -20,9 +20,8 @@ const styles = (theme) => ({
 	},
 });
 
-// todo: https://material.io/guidelines/components/lists.html#lists-usage
 const Go = ({classes, className, go, ...other}) => {
-	const popupState = usePopupState({variant: 'popover', popupId: `go-menu-${go.id}`});
+	const popupState = usePopupState({variant: 'popover'});
 
 	return (
 		<ListItem button className={classNames(classes.root, className)} {...other}>
