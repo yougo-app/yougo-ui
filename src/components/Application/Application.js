@@ -1,13 +1,14 @@
-import Body from 'components/Body';
-import Header from 'components/Header';
+import PageLayout from 'components/PageLayout';
+import Providers from 'components/Providers';
+import {GosPage} from 'pages';
 import React from 'react';
 
-const Application = () => {
-	return (
-		<div className="layout">
-			<Header className="header" />
-			<Body className="content" />
-		</div>
-	);
-};
+const Application = () => (
+	<Providers>
+		<PageLayout>
+			<GosPage />
+		</PageLayout>
+	</Providers>
+);
+
 export default Application;

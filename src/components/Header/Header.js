@@ -1,19 +1,17 @@
 import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
-import CreateGoDialog from 'components/CreateGoDialog';
 import SearchBar from 'components/SearchBar';
+import {useCreateGoDialog} from 'hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {useModal} from 'react-modal-hook';
 
 import useStyles from './useStyles';
 
 const Header = ({className, ...other}) => {
 	const classes = useStyles();
-	const [openCreateDialog, closeCreateDialog] = useModal(() => {
-		return <CreateGoDialog onClose={closeCreateDialog} />;
-	});
+	const [openCreateDialog] = useCreateGoDialog();
 
 	return (
 		<AppBar className={classNames(classes.root, className)} position="static" {...other}>
@@ -23,9 +21,9 @@ const Header = ({className, ...other}) => {
 						Yougo
 					</Typography>
 				</div>
-				<div className={classes.center}>
+				<Container fixed>
 					<SearchBar className={classes.searchbar} cancelOnEscape />
-				</div>
+				</Container>
 				<div className={classes.right}>
 					<IconButton
 						color="inherit"

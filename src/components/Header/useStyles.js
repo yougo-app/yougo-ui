@@ -8,12 +8,6 @@ const useStyles = makeStyles((theme) => ({
 	left: {
 		flex: '1',
 	},
-	center: {
-		display: 'flex',
-		flex: '1',
-		maxWidth: theme.content.maxWidth,
-		justifyContent: 'center',
-	},
 	right: {
 		flex: '1',
 		textAlign: 'end',
