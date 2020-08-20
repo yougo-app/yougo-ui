@@ -15,7 +15,7 @@ export const SearchProvider = ({children}) => {
 };
 
 SearchProvider.propTypes = {
-	children: PropTypes.node,
+	children: PropTypes.node.isRequired,
 };
 
 export function useSearchContext() {

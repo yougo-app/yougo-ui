@@ -1,7 +1,6 @@
+import Application from 'components/Application';
+import Providers from 'components/Providers';
 import React from 'react';
-
-import Application from './Application';
-import Providers from './Providers';
 
 const Root = () => (
 	<Providers>

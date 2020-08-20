@@ -5,7 +5,6 @@ import {
 	ListItemText,
 	Typography,
 } from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 import GoMenu from 'components/GoMenu';
@@ -14,24 +13,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {goPropType} from 'util/types';
 
-const styles = (theme) => ({
-	href: {
-		fontSize: theme.typography.pxToRem(13),
-	},
-});
+import useStyles from './useStyles';
 
-const Go = ({classes, className, go, ...other}) => {
+const Go = ({className, go, ...other}) => {
+	const classes = useStyles();
 	const popupState = usePopupState({variant: 'popover'});
 
 	return (
 		<ListItem button className={classNames(classes.root, className)} {...other}>
 			<ListItemText
 				disableTypography
-				primary={
-					<Typography variant="subtitle1" className={classes.go}>
-						{go.go}
-					</Typography>
-				}
+				primary={<Typography variant="subtitle1">{go.go}</Typography>}
 				secondary={
 					<Typography color="textSecondary" className={classes.href} noWrap>
 						{go.href}
@@ -39,7 +31,7 @@ const Go = ({classes, className, go, ...other}) => {
 				}
 			/>
 			<ListItemSecondaryAction>
-				<IconButton className={classes.menuButton} {...bindTrigger(popupState)}>
+				<IconButton {...bindTrigger(popupState)}>
 					<MoreVertIcon />
 				</IconButton>
 				<GoMenu go={go} {...bindMenu(popupState)} />
@@ -49,9 +41,12 @@ const Go = ({classes, className, go, ...other}) => {
 };
 
 Go.propTypes = {
-	go: goPropType.isRequired,
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
+	go: goPropType.isRequired,
 };
 
-export default withStyles(styles)(Go);
+Go.defaultProps = {
+	className: undefined,
+};
+
+export default Go;

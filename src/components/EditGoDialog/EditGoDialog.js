@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
-const EditGoDialog = ({go, onClose, ...other}) => {
+const EditGoDialog = ({className, go, onClose, ...other}) => {
 	const snackbar = useSnackbar();
 	const [edit] = Gos.edit();
 	const onSubmit = useCallback(
@@ -31,8 +31,13 @@ const EditGoDialog = ({go, onClose, ...other}) => {
 };
 
 EditGoDialog.propTypes = {
-	go: goPropType,
+	className: PropTypes.string,
+	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
+};
+
+EditGoDialog.defaultProps = {
+	className: undefined,
 };
 
 export default EditGoDialog;
