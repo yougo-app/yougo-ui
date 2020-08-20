@@ -1,8 +1,8 @@
 import {render} from '@testing-library/react';
 import React from 'react';
 
-import Root from './Root';
+import Application from './Application';
 
 test('renders without crashing', () => {
-	render(<Root />);
+	render(<Application />);
 });

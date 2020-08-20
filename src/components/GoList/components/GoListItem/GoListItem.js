@@ -15,7 +15,7 @@ import {goPropType} from 'util/types';
 
 import useStyles from './useStyles';
 
-const Go = ({className, go, ...other}) => {
+const GoListItem = ({className, go, ...other}) => {
 	const classes = useStyles();
 	const popupState = usePopupState({variant: 'popover'});
 
@@ -40,13 +40,13 @@ const Go = ({className, go, ...other}) => {
 	);
 };
 
-Go.propTypes = {
+GoListItem.propTypes = {
 	className: PropTypes.string,
 	go: goPropType.isRequired,
 };
 
-Go.defaultProps = {
+GoListItem.defaultProps = {
 	className: undefined,
 };
 
-export default Go;
+export default GoListItem;

@@ -8,9 +8,6 @@ export default createMuiTheme({
 		},
 		secondary: lightBlue,
 	},
-	content: {
-		maxWidth: 800,
-	},
 	props: {
 		MuiSnackbar: {
 			autoHideDuration: 4000,
