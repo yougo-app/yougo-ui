@@ -1,5 +1,4 @@
 import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
 import CreateGoDialog from 'components/CreateGoDialog';
@@ -8,34 +7,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useModal} from 'react-modal-hook';
 
-const styles = (theme) => ({
-	root: {
-		flexGrow: 1,
-		backgroundColor: theme.palette.primary.dark,
-	},
-	left: {
-		flex: '1',
-	},
-	center: {
-		display: 'flex',
-		flex: '1',
-		maxWidth: theme.content.maxWidth,
-		justifyContent: 'center',
-	},
-	right: {
-		flex: '1',
-		textAlign: 'end',
-	},
-	avatar: {
-		backgroundColor: theme.palette.secondary.main,
-		color: theme.palette.secondary.contrastText,
-	},
-	searchbar: {
-		width: '100%',
-	},
-});
+import useStyles from './useStyles';
 
-const Header = ({classes, className, ...other}) => {
+const Header = ({className, ...other}) => {
+	const classes = useStyles();
 	const [openCreateDialog, closeCreateDialog] = useModal(() => {
 		return <CreateGoDialog onClose={closeCreateDialog} />;
 	});
@@ -67,8 +42,11 @@ const Header = ({classes, className, ...other}) => {
 };
 
 Header.propTypes = {
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 };
 
-export default withStyles(styles)(Header);
+Header.defaultProps = {
+	className: undefined,
+};
+
+export default Header;

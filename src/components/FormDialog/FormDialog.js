@@ -40,8 +40,8 @@ FormDialog.propTypes = {
 };
 
 FormDialog.defaultProps = {
-	className: '',
 	action: 'Submit',
+	className: undefined,
 	title: undefined,
 };
 

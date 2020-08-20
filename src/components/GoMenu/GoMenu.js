@@ -1,5 +1,4 @@
 import {ListItemIcon, ListItemText, Menu, MenuItem} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
@@ -9,15 +8,10 @@ import React from 'react';
 import {goPropType} from 'util/types';
 
 import useGoMenu from './useGoMenu';
+import useStyles from './useStyles';
 
-const styles = () => ({
-	root: {},
-	text: {
-		paddingLeft: 0,
-	},
-});
-
-const GoMenu = ({classes, className, go, onClose, ...other}) => {
+const GoMenu = ({className, go, onClose, ...other}) => {
+	const classes = useStyles();
 	const [onEdit, onCopy, onDelete] = useGoMenu(go, onClose);
 	return (
 		<Menu
@@ -51,10 +45,13 @@ const GoMenu = ({classes, className, go, onClose, ...other}) => {
 };
 
 GoMenu.propTypes = {
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(GoMenu);
+GoMenu.defaultProps = {
+	className: undefined,
+};
+
+export default GoMenu;

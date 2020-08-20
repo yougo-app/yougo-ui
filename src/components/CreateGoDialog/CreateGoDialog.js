@@ -1,12 +1,11 @@
 import Gos from 'api/gos';
+import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
-import FormDialog from '../FormDialog/FormDialog';
-
-const CreateGoDialog = ({onClose, ...other}) => {
+const CreateGoDialog = ({className, onClose, ...other}) => {
 	const snackbar = useSnackbar();
 	const [create] = Gos.create();
 	const onSubmit = useCallback(
@@ -23,14 +22,19 @@ const CreateGoDialog = ({onClose, ...other}) => {
 	);
 
 	return (
-		<FormDialog title="Add a go" action="Add" onClose={onClose} {...other}>
+		<FormDialog className={className} title="Add a go" action="Add" onClose={onClose} {...other}>
 			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} />}
 		</FormDialog>
 	);
 };
 
 CreateGoDialog.propTypes = {
+	className: PropTypes.string,
 	onClose: PropTypes.func.isRequired,
+};
+
+CreateGoDialog.defaultProps = {
+	className: undefined,
 };
 
 export default CreateGoDialog;

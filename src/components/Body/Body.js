@@ -1,4 +1,3 @@
-import {withStyles} from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import GosAPI from 'api/gos';
 import classNames from 'classnames';
@@ -9,17 +8,10 @@ import {useSearchContext} from 'context/SearchContext';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const styles = (theme) => ({
-	root: {
-		padding: theme.spacing(3),
-	},
-	gos: {
-		marginLeft: 'auto',
-		marginRight: 'auto',
-		maxWidth: theme.content.maxWidth,
-	},
-});
-const Body = ({classes, className, dispatch, ...other}) => {
+import useStyles from './useStyles';
+
+const Body = ({className, ...other}) => {
+	const classes = useStyles();
 	const filter = useSearchContext();
 	const {isLoading, data: gos} = GosAPI.findFiltered(filter);
 
@@ -46,9 +38,11 @@ const Body = ({classes, className, dispatch, ...other}) => {
 };
 
 Body.propTypes = {
-	classes: PropTypes.object.isRequired,
 	className: PropTypes.string,
-	dispatch: PropTypes.func,
 };
 
-export default withStyles(styles)(Body);
+Body.defaultProps = {
+	className: undefined,
+};
+
+export default Body;

@@ -19,7 +19,7 @@ const GoForm = ({className, onSubmit, initialValues, innerRef, ...other}) => {
 			innerRef={innerRef}
 			{...other}
 		>
-			<Form>
+			<Form className={className}>
 				<Field
 					component={TextField}
 					name="go"
@@ -48,6 +48,11 @@ GoForm.propTypes = {
 	initialValues: goPropType,
 	innerRef: ref.isRequired,
 	onSubmit: PropTypes.func.isRequired,
+};
+
+GoForm.defaultProps = {
+	className: undefined,
+	initialValues: undefined,
 };
 
 export default GoForm;

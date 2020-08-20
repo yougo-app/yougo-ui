@@ -11,7 +11,7 @@ import theme from 'util/theme';
 
 const Providers = ({children}) => (
 	<MuiThemeProvider theme={theme}>
-		<SnackbarProvider maxSnack={1}>
+		<SnackbarProvider>
 			<ModalProvider>
 				<ReactQueryConfigProvider config={queryConfig}>
 					<SearchProvider>
