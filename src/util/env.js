@@ -11,4 +11,3 @@ const env = (key, defaultValue = undefined, prefix = 'REACT_APP_') => {
 export const API_URL = env('API_URL', 'http://localhost:8080/v1');
 export const OIDC_AUTHORITY = env('OIDC_AUTHORITY', 'https://accounts.google.com');
 export const OIDC_CLIENT_ID = env('OIDC_CLIENT_ID');
-export const OIDC_CLIENT_SECRET = env('OIDC_CLIENT_SECRET');
