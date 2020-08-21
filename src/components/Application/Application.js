@@ -1,7 +1,7 @@
 import Authorised from 'components/Authorised';
 import PageLayout from 'components/PageLayout';
 import Providers from 'components/Providers';
-import {GosPage, Unauthorised} from 'pages';
+import {GosPage, Unauthenticated} from 'pages';
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Application = () => {
 	return (
 		<Providers>
 			<PageLayout>
-				<Authorised fallback={<Unauthorised />}>
+				<Authorised fallback={<Unauthenticated />}>
 					<Routes>
 						<Route path="/" element={<GosPage />} />
 					</Routes>

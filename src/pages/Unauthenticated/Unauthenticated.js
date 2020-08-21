@@ -3,7 +3,7 @@ import EmptyState from 'components/EmptyState';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Unauthorised = ({className, ...other}) => {
+const Unauthenticated = ({className, ...other}) => {
 	return (
 		<EmptyState className={className} {...other}>
 			<Typography variant="h1" color="textPrimary">
@@ -14,12 +14,12 @@ const Unauthorised = ({className, ...other}) => {
 	);
 };
 
-Unauthorised.propTypes = {
+Unauthenticated.propTypes = {
 	className: PropTypes.string,
 };
 
-Unauthorised.defaultProps = {
+Unauthenticated.defaultProps = {
 	className: undefined,
 };
 
-export default Unauthorised;
+export default Unauthenticated;
