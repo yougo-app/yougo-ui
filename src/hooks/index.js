@@ -1,2 +1,3 @@
 // eslint-disable-next-line import/prefer-default-export
 export {default as useCreateGoDialog} from './useCreateGoDialog';
+export {default as useUser} from './useUser';
