@@ -1,23 +1,25 @@
-import GosAPI from 'api/gos';
-import GoList from 'components/GoList';
-import LoadingState from 'components/LoadingState';
-import NoGosState from 'components/NoGosState';
-import {useSearchContext} from 'context/SearchContext';
+import {get} from 'lodash';
+import {useAuth} from 'oidc-react';
 import React from 'react';
 
 const GosPage = () => {
-	const filter = useSearchContext();
-	const {isLoading, data: gos} = GosAPI.findFiltered(filter);
+	// const filter = useSearchContext();
+	// const {isLoading, data: gos} = GosAPI.findFiltered(filter);
+	const auth = useAuth();
 
-	if (isLoading) {
-		return <LoadingState />;
-	}
+	console.log(auth);
 
-	if (gos.length === 0) {
-		return <NoGosState />;
-	}
+	return <span>{get(auth, 'userData.profile.name')}</span>;
 
-	return <GoList gos={gos} />;
+	// if (isLoading) {
+	// 	return <LoadingState />;
+	// }
+	//
+	// if (gos.length === 0) {
+	// 	return <NoGosState />;
+	// }
+	//
+	// return <GoList gos={gos} />;
 };
 
 export default GosPage;
