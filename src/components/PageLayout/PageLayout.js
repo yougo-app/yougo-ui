@@ -1,10 +1,9 @@
 import {Container} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
+import Header from 'components/Header';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import Header from '../Header';
 
 const useStyles = makeStyles((theme) => ({
 	root: {

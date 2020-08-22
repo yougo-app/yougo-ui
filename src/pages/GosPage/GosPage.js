@@ -1,4 +1,4 @@
-import GosAPI from 'api/gos';
+import Gos from 'api/gos';
 import GoList from 'components/GoList';
 import LoadingState from 'components/LoadingState';
 import NoGosState from 'components/NoGosState';
@@ -7,7 +7,7 @@ import React from 'react';
 
 const GosPage = () => {
 	const filter = useSearchContext();
-	const {isLoading, data: gos} = GosAPI.findFiltered(filter);
+	const {isLoading, data: gos} = Gos.findFiltered(filter);
 
 	if (isLoading) {
 		return <LoadingState />;

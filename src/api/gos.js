@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import axios from 'axios';
 import {queryCache, useMutation, useQuery} from 'react-query';
+import containsValue from 'util/containsValue';
 import joinURL from 'util/joinUrl';
-
-import containsValue from '../util/containsValue';
 
 const endpoints = Object.freeze({
 	gos: 'gos',

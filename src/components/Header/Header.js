@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 import classNames from 'classnames';
 import SearchBar from 'components/SearchBar';
+import UserProfileButton from 'components/UserProfileButton';
 import {useCreateGoDialog} from 'hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -33,6 +34,7 @@ const Header = ({className, ...other}) => {
 					>
 						<AddIcon />
 					</IconButton>
+					<UserProfileButton />
 				</div>
 			</Toolbar>
 		</AppBar>

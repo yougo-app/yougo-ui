@@ -1,9 +1,8 @@
 import {Typography} from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import EmptyState from 'components/EmptyState';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import EmptyState from '../EmptyState';
 
 const LoadingState = ({className, ...other}) => {
 	return (
