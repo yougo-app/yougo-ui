@@ -11,16 +11,16 @@ import Authenticated from '../Authenticated';
 import useStyles from './useStyles';
 
 const UserProfileButton = (props) => {
-	const auth = useAuth();
+	const {signOut, signIn, userData} = useAuth();
 	const classes = useStyles();
 	const popupState = usePopupState({variant: 'popover'});
 	const logout = useCallback(() => {
 		popupState.close();
-		auth.signOut();
-	}, [auth, popupState]);
+		signOut();
+	}, [popupState, signOut]);
 
 	const fallback = (
-		<Button color="inherit" onClick={auth.signIn}>
+		<Button color="inherit" onClick={signIn}>
 			<Avatar className={classes.avatar} />
 		</Button>
 	);
@@ -31,12 +31,11 @@ const UserProfileButton = (props) => {
 				<Avatar
 					className={classes.avatar}
 					imgProps={{referrerPolicy: 'no-referrer'}}
-					src={get(auth, 'userData.profile.picture.0')}
+					src={get(userData, 'profile.picture.0')}
 				/>
 				<ArrowDropDown />
 			</Button>
 			<Menu
-				className={classes.menu}
 				getContentAnchorEl={null}
 				anchorOrigin={{
 					vertical: 'bottom',

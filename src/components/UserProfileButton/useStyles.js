@@ -5,12 +5,6 @@ const useStyles = makeStyles((theme) => ({
 		width: theme.spacing(4),
 		height: theme.spacing(4),
 	},
-	menu: {
-		anchorOrigin: {
-			vertical: 'bottom',
-			horizontal: 'center',
-		},
-	},
 }));
 
 export default useStyles;
