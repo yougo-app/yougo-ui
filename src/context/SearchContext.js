@@ -6,10 +6,10 @@ const SearchContext = createContext(defaultSearchValue);
 const SetSearchContext = createContext(defaultSearchValue);
 
 export const SearchProvider = ({children}) => {
-	const [state, setState] = useState(defaultSearchValue);
+	const [searchValue, setSearchString] = useState(defaultSearchValue);
 	return (
-		<SearchContext.Provider value={state}>
-			<SetSearchContext.Provider value={setState}>{children}</SetSearchContext.Provider>
+		<SearchContext.Provider value={searchValue}>
+			<SetSearchContext.Provider value={setSearchString}>{children}</SetSearchContext.Provider>
 		</SearchContext.Provider>
 	);
 };

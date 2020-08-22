@@ -1,4 +1,4 @@
 {
-	"/v1/gos/:name": "/gos?go=:name&singular=true",
+	"/v1/go/:name": "/gos?go=:name&singular=true",
 	"/v1/*": "/$1"
 }

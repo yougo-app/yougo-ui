@@ -1,4 +1,7 @@
-import {ListItemIcon, ListItemText, Menu, MenuItem} from '@material-ui/core';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
@@ -22,23 +25,23 @@ const GoMenu = ({className, go, onClose, ...other}) => {
 			onClose={onClose}
 			{...other}
 		>
-			<MenuItem onClick={onEdit}>
-				<ListItemIcon>
-					<EditIcon fontSize="inherit" />
-				</ListItemIcon>
-				<ListItemText className={classes.text}>Edit</ListItemText>
-			</MenuItem>
 			<MenuItem onClick={onCopy}>
-				<ListItemIcon>
-					<FileCopyIcon fontSize="inherit" />
+				<ListItemIcon className={classes.icon}>
+					<FileCopyIcon fontSize="small" />
 				</ListItemIcon>
-				<ListItemText className={classes.text}>Copy URL</ListItemText>
+				<ListItemText>Copy URL</ListItemText>
+			</MenuItem>
+			<MenuItem onClick={onEdit}>
+				<ListItemIcon className={classes.icon}>
+					<EditIcon fontSize="small" />
+				</ListItemIcon>
+				<ListItemText>Update</ListItemText>
 			</MenuItem>
 			<MenuItem onClick={onDelete}>
-				<ListItemIcon>
-					<DeleteIcon fontSize="inherit" />
+				<ListItemIcon className={classes.icon}>
+					<DeleteIcon fontSize="small" />
 				</ListItemIcon>
-				<ListItemText className={classes.text}>Delete</ListItemText>
+				<ListItemText>Delete</ListItemText>
 			</MenuItem>
 		</Menu>
 	);

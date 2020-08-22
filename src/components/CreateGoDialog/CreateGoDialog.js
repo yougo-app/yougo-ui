@@ -1,16 +1,16 @@
-import Gos from 'api/gos';
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
+import useCreateGo from 'hooks/useCreateGo';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
 const CreateGoDialog = ({className, onClose, ...other}) => {
 	const snackbar = useSnackbar();
-	const [create] = Gos.create();
+	const [createGo] = useCreateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			create(values)
+			createGo(values)
 				.then(() => snackbar.showMessage(`Created ${values.go}`))
 				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
 				.finally(() => {
@@ -18,7 +18,7 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 					onClose();
 				});
 		},
-		[create, onClose, snackbar]
+		[createGo, onClose, snackbar]
 	);
 
 	return (
