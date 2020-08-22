@@ -3,8 +3,11 @@ import {object, string} from 'yup';
 
 export const goSchema = object().shape({
 	id: string(),
-	go: string().required().min(1),
-	href: string().required().url(),
+	go: string()
+		.trim()
+		.required()
+		.matches(/^[\w-]+$/, {excludeEmptyString: true, message: 'Go must not contain whitespace'}),
+	href: string().trim().required().url(),
 });
 
 export const goPropType = PropTypes.shape({
