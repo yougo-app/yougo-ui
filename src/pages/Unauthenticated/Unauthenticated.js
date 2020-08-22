@@ -3,7 +3,8 @@ import EmptyState from 'components/EmptyState';
 import {useAuth} from 'oidc-react/build/src';
 import PropTypes from 'prop-types';
 import React from 'react';
-import GoogleButton from 'react-google-button';
+// see: https://github.com/prescottprue/react-google-button/issues/28
+import GoogleButton from 'react-google-button/dist/react-google-button';
 
 const Unauthenticated = ({className, ...other}) => {
 	const {signIn} = useAuth();

@@ -1,13 +1,13 @@
 import {Avatar, Menu, MenuItem} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {ArrowDropDown} from '@material-ui/icons';
+import Authenticated from 'components/Authenticated';
 import {get} from 'lodash';
 import {bindMenu, bindTrigger} from 'material-ui-popup-state';
 import {usePopupState} from 'material-ui-popup-state/hooks';
 import {useAuth} from 'oidc-react';
 import React, {useCallback} from 'react';
 
-import Authenticated from '../Authenticated';
 import useStyles from './useStyles';
 
 const UserProfileButton = (props) => {
