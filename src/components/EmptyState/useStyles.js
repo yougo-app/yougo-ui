@@ -1,4 +1,4 @@
-import grey from '@material-ui/core/colors/grey';
+import {colors} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 		textAlign: 'center',
 		flexDirection: 'column',
-		color: grey[500],
+		color: colors.grey[500],
 		'& > *': {
 			margin: theme.spacing(1),
 		},

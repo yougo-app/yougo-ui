@@ -1,12 +1,12 @@
-import {blueGrey, lightBlue} from '@material-ui/core/colors';
+import {colors} from '@material-ui/core';
 import {createMuiTheme} from '@material-ui/core/styles';
 
 export default createMuiTheme({
 	palette: {
 		primary: {
-			main: blueGrey[700],
+			main: colors.blueGrey[700],
 		},
-		secondary: lightBlue,
+		secondary: colors.lightBlue,
 	},
 	props: {
 		MuiSnackbar: {
