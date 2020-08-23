@@ -1,6 +1,7 @@
 const goApi = Object.freeze({
+	go: '/v1/go',
 	gos: '/v1/gos',
-	go: (id) => `/v1/gos/${id}`,
+	gosById: (id) => `/v1/gos/${id}`,
 });
 
 export default goApi;
