@@ -1,21 +1,19 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import {isEmpty} from 'lodash';
 import {parse, stringify} from 'query-string';
-
-import {OIDC_AUTHORITY, OIDC_CLIENT_ID} from './env';
-import history from './history';
+import {OIDC_AUTHORITY, OIDC_AUTO_SIGNIN, OIDC_CLIENT_ID, OIDC_REDIRECT_URI} from 'util/env';
+import history from 'util/history';
 
 const authQueryParams = ['authuser', 'code', 'hd', 'consent', 'scope', 'state', 'prompt'];
 
 const authConfig = Object.freeze({
 	authority: OIDC_AUTHORITY,
 	clientId: OIDC_CLIENT_ID,
-	redirectUri: 'http://localhost:3000',
+	redirectUri: OIDC_REDIRECT_URI,
 	responseType: 'code',
 	scope: 'openid profile email',
-	autoSignIn: false,
+	autoSignIn: OIDC_AUTO_SIGNIN,
 	onSignIn: () => {
-		// remove quth query params affter consumption. IMO this should be part of the spec
+		// remove auth query params after consumption. IMO this should be part of the spec
 		const queryParams = parse(history.location.search);
 		authQueryParams.forEach((key) => delete queryParams[key]);
 		const search = isEmpty(queryParams) ? undefined : `?${stringify(queryParams)}`;

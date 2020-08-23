@@ -1,22 +1,23 @@
-import Gos from 'api/gos';
-import EditGoDialog from 'components/EditGoDialog';
+import UpdateGoDialog from 'components/UpdateGoDialog';
 import copy from 'copy-to-clipboard';
+import {useDeleteGo} from 'hooks';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import React, {useCallback} from 'react';
 import {useModal} from 'react-modal-hook';
 
 const useGoMenu = (go, closeMenu) => {
 	const snackbar = useSnackbar();
-	const [deleteGo] = Gos.delete();
+	const [deleteGo] = useDeleteGo();
 
-	const [openEditDialog, closeEditDialog] = useModal(() => {
-		return <EditGoDialog go={go} onClose={closeEditDialog} />;
-	}, [go]);
+	const [openUpdateDialog, closeUpdateDialog] = useModal(
+		() => <UpdateGoDialog go={go} onClose={closeUpdateDialog} />,
+		[go]
+	);
 
 	const onEdit = useCallback(() => {
-		openEditDialog();
+		openUpdateDialog();
 		closeMenu();
-	}, [closeMenu, openEditDialog]);
+	}, [closeMenu, openUpdateDialog]);
 
 	const onCopy = useCallback(() => {
 		if (copy(go.href)) {
