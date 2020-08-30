@@ -1,6 +1,12 @@
 import {isEmpty} from 'lodash';
 import {parse, stringify} from 'query-string';
-import {OIDC_AUTHORITY, OIDC_AUTO_SIGNIN, OIDC_CLIENT_ID, OIDC_REDIRECT_URI} from 'util/env';
+import {
+	OIDC_AUTHORITY,
+	OIDC_AUTO_SIGNIN,
+	OIDC_CLIENT_ID,
+	OIDC_CLIENT_SECRET,
+	OIDC_REDIRECT_URI,
+} from 'util/env';
 import history from 'util/history';
 
 const authQueryParams = ['authuser', 'code', 'hd', 'consent', 'scope', 'state', 'prompt'];
@@ -8,6 +14,7 @@ const authQueryParams = ['authuser', 'code', 'hd', 'consent', 'scope', 'state', 
 const authConfig = Object.freeze({
 	authority: OIDC_AUTHORITY,
 	clientId: OIDC_CLIENT_ID,
+	clientSecret: OIDC_CLIENT_SECRET,
 	redirectUri: OIDC_REDIRECT_URI,
 	responseType: 'code',
 	scope: 'openid profile email',

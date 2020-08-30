@@ -10,7 +10,7 @@ const Application = () => (
 	<Providers>
 		<PageLayout>
 			<Authenticated fallback={<Unauthenticated />}>
-				<Routes>
+				<Routes basename={process.env.PUBLIC_URL}>
 					<Route path="/" element={<GosPage />} />
 					<Route path="/go/:go" element={<GoPage />} />
 				</Routes>

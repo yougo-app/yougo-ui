@@ -5,9 +5,9 @@ import joinURL from 'util/joinUrl';
 axios.defaults.baseURL = API_URL;
 
 export const fetcher = (endpoint, segments = undefined, options = undefined) => {
-	const url = joinURL(endpoint, ...[segments].flat());
-	console.log(url);
-	return axios.get(url, options).then((response) => response.data);
+	return axios
+		.get(joinURL(endpoint, ...[segments].flat()), options)
+		.then((response) => response.data);
 };
 
 const queryConfig = Object.freeze({
