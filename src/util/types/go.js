@@ -3,7 +3,7 @@ import {object, string} from 'yup';
 
 export const goSchema = object().shape({
 	id: string(),
-	go: string()
+	alias: string()
 		.trim()
 		.required()
 		.matches(/^[\w-]+$/, {excludeEmptyString: true, message: 'Go must not contain whitespace'}),
@@ -12,6 +12,6 @@ export const goSchema = object().shape({
 
 export const goPropType = PropTypes.shape({
 	id: PropTypes.string.isRequired,
-	go: PropTypes.string.isRequired,
+	alias: PropTypes.string.isRequired,
 	href: PropTypes.string.isRequired,
 });

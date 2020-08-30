@@ -12,9 +12,9 @@ const UpdateGoDialog = ({className, go, onClose, ...other}) => {
 	const [updateGo] = useUpdateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			updateGo({id: go.id, patch: diff(go, values)})
-				.then(() => snackbar.showMessage(`Updated ${values.go}`))
-				.catch(() => snackbar.showMessage(`Can't update ${values.go}`))
+			updateGo({alias: go.alias, patch: diff(go, values)})
+				.then(() => snackbar.showMessage(`Updated ${values.alias}`))
+				.catch(() => snackbar.showMessage(`Can't update ${values.alias}`))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();
@@ -24,7 +24,7 @@ const UpdateGoDialog = ({className, go, onClose, ...other}) => {
 	);
 
 	return (
-		<FormDialog title={`Update ${go.go}`} action="Update" onClose={onClose} {...other}>
+		<FormDialog title={`Update ${go.alias}`} action="Update" onClose={onClose} {...other}>
 			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} initialValues={go} />}
 		</FormDialog>
 	);

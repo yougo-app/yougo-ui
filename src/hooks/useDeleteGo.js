@@ -5,7 +5,7 @@ import goApi from 'util/goApi';
 
 export default function useDeleteGo() {
 	const config = useAuthHeader();
-	return useMutation((id) => axios.delete(goApi.gosById(id), config), {
+	return useMutation((alias) => axios.delete(goApi.gosByAlias(alias), config), {
 		onSuccess: () => {
 			queryCache.invalidateQueries(goApi.gos);
 		},

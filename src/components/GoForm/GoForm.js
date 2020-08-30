@@ -6,7 +6,7 @@ import React from 'react';
 import {goPropType, goSchema, ref} from 'util/types';
 
 const defaultInitialValues = {
-	go: '',
+	alias: '',
 	href: '',
 };
 
@@ -22,8 +22,8 @@ const GoForm = ({className, onSubmit, initialValues, innerRef, ...other}) => {
 			<Form className={className}>
 				<Field
 					component={TextField}
-					name="go"
-					label="Go shortcut"
+					name="alias"
+					label="Alias"
 					placeholder="example"
 					fullWidth
 					autoFocus
