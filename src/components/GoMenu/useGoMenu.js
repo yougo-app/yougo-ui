@@ -29,11 +29,11 @@ const useGoMenu = (go, closeMenu) => {
 	}, [closeMenu, go.href, snackbar]);
 
 	const onDelete = useCallback(() => {
-		deleteGo(go.id)
-			.then(() => snackbar.showMessage(`Deleted ${go.go}`))
-			.catch(() => snackbar.showMessage(`Can't delete ${go.go}`));
+		deleteGo(go.alias)
+			.then(() => snackbar.showMessage(`Deleted ${go.alias}`))
+			.catch(() => snackbar.showMessage(`Can't delete ${go.alias}`));
 		closeMenu();
-	}, [closeMenu, deleteGo, go.go, go.id, snackbar]);
+	}, [closeMenu, deleteGo, go.alias, snackbar]);
 
 	return [onEdit, onCopy, onDelete];
 };

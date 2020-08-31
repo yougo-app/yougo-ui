@@ -8,7 +8,7 @@ import useAuthHeader from './useAuthHeader';
 export default function useGo(go, options = undefined) {
 	const config = useAuthHeader();
 	return useQuery(
-		[goApi.go, go],
+		[goApi.gos, go],
 		(path, id) => axios.get(joinURL(path, id), config).then((response) => response.data),
 		options
 	);

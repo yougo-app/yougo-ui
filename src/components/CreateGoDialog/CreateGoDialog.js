@@ -11,8 +11,8 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
 			createGo(values)
-				.then(() => snackbar.showMessage(`Created ${values.go}`))
-				.catch(() => snackbar.showMessage(`Can't create ${values.go}`))
+				.then(() => snackbar.showMessage(`Created ${values.alias}`))
+				.catch(() => snackbar.showMessage(`Can't create ${values.alias}`))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();

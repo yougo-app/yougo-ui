@@ -23,7 +23,7 @@ const GoListItem = ({className, go, ...other}) => {
 		<ListItem button className={classNames(classes.root, className)} {...other}>
 			<ListItemText
 				disableTypography
-				primary={<Typography variant="subtitle1">{go.go}</Typography>}
+				primary={<Typography variant="subtitle1">{go.alias}</Typography>}
 				secondary={
 					<Typography color="textSecondary" className={classes.href} noWrap>
 						{go.href}

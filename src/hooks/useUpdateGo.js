@@ -5,7 +5,7 @@ import goApi from 'util/goApi';
 
 export default function useUpdateGo() {
 	const config = useAuthHeader();
-	return useMutation(({id, patch}) => axios.patch(goApi.gosById(id), patch, config), {
+	return useMutation(({alias, patch}) => axios.patch(goApi.gosByAlias(alias), patch, config), {
 		onSuccess: () => {
 			queryCache.invalidateQueries(goApi.gos);
 		},
