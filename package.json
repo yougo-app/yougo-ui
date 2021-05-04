@@ -36,7 +36,6 @@
 		"material-ui-search-bar": "^1.0.0",
 		"material-ui-snackbar-provider": "^1.4.0",
 		"object-diff": "^0.0.4",
-		"oidc-client": "^1.10.1",
 		"oidc-react": "^1.0.1",
 		"prop-types": "^15.6.0",
 		"query-string": "^6.13.1",
