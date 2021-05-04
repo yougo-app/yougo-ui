@@ -1,14 +1,14 @@
 {
 	"gos": [
 		{
-			"id": "2",
-			"go": "npm",
+			"id": "1",
+			"alias": "npm",
 			"href": "http://example.com"
 		},
 		{
-			"go": "facey",
-			"href": "http://example.com",
-			"id": "QZe~PnK"
+			"id": "2",
+			"alias": "facey",
+			"href": "http://example.com"
 		}
 	]
 }
