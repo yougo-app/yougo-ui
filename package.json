@@ -25,7 +25,6 @@
 		"@material-ui/icons": "^4.0.0",
 		"@material-ui/styles": "^4.10.0",
 		"anylogger": "^1.0.5",
-		"anylogger-debug": "^1.0.1",
 		"axios": "^0.19.2",
 		"classnames": "^2.2.5",
 		"copy-to-clipboard": "^3.0.8",
