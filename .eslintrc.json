@@ -12,7 +12,8 @@
 		"import/no-anonymous-default-export": "error",
 		"react/jsx-filename-extension": ["warn", {"extensions": [".js", ".jsx"]}],
 		"react/jsx-props-no-spreading": "off",
-		"simple-import-sort/sort": "error",
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": "error",
 		"sort-imports": "off",
 		"no-restricted-imports": [
 			"error",
