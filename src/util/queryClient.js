@@ -1,8 +1,5 @@
-import axios from 'axios';
 import {QueryClient} from 'react-query';
-import {API_URL, CACHE_STALE_TIME} from 'util/env';
-
-axios.defaults.baseURL = API_URL;
+import {CACHE_STALE_TIME} from 'util/env';
 
 const queryClient = new QueryClient({
 	queries: {

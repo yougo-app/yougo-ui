@@ -10,8 +10,7 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 	const {mutateAsync: createGo} = useCreateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			createGo
-				.mutateAsync(values)
+			createGo(values)
 				.then(() => snackbar.showMessage(`Created ${values.alias}`))
 				.catch(() => snackbar.showMessage(`Can't create ${values.alias}`))
 				.finally(() => {

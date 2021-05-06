@@ -33,7 +33,7 @@ const useGoMenu = (go, closeMenu) => {
 			.then(() => snackbar.showMessage(`Deleted ${go.alias}`))
 			.catch(() => snackbar.showMessage(`Can't delete ${go.alias}`));
 		closeMenu();
-	}, [closeMenu, deleteGo, go.alias, snackbar]);
+	}, [closeMenu, deleteGo, go, snackbar]);
 
 	return [onEdit, onCopy, onDelete];
 };

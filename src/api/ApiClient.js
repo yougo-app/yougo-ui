@@ -14,22 +14,22 @@ export default class ApiClient {
 	}
 
 	getGoByAlias(alias) {
-		return axios.get(`/go/${alias}`).then((response) => response.data);
+		return this.axios.get(`/go/${alias}`).then((response) => response.data);
 	}
 
 	listGos() {
-		return axios.get('/gos').then((response) => response.data);
+		return this.axios.get('/gos').then((response) => response.data);
 	}
 
 	createGo(go) {
-		return axios.post('/gos', go).then((response) => response.data);
+		return this.axios.post('/gos', go).then((response) => response.data);
 	}
 
 	patchGo(id, patch) {
-		return axios.patch(`/gos/${id}`, patch).then((response) => response.data);
+		return this.axios.patch(`/gos/${id}`, patch).then((response) => response.data);
 	}
 
 	deleteGo(id) {
-		return axios.delete(`/gos/${id}`).then((response) => response.data);
+		return this.axios.delete(`/gos/${id}`).then((response) => response.data);
 	}
 }
