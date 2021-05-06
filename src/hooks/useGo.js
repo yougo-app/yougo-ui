@@ -1,15 +1,8 @@
-import axios from 'axios';
+import useApiClient from 'hooks/useApiClient';
 import {useQuery} from 'react-query';
-import goApi from 'util/goApi';
-import joinURL from 'util/joinUrl';
+import {GO_QUERY_KEY} from 'util/constants';
 
-import useAuthHeader from './useAuthHeader';
-
-export default function useGo(go, options = undefined) {
-	const config = useAuthHeader();
-	return useQuery(
-		[goApi.gos, go],
-		() => axios.get(joinURL(goApi.gos, go), config).then((response) => response.data),
-		options
-	);
+export default function useGo(alias, options) {
+	const apiClient = useApiClient();
+	return useQuery([GO_QUERY_KEY, alias], () => apiClient.getGoByAlias(alias), options);
 }

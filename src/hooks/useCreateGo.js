@@ -1,15 +1,13 @@
-import axios from 'axios';
+import useApiClient from 'hooks/useApiClient';
 import {useMutation, useQueryClient} from 'react-query';
-import goApi from 'util/goApi';
-
-import useAuthHeader from './useAuthHeader';
+import {GOS_QUERY_KEY} from 'util/constants';
 
 export default function useCreateGo() {
-	const config = useAuthHeader();
+	const apiClient = useApiClient();
 	const queryClient = useQueryClient();
-	return useMutation((go) => axios.post(goApi.gos, go, config), {
+	return useMutation((go) => apiClient.createGo(go), {
 		onSuccess: () => {
-			queryClient.invalidateQueries(goApi.gos);
+			queryClient.invalidateQueries([GOS_QUERY_KEY]);
 		},
 	});
 }

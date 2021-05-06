@@ -1,14 +1,14 @@
-import axios from 'axios';
-import useAuthHeader from 'hooks/useAuthHeader';
+import useApiClient from 'hooks/useApiClient';
 import {useMutation, useQueryClient} from 'react-query';
-import goApi from 'util/goApi';
+import {GO_QUERY_KEY, GOS_QUERY_KEY} from 'util/constants';
 
 export default function useDeleteGo() {
-	const config = useAuthHeader();
+	const apiClient = useApiClient();
 	const queryClient = useQueryClient();
-	return useMutation((go) => axios.delete(goApi.gosByAlias(go.id), config), {
-		onSuccess: () => {
-			queryClient.invalidateQueries(goApi.gos);
+	return useMutation(({id}) => apiClient.deleteGo(id), {
+		onSuccess: (_, {alias}) => {
+			queryClient.invalidateQueries([GOS_QUERY_KEY]);
+			queryClient.removeQueries([GO_QUERY_KEY, alias]);
 		},
 	});
 }

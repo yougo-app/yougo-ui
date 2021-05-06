@@ -1,10 +1,8 @@
-import axios from 'axios';
+import useApiClient from 'hooks/useApiClient';
 import {useQuery} from 'react-query';
-import goApi from 'util/goApi';
-
-import useAuthHeader from './useAuthHeader';
+import {GOS_QUERY_KEY} from 'util/constants';
 
 export default function useGos() {
-	const config = useAuthHeader();
-	return useQuery(goApi.gos, () => axios.get(goApi.gos, config).then((response) => response.data));
+	const client = useApiClient();
+	return useQuery([GOS_QUERY_KEY], () => client.listGos());
 }
