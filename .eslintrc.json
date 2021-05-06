@@ -1,5 +1,5 @@
 {
-	"extends": ["react-app", "airbnb", "prettier", "prettier/react"],
+	"extends": ["react-app", "airbnb", "prettier"],
 	"plugins": ["simple-import-sort"],
 	"settings": {
 		"import/resolver": {
