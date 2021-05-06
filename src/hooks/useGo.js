@@ -9,7 +9,7 @@ export default function useGo(go, options = undefined) {
 	const config = useAuthHeader();
 	return useQuery(
 		[goApi.gos, go],
-		(path, id) => axios.get(joinURL(path, id), config).then((response) => response.data),
+		() => axios.get(joinURL(goApi.gos, go), config).then((response) => response.data),
 		options
 	);
 }

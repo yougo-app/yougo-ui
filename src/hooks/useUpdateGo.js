@@ -1,13 +1,19 @@
 import axios from 'axios';
 import useAuthHeader from 'hooks/useAuthHeader';
-import {queryCache, useMutation} from 'react-query';
+import diff from 'object-diff';
+import {useMutation, useQueryClient} from 'react-query';
 import goApi from 'util/goApi';
 
 export default function useUpdateGo() {
 	const config = useAuthHeader();
-	return useMutation(({alias, patch}) => axios.patch(goApi.gosByAlias(alias), patch, config), {
-		onSuccess: () => {
-			queryCache.invalidateQueries(goApi.gos);
-		},
-	});
+	const queryClient = useQueryClient();
+	return useMutation(
+		({current, updated}) =>
+			axios.patch(goApi.gosByAlias(current.id), diff(current, updated), config),
+		{
+			onSuccess: () => {
+				queryClient.invalidateQueries(goApi.gos);
+			},
+		}
+	);
 }

@@ -9,10 +9,10 @@ import {goPropType} from 'util/types';
 
 const UpdateGoDialog = ({className, go, onClose, ...other}) => {
 	const snackbar = useSnackbar();
-	const [updateGo] = useUpdateGo();
+	const {mutateAsync: updateGo} = useUpdateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			updateGo({alias: go.alias, patch: diff(go, values)})
+			updateGo({current: go, updated: diff(go, values)})
 				.then(() => snackbar.showMessage(`Updated ${values.alias}`))
 				.catch(() => snackbar.showMessage(`Can't update ${values.alias}`))
 				.finally(() => {

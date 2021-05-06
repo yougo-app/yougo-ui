@@ -6,5 +6,5 @@ import useAuthHeader from './useAuthHeader';
 
 export default function useGos() {
 	const config = useAuthHeader();
-	return useQuery(goApi.gos, (path) => axios.get(path, config).then((response) => response.data));
+	return useQuery(goApi.gos, () => axios.get(goApi.gos, config).then((response) => response.data));
 }

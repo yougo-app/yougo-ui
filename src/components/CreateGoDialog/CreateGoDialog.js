@@ -7,10 +7,11 @@ import React, {useCallback} from 'react';
 
 const CreateGoDialog = ({className, onClose, ...other}) => {
 	const snackbar = useSnackbar();
-	const [createGo] = useCreateGo();
+	const {mutateAsync: createGo} = useCreateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			createGo(values)
+			createGo
+				.mutateAsync(values)
 				.then(() => snackbar.showMessage(`Created ${values.alias}`))
 				.catch(() => snackbar.showMessage(`Can't create ${values.alias}`))
 				.finally(() => {

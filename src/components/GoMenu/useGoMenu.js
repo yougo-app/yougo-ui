@@ -7,7 +7,7 @@ import {useModal} from 'react-modal-hook';
 
 const useGoMenu = (go, closeMenu) => {
 	const snackbar = useSnackbar();
-	const [deleteGo] = useDeleteGo();
+	const {mutateAsync: deleteGo} = useDeleteGo();
 
 	const [openUpdateDialog, closeUpdateDialog] = useModal(
 		() => <UpdateGoDialog go={go} onClose={closeUpdateDialog} />,
@@ -29,7 +29,7 @@ const useGoMenu = (go, closeMenu) => {
 	}, [closeMenu, go.href, snackbar]);
 
 	const onDelete = useCallback(() => {
-		deleteGo(go.alias)
+		deleteGo(go)
 			.then(() => snackbar.showMessage(`Deleted ${go.alias}`))
 			.catch(() => snackbar.showMessage(`Can't delete ${go.alias}`));
 		closeMenu();
