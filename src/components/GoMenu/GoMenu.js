@@ -25,17 +25,17 @@ const GoMenu = ({className, go, onClose, ...other}) => {
 			onClose={onClose}
 			{...other}
 		>
+			<MenuItem onClick={onEdit}>
+				<ListItemIcon className={classes.icon}>
+					<EditIcon fontSize="small" />
+				</ListItemIcon>
+				<ListItemText>Edit</ListItemText>
+			</MenuItem>
 			<MenuItem onClick={onCopy}>
 				<ListItemIcon className={classes.icon}>
 					<FileCopyIcon fontSize="small" />
 				</ListItemIcon>
 				<ListItemText>Copy URL</ListItemText>
-			</MenuItem>
-			<MenuItem onClick={onEdit}>
-				<ListItemIcon className={classes.icon}>
-					<EditIcon fontSize="small" />
-				</ListItemIcon>
-				<ListItemText>Update</ListItemText>
 			</MenuItem>
 			<MenuItem onClick={onDelete}>
 				<ListItemIcon className={classes.icon}>

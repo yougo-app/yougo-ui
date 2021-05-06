@@ -1,4 +1,4 @@
-import UpdateGoDialog from 'components/UpdateGoDialog';
+import EditGoDialog from 'components/EditGoDialog';
 import copy from 'copy-to-clipboard';
 import {useDeleteGo} from 'hooks';
 import {useSnackbar} from 'material-ui-snackbar-provider';
@@ -9,15 +9,15 @@ const useGoMenu = (go, closeMenu) => {
 	const snackbar = useSnackbar();
 	const {mutateAsync: deleteGo} = useDeleteGo();
 
-	const [openUpdateDialog, closeUpdateDialog] = useModal(
-		() => <UpdateGoDialog go={go} onClose={closeUpdateDialog} />,
+	const [openEditDialog, closeEditDialog] = useModal(
+		() => <EditGoDialog go={go} onClose={closeEditDialog} />,
 		[go]
 	);
 
 	const onEdit = useCallback(() => {
-		openUpdateDialog();
+		openEditDialog();
 		closeMenu();
-	}, [closeMenu, openUpdateDialog]);
+	}, [closeMenu, openEditDialog]);
 
 	const onCopy = useCallback(() => {
 		if (copy(go.href)) {

@@ -3,7 +3,7 @@ import diff from 'object-diff';
 import {useMutation, useQueryClient} from 'react-query';
 import {GO_QUERY_KEY, GOS_QUERY_KEY} from 'util/constants';
 
-export default function useUpdateGo() {
+export default function useEditGo() {
 	const apiClient = useApiClient();
 	const queryClient = useQueryClient();
 	return useMutation(

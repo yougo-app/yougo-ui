@@ -1,43 +1,43 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
-import {useUpdateGo} from 'hooks';
+import {useEditGo} from 'hooks';
 import {useSnackbar} from 'material-ui-snackbar-provider';
 import diff from 'object-diff';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
-const UpdateGoDialog = ({className, go, onClose, ...other}) => {
+const EditGoDialog = ({className, go, onClose, ...other}) => {
 	const snackbar = useSnackbar();
-	const {mutateAsync: updateGo} = useUpdateGo();
+	const {mutateAsync: editGo} = useEditGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
-			updateGo({current: go, updated: diff(go, values)})
-				.then(() => snackbar.showMessage(`Updated ${values.alias}`))
-				.catch(() => snackbar.showMessage(`Can't update ${values.alias}`))
+			editGo({current: go, updated: diff(go, values)})
+				.then(() => snackbar.showMessage(`Edited ${values.alias}`))
+				.catch(() => snackbar.showMessage(`Can't edit ${values.alias}`))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();
 				});
 		},
-		[go, onClose, snackbar, updateGo]
+		[go, onClose, snackbar, editGo]
 	);
 
 	return (
-		<FormDialog title={`Update ${go.alias}`} action="Update" onClose={onClose} {...other}>
+		<FormDialog title={`Edit ${go.alias}`} action="Edit" onClose={onClose} {...other}>
 			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} initialValues={go} />}
 		</FormDialog>
 	);
 };
 
-UpdateGoDialog.propTypes = {
+EditGoDialog.propTypes = {
 	className: PropTypes.string,
 	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
 };
 
-UpdateGoDialog.defaultProps = {
+EditGoDialog.defaultProps = {
 	className: undefined,
 };
 
-export default UpdateGoDialog;
+export default EditGoDialog;
