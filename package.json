@@ -2,7 +2,6 @@
 	"private": true,
 	"name": "yougo-ui",
 	"version": "0.1.0",
-	"homepage": ".",
 	"scripts": {
 		"preapi": "cp api/db.json api/live.json",
 		"api": "json-server -r api/routes.json -m api/middleware/singular.js -p 8080 api/live.json",

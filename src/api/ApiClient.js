@@ -13,8 +13,8 @@ export default class ApiClient {
 		});
 	}
 
-	getGoByAlias(alias) {
-		return this.axios.get(`/go/${alias}`).then((response) => response.data);
+	findGoByIdOrAlias(idOrAlias) {
+		return this.axios.get(`/gos/${idOrAlias}`).then((response) => response.data);
 	}
 
 	listGos() {
