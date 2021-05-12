@@ -1,37 +1,37 @@
+import {useAuth0} from '@auth0/auth0-react';
 import {Avatar, Menu, MenuItem} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {ArrowDropDown} from '@material-ui/icons';
-import Authenticated from 'components/Authenticated';
-import {get} from 'lodash';
 import {bindMenu, bindTrigger} from 'material-ui-popup-state';
 import {usePopupState} from 'material-ui-popup-state/hooks';
-import {useAuth} from 'oidc-react';
 import React, {useCallback} from 'react';
 
 import useStyles from './useStyles';
 
 const UserProfileButton = (props) => {
-	const {signOut, signIn, userData} = useAuth();
+	const {user, logout, loginWithRedirect, isAuthenticated} = useAuth0();
 	const classes = useStyles();
 	const popupState = usePopupState({variant: 'popover'});
-	const logout = useCallback(() => {
+	const doLogout = useCallback(() => {
 		popupState.close();
-		signOut();
-	}, [popupState, signOut]);
+		logout();
+	}, [popupState, logout]);
 
-	const fallback = (
-		<Button color="inherit" onClick={signIn}>
-			<Avatar className={classes.avatar} />
-		</Button>
-	);
+	if (!isAuthenticated) {
+		return (
+			<Button color="inherit" onClick={loginWithRedirect}>
+				<Avatar className={classes.avatar} />
+			</Button>
+		);
+	}
 
 	return (
-		<Authenticated fallback={fallback}>
+		<>
 			<Button color="inherit" {...bindTrigger(popupState)} {...props}>
 				<Avatar
 					className={classes.avatar}
 					imgProps={{referrerPolicy: 'no-referrer'}}
-					src={get(userData, 'profile.picture.0')}
+					src={user.picture}
 				/>
 				<ArrowDropDown />
 			</Button>
@@ -49,10 +49,9 @@ const UserProfileButton = (props) => {
 			>
 				<MenuItem onClick={popupState.close}>Profile</MenuItem>
 				<MenuItem onClick={popupState.close}>My account</MenuItem>
-				<MenuItem onClick={logout}>Logout</MenuItem>
+				<MenuItem onClick={doLogout}>Logout</MenuItem>
 			</Menu>
-		</Authenticated>
+		</>
 	);
 };
-
 export default UserProfileButton;

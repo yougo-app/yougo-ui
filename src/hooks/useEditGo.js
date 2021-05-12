@@ -4,10 +4,11 @@ import {useMutation, useQueryClient} from 'react-query';
 import {GO_QUERY_KEY, GOS_QUERY_KEY} from 'util/constants';
 
 export default function useEditGo() {
-	const apiClient = useApiClient();
+	const clientAsync = useApiClient();
 	const queryClient = useQueryClient();
 	return useMutation(
-		({current, updated}) => apiClient.patchGo(current.id, diff(current, updated)),
+		({current, updated}) =>
+			clientAsync.then((api) => api.patchGo(current.id, diff(current, updated))),
 		{
 			onSuccess: (_, {alias}) => {
 				queryClient.invalidateQueries([GOS_QUERY_KEY]);

@@ -1,8 +1,10 @@
-import {isEmpty} from 'lodash';
-import {useAuth} from 'oidc-react';
+import {useAuth0} from '@auth0/auth0-react';
 import PropTypes from 'prop-types';
 
-const Authenticated = ({fallback, children}) => (isEmpty(useAuth().userData) ? fallback : children);
+const Authenticated = ({fallback, children}) => {
+	const {isAuthenticated} = useAuth0();
+	return isAuthenticated ? children : fallback;
+};
 
 Authenticated.propTypes = {
 	fallback: PropTypes.node,

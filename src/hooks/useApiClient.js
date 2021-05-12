@@ -1,7 +1,6 @@
 import ApiClient from 'api/ApiClient';
-import {useAuth} from 'oidc-react';
+import useAccessToken from 'hooks/useAccessToken';
 
 export default function useApiClient() {
-	const token = useAuth()?.userData?.id_token;
-	return new ApiClient({token});
+	return useAccessToken().then((token) => new ApiClient({token}));
 }
