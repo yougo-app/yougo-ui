@@ -39,8 +39,8 @@ jobs:
       - name: Formatting
         run: npm run format:check
 
-      - name: Unit tests
-        run: npm test
+  #      - name: Unit tests
+  #        run: npm test
 
   publish:
     name: Build & publish container image
@@ -53,7 +53,7 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2.5
         with:
-          image: yougo-ui
+          image: ${{ env.APP_NAME }}
           dockerfiles: Dockerfile
 
       - name: Publish Image to GitHub Packages
@@ -62,9 +62,9 @@ jobs:
         with:
           image: ${{ steps.build-image.outputs.image }}
           tags: ${{ steps.build-image.outputs.tags }}
-          registry: docker.pkg.github.com/yougo-app/yougo-ui
+          registry: ${{ env.REGISTRY_GITHUB }}
           username: ${{ github.actor }}
-          password: ${{ secrets.PUBLISH_TOKEN }}
+          password: ${{ github.token }}
 
   deploy:
     name: Deploy to GitHub Pages
@@ -90,7 +90,7 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: npm build
+        run: npm run build
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
