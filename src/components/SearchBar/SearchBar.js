@@ -1,33 +1,61 @@
-import {TextField} from '@mui/material';
-import classNames from 'classnames';
-import {defaultSearchValue, useSearch} from 'context/SearchContext';
-// import MuiSearchBar from 'material-ui-search-bar';
+import {Close, Search} from '@mui/icons-material';
+import {IconButton, InputAdornment, TextField} from '@mui/material';
+import {useSearch} from 'context/SearchContext';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
-import useStyles from './useStyles';
-
-const SearchBar = ({className}) => {
-	const classes = useStyles();
+const SearchBar = ({cancelOnEscape}) => {
 	const [value, setValue] = useSearch();
-	const onChange = useCallback((v) => setValue(v), [setValue]);
-	const onCancelSearch = useCallback(() => setValue(defaultSearchValue), [setValue]);
+	const handleChange = useCallback((e) => setValue(e.target.value), [setValue]);
+	const handleCancel = useCallback(() => setValue(''), [setValue]);
+	const handleKeyUp = useCallback(
+		(e) => {
+			if (cancelOnEscape && (e.charCode === 27 || e.key === 'Escape')) {
+				handleCancel();
+			}
+		},
+		[cancelOnEscape, handleCancel]
+	);
+
+	const searchAdornment = (
+		<InputAdornment position="start">
+			<Search />
+		</InputAdornment>
+	);
+
+	const cancelAdornment = (
+		<InputAdornment position="end">
+			<IconButton onClick={handleCancel}>
+				<Close />
+			</IconButton>
+		</InputAdornment>
+	);
+
+	const hasSearched = !!value;
+
 	return (
 		<TextField
-			className={classNames(classes.root, className)}
+			fullWidth
+			margin="dense"
 			value={value}
-			onChange={onChange}
-			onCancelSearch={onCancelSearch}
+			onChange={handleChange}
+			onKeyUp={handleKeyUp}
+			InputProps={{
+				sx: {
+					bgcolor: 'background.paper',
+				},
+				startAdornment: searchAdornment,
+				endAdornment: hasSearched ? cancelAdornment : null,
+			}}
 		/>
 	);
 };
-
 SearchBar.propTypes = {
-	className: PropTypes.string,
+	cancelOnEscape: PropTypes.bool,
 };
 
 SearchBar.defaultProps = {
-	className: undefined,
+	cancelOnEscape: true,
 };
 
 export default SearchBar;
