@@ -1,12 +1,11 @@
 import EditGoDialog from 'components/EditGoDialog';
 import copy from 'copy-to-clipboard';
 import {useDeleteGo} from 'hooks';
-import {useSnackbar} from 'material-ui-snackbar-provider';
 import React, {useCallback} from 'react';
 import {useModal} from 'react-modal-hook';
 
 const useGoMenu = (go, closeMenu) => {
-	const snackbar = useSnackbar();
+	// const snackbar = useSnackbar();
 	const {mutateAsync: deleteGo} = useDeleteGo();
 
 	const [openEditDialog, closeEditDialog] = useModal(
@@ -21,19 +20,19 @@ const useGoMenu = (go, closeMenu) => {
 
 	const onCopy = useCallback(() => {
 		if (copy(go.href)) {
-			snackbar.showMessage('URL copied');
+			console.log('success'); // snackbar.showMessage('URL copied');
 		} else {
-			snackbar.showMessage("Can't copy URL");
+			console.log('fail'); // snackbar.showMessage("Can't copy URL");
 		}
 		closeMenu();
-	}, [closeMenu, go.href, snackbar]);
+	}, [closeMenu, go.href]);
 
 	const onDelete = useCallback(() => {
 		deleteGo(go)
-			.then(() => snackbar.showMessage(`Deleted ${go.alias}`))
-			.catch(() => snackbar.showMessage(`Can't delete ${go.alias}`));
+			.then(() => console.log('success')) // snackbar.showMessage(`Deleted ${go.alias}`))
+			.catch(() => console.log('fail')); // snackbar.showMessage(`Can't delete ${go.alias}`));
 		closeMenu();
-	}, [closeMenu, deleteGo, go, snackbar]);
+	}, [closeMenu, deleteGo, go]);
 
 	return [onEdit, onCopy, onDelete];
 };

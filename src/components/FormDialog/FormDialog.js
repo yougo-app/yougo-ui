@@ -1,11 +1,4 @@
-import {
-	Button,
-	capitalize,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogTitle,
-} from '@material-ui/core';
+import {Button, capitalize, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
 import PropTypes from 'prop-types';
 import React, {useCallback, useRef} from 'react';
 

@@ -1,6 +1,7 @@
+import {TextField} from '@mui/material';
 import classNames from 'classnames';
 import {defaultSearchValue, useSearch} from 'context/SearchContext';
-import MuiSearchBar from 'material-ui-search-bar';
+// import MuiSearchBar from 'material-ui-search-bar';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
@@ -12,7 +13,7 @@ const SearchBar = ({className}) => {
 	const onChange = useCallback((v) => setValue(v), [setValue]);
 	const onCancelSearch = useCallback(() => setValue(defaultSearchValue), [setValue]);
 	return (
-		<MuiSearchBar
+		<TextField
 			className={classNames(classes.root, className)}
 			value={value}
 			onChange={onChange}

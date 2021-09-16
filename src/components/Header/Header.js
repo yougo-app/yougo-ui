@@ -1,6 +1,6 @@
-import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
-import Container from '@material-ui/core/Container';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@mui/icons-material/Add';
+import {AppBar, IconButton, Toolbar, Typography} from '@mui/material';
+import Container from '@mui/material/Container';
 import classNames from 'classnames';
 import SearchBar from 'components/SearchBar';
 import UserProfileButton from 'components/UserProfileButton';
@@ -31,6 +31,7 @@ const Header = ({className, ...other}) => {
 						onClick={() => {
 							openCreateDialog();
 						}}
+						size="large"
 					>
 						<AddIcon />
 					</IconButton>

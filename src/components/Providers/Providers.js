@@ -1,8 +1,7 @@
 import {Auth0Provider} from '@auth0/auth0-react';
-import {CssBaseline} from '@material-ui/core';
-import {MuiThemeProvider} from '@material-ui/core/styles';
+import {CssBaseline} from '@mui/material';
+import {StyledEngineProvider, ThemeProvider} from '@mui/material/styles';
 import {SearchProvider} from 'context/SearchContext';
-import {SnackbarProvider} from 'material-ui-snackbar-provider';
 import {node} from 'prop-types';
 import React from 'react';
 import {ModalProvider} from 'react-modal-hook';
@@ -13,8 +12,8 @@ import theme from 'util/theme';
 
 const Providers = ({children}) => (
 	<Auth0Provider {...authConfig}>
-		<MuiThemeProvider theme={theme}>
-			<SnackbarProvider>
+		<StyledEngineProvider injectFirst>
+			<ThemeProvider theme={theme}>
 				<QueryClientProvider client={queryClient}>
 					<ModalProvider>
 						<SearchProvider>
@@ -23,8 +22,8 @@ const Providers = ({children}) => (
 						</SearchProvider>
 					</ModalProvider>
 				</QueryClientProvider>
-			</SnackbarProvider>
-		</MuiThemeProvider>
+			</ThemeProvider>
+		</StyledEngineProvider>
 	</Auth0Provider>
 );
 

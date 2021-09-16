@@ -1,7 +1,7 @@
 import {useAuth0} from '@auth0/auth0-react';
-import {Avatar, Menu, MenuItem} from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import {ArrowDropDown} from '@material-ui/icons';
+import {ArrowDropDown} from '@mui/icons-material';
+import {Avatar, Menu, MenuItem} from '@mui/material';
+import Button from '@mui/material/Button';
 import {bindMenu, bindTrigger} from 'material-ui-popup-state';
 import {usePopupState} from 'material-ui-popup-state/hooks';
 import React, {useCallback} from 'react';

@@ -1,11 +1,11 @@
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {
 	IconButton,
 	ListItem,
 	ListItemSecondaryAction,
 	ListItemText,
 	Typography,
-} from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+} from '@mui/material';
 import classNames from 'classnames';
 import GoMenu from 'components/GoMenu';
 import {bindMenu, bindTrigger, usePopupState} from 'material-ui-popup-state/hooks';
@@ -31,7 +31,7 @@ const GoListItem = ({className, go, ...other}) => {
 				}
 			/>
 			<ListItemSecondaryAction>
-				<IconButton {...bindTrigger(popupState)}>
+				<IconButton {...bindTrigger(popupState)} size="large">
 					<MoreVertIcon />
 				</IconButton>
 				<GoMenu go={go} {...bindMenu(popupState)} />

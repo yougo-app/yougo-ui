@@ -1,4 +1,4 @@
-import {Typography} from '@material-ui/core';
+import {Typography} from '@mui/material';
 import EmptyState from 'components/EmptyState';
 import LoginButton from 'components/LoginButton';
 import PropTypes from 'prop-types';

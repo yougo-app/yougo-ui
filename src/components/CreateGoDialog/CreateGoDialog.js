@@ -1,24 +1,24 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
 import useCreateGo from 'hooks/useCreateGo';
-import {useSnackbar} from 'material-ui-snackbar-provider';
+// import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
 const CreateGoDialog = ({className, onClose, ...other}) => {
-	const snackbar = useSnackbar();
+	// const snackbar = useSnackbar();
 	const {mutateAsync: createGo} = useCreateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
 			createGo(values)
-				.then(() => snackbar.showMessage(`Created ${values.alias}`))
-				.catch(() => snackbar.showMessage(`Can't create ${values.alias}`))
+				.then(() => console.log('suzzess')) // snackbar.showMessage(`Created ${values.alias}`))
+				.catch(() => console.log('fail')) // snackbar.showMessage(`Can't create ${values.alias}`))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();
 				});
 		},
-		[createGo, onClose, snackbar]
+		[createGo, onClose]
 	);
 
 	return (
