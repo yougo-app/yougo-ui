@@ -30,7 +30,6 @@
 		"@mui/styles": "^5.0.0",
 		"anylogger": "^1.0.5",
 		"axios": "^0.21.4",
-		"classnames": "^2.2.5",
 		"copy-to-clipboard": "^3.0.8",
 		"formik": "^2.2.9",
 		"history": "^5.0.1",

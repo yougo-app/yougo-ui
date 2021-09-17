@@ -6,11 +6,11 @@ import {goPropType} from 'util/types';
 
 import {GoListItem} from './components';
 
-const GoList = ({className, gos, ...other}) =>
+const GoList = ({gos, ...props}) =>
 	gos.length === 0 ? (
 		<NoGosState />
 	) : (
-		<Paper className={className} {...other}>
+		<Paper {...props}>
 			<List dense>
 				{gos.map((go) => (
 					<GoListItem key={go.id} go={go} />
@@ -20,12 +20,10 @@ const GoList = ({className, gos, ...other}) =>
 	);
 
 GoList.propTypes = {
-	className: PropTypes.string,
 	gos: PropTypes.arrayOf(goPropType),
 };
 
 GoList.defaultProps = {
-	className: undefined,
 	gos: [],
 };
 

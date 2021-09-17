@@ -2,8 +2,8 @@ import {Button, capitalize, Dialog, DialogActions, DialogContent, DialogTitle} f
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const FormDialog = ({children, className, title, action, onClose, onSubmit, ...other}) => (
-	<Dialog open fullWidth onClose={onClose} className={className} {...other}>
+const FormDialog = ({children, title, action, onClose, onSubmit, ...props}) => (
+	<Dialog open fullWidth onClose={onClose} {...props}>
 		{title && <DialogTitle>{title}</DialogTitle>}
 		<DialogContent>{children}</DialogContent>
 		<DialogActions>
@@ -21,12 +21,10 @@ FormDialog.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	title: PropTypes.string,
 	action: PropTypes.string,
-	className: PropTypes.string,
 };
 
 FormDialog.defaultProps = {
 	action: 'Submit',
-	className: undefined,
 	title: undefined,
 };
 

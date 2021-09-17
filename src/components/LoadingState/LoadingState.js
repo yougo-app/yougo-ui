@@ -1,27 +1,18 @@
-import {Typography} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import EmptyState from 'components/EmptyState';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const LoadingState = ({className, ...other}) => (
-	<EmptyState className={className} {...other}>
-		<div>
+const LoadingState = ({...props}) => (
+	<EmptyState {...props}>
+		<Box>
 			<CircularProgress size={60} color="inherit" />
-		</div>
-		<Typography variant="h4" color="textPrimary">
+		</Box>
+		<Typography variant="h4" color="text.primary">
 			Loading
 		</Typography>
-		<Typography color="textSecondary">Please wait while we load your data</Typography>
+		<Typography color="text.secondary">Please wait while we load your data</Typography>
 	</EmptyState>
 );
-
-LoadingState.propTypes = {
-	className: PropTypes.string,
-};
-
-LoadingState.defaultProps = {
-	className: undefined,
-};
 
 export default LoadingState;

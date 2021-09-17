@@ -37,6 +37,7 @@ const SearchBar = ({cancelOnEscape}) => {
 		<TextField
 			fullWidth
 			margin="dense"
+			size="small"
 			value={value}
 			onChange={handleChange}
 			onKeyUp={handleKeyUp}

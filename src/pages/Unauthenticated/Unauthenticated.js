@@ -1,25 +1,16 @@
 import {Typography} from '@mui/material';
 import EmptyState from 'components/EmptyState';
 import LoginButton from 'components/LoginButton';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const Unauthenticated = ({className, ...other}) => (
-	<EmptyState className={className} {...other}>
-		<Typography variant="h1" color="textPrimary">
+const Unauthenticated = ({...props}) => (
+	<EmptyState {...props}>
+		<Typography variant="h1" color="text.primary">
 			Yougo
 		</Typography>
-		<Typography color="textSecondary">Please sign in to use this site</Typography>
+		<Typography color="text.secondary">Please sign in to use this site</Typography>
 		<LoginButton />
 	</EmptyState>
 );
-
-Unauthenticated.propTypes = {
-	className: PropTypes.string,
-};
-
-Unauthenticated.defaultProps = {
-	className: undefined,
-};
 
 export default Unauthenticated;

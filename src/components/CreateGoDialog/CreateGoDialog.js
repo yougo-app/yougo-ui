@@ -6,7 +6,7 @@ import {useSnackbar} from 'notistack';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
-const CreateGoDialog = ({className, onClose, ...other}) => {
+const CreateGoDialog = ({onClose, ...props}) => {
 	const {enqueueSnackbar} = useSnackbar();
 	const {mutateAsync: createGo} = useApiCreateGo();
 	const onSubmit = useCallback(
@@ -25,12 +25,11 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 
 	return (
 		<FormDialog
-			className={className}
 			title="Add a go"
 			action="Add"
 			onClose={onClose}
 			onSubmit={formik.handleSubmit}
-			{...other}
+			{...props}
 		>
 			<GoForm formik={formik} />
 		</FormDialog>
@@ -38,12 +37,7 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 };
 
 CreateGoDialog.propTypes = {
-	className: PropTypes.string,
 	onClose: PropTypes.func.isRequired,
-};
-
-CreateGoDialog.defaultProps = {
-	className: undefined,
 };
 
 export default CreateGoDialog;

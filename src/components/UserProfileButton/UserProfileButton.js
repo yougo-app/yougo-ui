@@ -6,11 +6,8 @@ import {bindMenu, bindTrigger} from 'material-ui-popup-state';
 import {usePopupState} from 'material-ui-popup-state/hooks';
 import React, {useCallback} from 'react';
 
-import useStyles from './useStyles';
-
 const UserProfileButton = (props) => {
 	const {user, logout, loginWithRedirect, isAuthenticated} = useAuth0();
-	const classes = useStyles();
 	const popupState = usePopupState({variant: 'popover'});
 	const doLogout = useCallback(() => {
 		popupState.close();
@@ -20,7 +17,12 @@ const UserProfileButton = (props) => {
 	if (!isAuthenticated) {
 		return (
 			<Button color="inherit" onClick={loginWithRedirect}>
-				<Avatar className={classes.avatar} />
+				<Avatar
+					sx={{
+						width: 48,
+						height: 48,
+					}}
+				/>
 			</Button>
 		);
 	}
@@ -29,7 +31,10 @@ const UserProfileButton = (props) => {
 		<>
 			<Button color="inherit" {...bindTrigger(popupState)} {...props}>
 				<Avatar
-					className={classes.avatar}
+					sx={{
+						width: 48,
+						height: 48,
+					}}
 					imgProps={{referrerPolicy: 'no-referrer'}}
 					src={user.picture}
 				/>

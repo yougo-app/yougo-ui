@@ -5,16 +5,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import classNames from 'classnames';
 import {useCopyGoUrl, useDeleteGo, useEditGo} from 'hooks';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
-import useStyles from './useStyles';
-
-const GoMenu = ({className, go, onClose, ...other}) => {
-	const classes = useStyles();
+const GoMenu = ({go, onClose, ...props}) => {
 	const [editGo] = useEditGo(go);
 	const copyGo = useCopyGoUrl(go);
 	const deleteGo = useDeleteGo(go);
@@ -39,24 +35,23 @@ const GoMenu = ({className, go, onClose, ...other}) => {
 			MenuListProps={{
 				dense: true,
 			}}
-			className={classNames(classes.root, className)}
 			onClose={onClose}
-			{...other}
+			{...props}
 		>
 			<MenuItem onClick={onEdit}>
-				<ListItemIcon className={classes.icon}>
+				<ListItemIcon>
 					<EditIcon fontSize="small" />
 				</ListItemIcon>
 				<ListItemText>Edit</ListItemText>
 			</MenuItem>
 			<MenuItem onClick={onCopy}>
-				<ListItemIcon className={classes.icon}>
+				<ListItemIcon>
 					<FileCopyIcon fontSize="small" />
 				</ListItemIcon>
 				<ListItemText>Copy URL</ListItemText>
 			</MenuItem>
 			<MenuItem onClick={onDelete}>
-				<ListItemIcon className={classes.icon}>
+				<ListItemIcon>
 					<DeleteIcon fontSize="small" />
 				</ListItemIcon>
 				<ListItemText>Delete</ListItemText>
@@ -66,13 +61,8 @@ const GoMenu = ({className, go, onClose, ...other}) => {
 };
 
 GoMenu.propTypes = {
-	className: PropTypes.string,
 	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
-};
-
-GoMenu.defaultProps = {
-	className: undefined,
 };
 
 export default GoMenu;

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
-const EditGoDialog = ({className, go, onClose, ...other}) => {
+const EditGoDialog = ({go, onClose, ...props}) => {
 	const {enqueueSnackbar} = useSnackbar();
 	const {mutateAsync: editGo} = useApiPatchGo();
 	const onSubmit = useCallback(
@@ -27,12 +27,11 @@ const EditGoDialog = ({className, go, onClose, ...other}) => {
 
 	return (
 		<FormDialog
-			className={className}
 			title={`Edit ${go.alias}`}
 			action="Edit"
 			onClose={onClose}
 			onSubmit={formik.handleSubmit}
-			{...other}
+			{...props}
 		>
 			<GoForm formik={formik} />
 		</FormDialog>
@@ -40,13 +39,8 @@ const EditGoDialog = ({className, go, onClose, ...other}) => {
 };
 
 EditGoDialog.propTypes = {
-	className: PropTypes.string,
 	go: goPropType.isRequired,
 	onClose: PropTypes.func.isRequired,
-};
-
-EditGoDialog.defaultProps = {
-	className: undefined,
 };
 
 export default EditGoDialog;

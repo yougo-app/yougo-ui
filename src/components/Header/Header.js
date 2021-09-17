@@ -1,47 +1,34 @@
 import AddIcon from '@mui/icons-material/Add';
-import {AppBar, IconButton, Toolbar, Typography} from '@mui/material';
-import Container from '@mui/material/Container';
-import classNames from 'classnames';
+import {AppBar, Box, IconButton, Toolbar, Typography} from '@mui/material';
 import SearchBar from 'components/SearchBar';
 import UserProfileButton from 'components/UserProfileButton';
 import {useCreateGo} from 'hooks';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import useStyles from './useStyles';
-
-const Header = ({className, ...other}) => {
-	const classes = useStyles();
+const Header = ({...props}) => {
 	const [createGo] = useCreateGo();
 
 	return (
-		<AppBar className={classNames(classes.root, className)} position="static" {...other}>
+		<AppBar position="static" sx={{bgcolor: 'primary.dark'}} {...props}>
 			<Toolbar>
-				<div className={classes.left}>
-					<Typography variant="h6" color="inherit" className={classes.flex}>
+				<Box>
+					<Typography variant="h6" color="inherit">
 						Yougo
 					</Typography>
-				</div>
-				<Container fixed>
-					<SearchBar className={classes.searchbar} cancelOnEscape />
-				</Container>
-				<div className={classes.right}>
-					<IconButton color="inherit" onClick={createGo} size="large">
+				</Box>
+				<Box flexGrow={1} />
+				<Box flexGrow={1} maxWidth={400} marginX={1}>
+					<SearchBar cancelOnEscape />
+				</Box>
+				<Box display="flex" justifyContent="flex-end">
+					<IconButton onClick={createGo} color="inherit" size="large">
 						<AddIcon />
 					</IconButton>
 					<UserProfileButton />
-				</div>
+				</Box>
 			</Toolbar>
 		</AppBar>
 	);
-};
-
-Header.propTypes = {
-	className: PropTypes.string,
-};
-
-Header.defaultProps = {
-	className: undefined,
 };
 
 export default Header;
