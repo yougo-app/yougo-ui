@@ -1,26 +1,26 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
-import {useEditGo} from 'hooks';
+import useApiPatchGo from 'hooks/api/useApiPatchGo';
 import useGoForm from 'hooks/useGoForm';
+import {useSnackbar} from 'notistack';
 import diff from 'object-diff';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
 const EditGoDialog = ({className, go, onClose, ...other}) => {
-	// const snackbar = useSnackbar();
-	const {mutateAsync: editGo} = useEditGo();
+	const {enqueueSnackbar} = useSnackbar();
+	const {mutateAsync: editGo} = useApiPatchGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
 			editGo({current: go, updated: diff(go, values)})
-				.then(() => console.log('success')) // snackbar.showMessage(`Edited ${values.alias}`))
-				.catch(() => console.log('fail')) // snackbar.showMessage(`Can't edit ${values.alias}`))
+				.catch(() => enqueueSnackbar(`Problem editing '${values.alias}'`, {variant: 'error'}))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();
 				});
 		},
-		[go, onClose, editGo]
+		[editGo, go, enqueueSnackbar, onClose]
 	);
 
 	const formik = useGoForm({onSubmit, initialValues: go});

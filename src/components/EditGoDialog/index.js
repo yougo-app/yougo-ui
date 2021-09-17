@@ -1,3 +1,3 @@
-import EditGoDialog from 'components/EditGoDialog/EditGoDialog';
+import EditGoDialog from './EditGoDialog';
 
 export default EditGoDialog;

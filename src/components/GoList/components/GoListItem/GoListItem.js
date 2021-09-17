@@ -34,7 +34,18 @@ const GoListItem = ({className, go, ...other}) => {
 				<IconButton {...bindTrigger(popupState)} size="large">
 					<MoreVertIcon />
 				</IconButton>
-				<GoMenu go={go} {...bindMenu(popupState)} />
+				<GoMenu
+					go={go}
+					anchorOrigin={{
+						vertical: 'top',
+						horizontal: 'left',
+					}}
+					transformOrigin={{
+						vertical: 'top',
+						horizontal: 'left',
+					}}
+					{...bindMenu(popupState)}
+				/>
 			</ListItemSecondaryAction>
 		</ListItem>
 	);

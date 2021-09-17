@@ -1,13 +1,8 @@
-import useApiClient from 'hooks/useApiClient';
-import {useMutation, useQueryClient} from 'react-query';
-import {GOS_QUERY_KEY} from 'util/constants';
+import CreateGoDialog from 'components/CreateGoDialog';
+import React from 'react';
+import {useModal} from 'react-modal-hook';
 
 export default function useCreateGo() {
-	const clientAsync = useApiClient();
-	const queryClient = useQueryClient();
-	return useMutation((go) => clientAsync.then((api) => api.createGo(go)), {
-		onSuccess: () => {
-			queryClient.invalidateQueries([GOS_QUERY_KEY]);
-		},
-	});
+	const [openDialog, closeDialog] = useModal(() => <CreateGoDialog onClose={closeDialog} />);
+	return [openDialog, closeDialog];
 }

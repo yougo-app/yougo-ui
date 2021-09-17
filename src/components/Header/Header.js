@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import classNames from 'classnames';
 import SearchBar from 'components/SearchBar';
 import UserProfileButton from 'components/UserProfileButton';
-import {useCreateGoDialog} from 'hooks';
+import {useCreateGo} from 'hooks';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,7 +12,7 @@ import useStyles from './useStyles';
 
 const Header = ({className, ...other}) => {
 	const classes = useStyles();
-	const [openCreateDialog] = useCreateGoDialog();
+	const [createGo] = useCreateGo();
 
 	return (
 		<AppBar className={classNames(classes.root, className)} position="static" {...other}>
@@ -26,13 +26,7 @@ const Header = ({className, ...other}) => {
 					<SearchBar className={classes.searchbar} cancelOnEscape />
 				</Container>
 				<div className={classes.right}>
-					<IconButton
-						color="inherit"
-						onClick={() => {
-							openCreateDialog();
-						}}
-						size="large"
-					>
+					<IconButton color="inherit" onClick={createGo} size="large">
 						<AddIcon />
 					</IconButton>
 					<UserProfileButton />

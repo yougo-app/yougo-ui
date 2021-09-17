@@ -2,6 +2,7 @@ import {Auth0Provider} from '@auth0/auth0-react';
 import {CssBaseline} from '@mui/material';
 import {StyledEngineProvider, ThemeProvider} from '@mui/material/styles';
 import {SearchProvider} from 'context/SearchContext';
+import {SnackbarProvider} from 'notistack';
 import {node} from 'prop-types';
 import React from 'react';
 import {ModalProvider} from 'react-modal-hook';
@@ -15,12 +16,14 @@ const Providers = ({children}) => (
 		<StyledEngineProvider injectFirst>
 			<ThemeProvider theme={theme}>
 				<QueryClientProvider client={queryClient}>
-					<ModalProvider>
-						<SearchProvider>
-							<CssBaseline />
-							{children}
-						</SearchProvider>
-					</ModalProvider>
+					<SnackbarProvider maxSnack={3}>
+						<ModalProvider>
+							<SearchProvider>
+								<CssBaseline />
+								{children}
+							</SearchProvider>
+						</ModalProvider>
+					</SnackbarProvider>
 				</QueryClientProvider>
 			</ThemeProvider>
 		</StyledEngineProvider>

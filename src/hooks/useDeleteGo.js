@@ -1,14 +1,16 @@
-import useApiClient from 'hooks/useApiClient';
-import {useMutation, useQueryClient} from 'react-query';
-import {GO_QUERY_KEY, GOS_QUERY_KEY} from 'util/constants';
+import {Button} from '@mui/material';
+import {useSnackbar} from 'notistack';
+import React, {useCallback} from 'react';
 
-export default function useDeleteGo() {
-	const clientAsync = useApiClient();
-	const queryClient = useQueryClient();
-	return useMutation(({id}) => clientAsync.then((api) => api.deleteGo(id)), {
-		onSuccess: (_, {alias}) => {
-			queryClient.invalidateQueries([GOS_QUERY_KEY]);
-			queryClient.removeQueries([GO_QUERY_KEY, alias]);
-		},
-	});
+import useApiDeleteGo from './api/useApiDeleteGo';
+
+export default function useDeleteGo(go) {
+	const {enqueueSnackbar} = useSnackbar();
+	const {mutateAsync: deleteGo} = useApiDeleteGo();
+	return useCallback(() => {
+		const undoDeleteButton = <Button>Undo</Button>;
+		deleteGo(go)
+			.then(() => enqueueSnackbar(`'${go.alias}' deleted`, {action: undoDeleteButton}))
+			.catch(() => enqueueSnackbar(`Problem deleting '${go.alias}'`, {variant: 'error'}));
+	}, [deleteGo, go, enqueueSnackbar]);
 }

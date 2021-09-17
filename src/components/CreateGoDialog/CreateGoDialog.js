@@ -1,25 +1,24 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
-import useCreateGo from 'hooks/useCreateGo';
+import useApiCreateGo from 'hooks/api/useApiCreateGo';
 import useGoForm from 'hooks/useGoForm';
-// import {useSnackbar} from 'material-ui-snackbar-provider';
+import {useSnackbar} from 'notistack';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
 
 const CreateGoDialog = ({className, onClose, ...other}) => {
-	// const snackbar = useSnackbar();
-	const {mutateAsync: createGo} = useCreateGo();
+	const {enqueueSnackbar} = useSnackbar();
+	const {mutateAsync: createGo} = useApiCreateGo();
 	const onSubmit = useCallback(
 		(values, {setSubmitting}) => {
 			createGo(values)
-				.then(() => console.log('suzzess')) // snackbar.showMessage(`Created ${values.alias}`))
-				.catch(() => console.log('fail')) // snackbar.showMessage(`Can't create ${values.alias}`))
+				.catch(() => enqueueSnackbar(`Problem creating '${values.alias}'`, {variant: 'error'}))
 				.finally(() => {
 					setSubmitting(false);
 					onClose();
 				});
 		},
-		[createGo, onClose]
+		[createGo, onClose, enqueueSnackbar]
 	);
 
 	const formik = useGoForm({onSubmit});

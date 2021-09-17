@@ -6,16 +6,34 @@ import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import classNames from 'classnames';
+import {useCopyGoUrl, useDeleteGo, useEditGo} from 'hooks';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
-import useGoMenu from './useGoMenu';
 import useStyles from './useStyles';
 
 const GoMenu = ({className, go, onClose, ...other}) => {
 	const classes = useStyles();
-	const [onEdit, onCopy, onDelete] = useGoMenu(go, onClose);
+	const [editGo] = useEditGo(go);
+	const copyGo = useCopyGoUrl(go);
+	const deleteGo = useDeleteGo(go);
+
+	const onEdit = useCallback(() => {
+		editGo();
+		onClose();
+	}, [editGo, onClose]);
+
+	const onCopy = useCallback(() => {
+		copyGo();
+		onClose();
+	}, [copyGo, onClose]);
+
+	const onDelete = useCallback(() => {
+		deleteGo();
+		onClose();
+	}, [deleteGo, onClose]);
+
 	return (
 		<Menu
 			MenuListProps={{

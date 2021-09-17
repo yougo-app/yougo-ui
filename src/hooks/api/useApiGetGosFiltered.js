@@ -1,9 +1,8 @@
+import useApiGetGos from 'hooks/api/useApiGetGos';
 import containsValue from 'util/containsValue';
 
-import useGos from './useGos';
-
-export default function useFilteredGos(searchString) {
-	const response = useGos();
+export default function useApiGetGosFiltered(searchString) {
+	const response = useApiGetGos();
 	return searchString.length <= 2
 		? response
 		: {
