@@ -1,57 +1,45 @@
-import {TextField} from '@mui/material';
-import Box from '@mui/material/Box';
-import {Field, Form, Formik} from 'formik';
-// import {TextField} from 'formik-material-ui';
-import PropTypes from 'prop-types';
+import {Box, TextField} from '@mui/material';
+import {object} from 'prop-types';
 import React from 'react';
-import {goPropType, goSchema, ref} from 'util/types';
 
-const defaultInitialValues = {
-	alias: '',
-	href: '',
-};
-
-const GoForm = ({className, onSubmit, initialValues, innerRef, ...other}) => (
-	<Formik
-		initialValues={initialValues || defaultInitialValues}
-		validationSchema={goSchema}
-		onSubmit={onSubmit}
-		innerRef={innerRef}
-		{...other}
-	>
-		<Form className={className}>
-			<Field
-				component={TextField}
-				name="alias"
-				label="Alias"
-				placeholder="example"
-				fullWidth
-				autoFocus
-			/>
-			<Field
-				component={TextField}
-				name="href"
-				label="URL"
-				placeholder="http://example.com"
-				fullWidth
-			/>
-			<Box hidden>
-				<button type="submit">Submit</button>
-			</Box>
-		</Form>
-	</Formik>
+const GoForm = ({formik, ...props}) => (
+	<form onSubmit={formik.handleSubmit} {...props}>
+		<TextField
+			id="alias"
+			name="alias"
+			label="Alias"
+			value={formik.values.alias}
+			onChange={formik.handleChange}
+			onBlur={formik.handleBlur}
+			error={Boolean(formik.touched.alias && formik.errors.alias)}
+			helperText={formik.touched.alias && formik.errors.alias}
+			fullWidth
+			autoFocus
+			margin="dense"
+			variant="standard"
+		/>
+		<TextField
+			id="href"
+			name="href"
+			label="URL"
+			value={formik.values.href}
+			onChange={formik.handleChange}
+			onBlur={formik.handleBlur}
+			error={Boolean(formik.touched.href && formik.errors.href)}
+			helperText={formik.touched.href && formik.errors.href}
+			fullWidth
+			margin="dense"
+			variant="standard"
+		/>
+		<Box hidden>
+			<button type="submit">Submit</button>
+		</Box>
+	</form>
 );
 
 GoForm.propTypes = {
-	className: PropTypes.string,
-	initialValues: goPropType,
-	innerRef: ref.isRequired,
-	onSubmit: PropTypes.func.isRequired,
-};
-
-GoForm.defaultProps = {
-	className: undefined,
-	initialValues: undefined,
+	// eslint-disable-next-line react/forbid-prop-types
+	formik: object.isRequired,
 };
 
 export default GoForm;

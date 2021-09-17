@@ -1,6 +1,7 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
 import useCreateGo from 'hooks/useCreateGo';
+import useGoForm from 'hooks/useGoForm';
 // import {useSnackbar} from 'material-ui-snackbar-provider';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
@@ -21,9 +22,18 @@ const CreateGoDialog = ({className, onClose, ...other}) => {
 		[createGo, onClose]
 	);
 
+	const formik = useGoForm({onSubmit});
+
 	return (
-		<FormDialog className={className} title="Add a go" action="Add" onClose={onClose} {...other}>
-			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} />}
+		<FormDialog
+			className={className}
+			title="Add a go"
+			action="Add"
+			onClose={onClose}
+			onSubmit={formik.handleSubmit}
+			{...other}
+		>
+			<GoForm formik={formik} />
 		</FormDialog>
 	);
 };

@@ -6,7 +6,7 @@ export const goSchema = object().shape({
 	alias: string()
 		.trim()
 		.required()
-		.matches(/^[\w-]+$/, {excludeEmptyString: true, message: 'Go must not contain whitespace'}),
+		.matches(/^[\w-]+$/, {excludeEmptyString: true, message: 'Alias cannot contain whitespace'}),
 	href: string().trim().required().url(),
 });
 

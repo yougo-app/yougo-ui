@@ -1,32 +1,24 @@
 import {Button, capitalize, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
 import PropTypes from 'prop-types';
-import React, {useCallback, useRef} from 'react';
+import React from 'react';
 
-const FormDialog = ({children, className, title, action, onClose, ...other}) => {
-	const formRef = useRef();
-	const handleSubmit = useCallback(() => {
-		if (formRef.current) {
-			formRef.current.submitForm();
-		}
-	}, [formRef]);
-
-	return (
-		<Dialog open fullWidth onClose={onClose} className={className} {...other}>
-			{title && <DialogTitle>{title}</DialogTitle>}
-			<DialogContent>{children(formRef)}</DialogContent>
-			<DialogActions>
-				<Button onClick={onClose}>Cancel</Button>
-				<Button color="secondary" onClick={handleSubmit}>
-					{capitalize(action)}
-				</Button>
-			</DialogActions>
-		</Dialog>
-	);
-};
+const FormDialog = ({children, className, title, action, onClose, onSubmit, ...other}) => (
+	<Dialog open fullWidth onClose={onClose} className={className} {...other}>
+		{title && <DialogTitle>{title}</DialogTitle>}
+		<DialogContent>{children}</DialogContent>
+		<DialogActions>
+			<Button onClick={onClose}>Cancel</Button>
+			<Button color="secondary" onClick={onSubmit}>
+				{capitalize(action)}
+			</Button>
+		</DialogActions>
+	</Dialog>
+);
 
 FormDialog.propTypes = {
-	children: PropTypes.func.isRequired,
+	children: PropTypes.node.isRequired,
 	onClose: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 	title: PropTypes.string,
 	action: PropTypes.string,
 	className: PropTypes.string,

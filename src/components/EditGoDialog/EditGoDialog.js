@@ -1,6 +1,7 @@
 import FormDialog from 'components/FormDialog';
 import GoForm from 'components/GoForm';
 import {useEditGo} from 'hooks';
+import useGoForm from 'hooks/useGoForm';
 import diff from 'object-diff';
 import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
@@ -22,9 +23,18 @@ const EditGoDialog = ({className, go, onClose, ...other}) => {
 		[go, onClose, editGo]
 	);
 
+	const formik = useGoForm({onSubmit, initialValues: go});
+
 	return (
-		<FormDialog title={`Edit ${go.alias}`} action="Edit" onClose={onClose} {...other}>
-			{(formRef) => <GoForm onSubmit={onSubmit} innerRef={formRef} initialValues={go} />}
+		<FormDialog
+			className={className}
+			title={`Edit ${go.alias}`}
+			action="Edit"
+			onClose={onClose}
+			onSubmit={formik.handleSubmit}
+			{...other}
+		>
+			<GoForm formik={formik} />
 		</FormDialog>
 	);
 };
