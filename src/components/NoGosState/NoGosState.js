@@ -3,7 +3,6 @@ import {Typography} from '@mui/material';
 import Button from '@mui/material/Button';
 import EmptyState from 'components/EmptyState';
 import {useCreateGo} from 'hooks';
-import React from 'react';
 
 const NoGosState = ({...props}) => {
 	const [createGo] = useCreateGo();

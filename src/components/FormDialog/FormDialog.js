@@ -1,6 +1,5 @@
 import {Button, capitalize, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const FormDialog = ({children, title, action, onClose, onSubmit, ...props}) => (
 	<Dialog open fullWidth onClose={onClose} {...props}>

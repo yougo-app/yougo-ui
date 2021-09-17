@@ -2,7 +2,7 @@ import {Close, Search} from '@mui/icons-material';
 import {IconButton, InputAdornment, TextField} from '@mui/material';
 import {useSearch} from 'context/SearchContext';
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 const SearchBar = ({cancelOnEscape}) => {
 	const [value, setValue] = useSearch();

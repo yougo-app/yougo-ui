@@ -1,5 +1,5 @@
 {
-	"extends": ["react-app", "airbnb", "prettier"],
+	"extends": ["react-app", "airbnb", "prettier", "plugin:react/jsx-runtime"],
 	"plugins": ["simple-import-sort"],
 	"settings": {
 		"import/resolver": {
@@ -14,10 +14,6 @@
 		"react/jsx-props-no-spreading": "off",
 		"simple-import-sort/exports": "error",
 		"simple-import-sort/imports": "error",
-		"sort-imports": "off",
-		"no-restricted-imports": [
-			"error",
-			{"patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]}
-		]
+		"sort-imports": "off"
 	}
 }

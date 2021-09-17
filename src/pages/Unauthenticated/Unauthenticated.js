@@ -1,7 +1,6 @@
 import {Typography} from '@mui/material';
 import EmptyState from 'components/EmptyState';
 import LoginButton from 'components/LoginButton';
-import React from 'react';
 
 const Unauthenticated = ({...props}) => (
 	<EmptyState {...props}>

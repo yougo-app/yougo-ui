@@ -1,6 +1,5 @@
 import {Box, TextField} from '@mui/material';
 import {object} from 'prop-types';
-import React from 'react';
 
 const GoForm = ({formik, ...props}) => (
 	<form onSubmit={formik.handleSubmit} {...props}>

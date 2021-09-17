@@ -8,7 +8,6 @@ import {
 } from '@mui/material';
 import GoMenu from 'components/GoMenu';
 import {bindMenu, bindTrigger, usePopupState} from 'material-ui-popup-state/hooks';
-import React from 'react';
 import {goPropType} from 'util/types';
 
 const GoListItem = ({go, ...props}) => {

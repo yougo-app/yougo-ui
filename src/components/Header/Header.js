@@ -3,7 +3,6 @@ import {AppBar, Box, IconButton, Toolbar, Typography} from '@mui/material';
 import SearchBar from 'components/SearchBar';
 import UserProfileButton from 'components/UserProfileButton';
 import {useCreateGo} from 'hooks';
-import React from 'react';
 
 const Header = ({...props}) => {
 	const [createGo] = useCreateGo();

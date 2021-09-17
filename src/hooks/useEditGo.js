@@ -1,5 +1,4 @@
 import EditGoDialog from 'components/EditGoDialog';
-import React from 'react';
 import {useModal} from 'react-modal-hook';
 
 export default function useEditGo(go) {

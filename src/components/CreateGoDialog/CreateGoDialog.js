@@ -4,7 +4,7 @@ import useApiCreateGo from 'hooks/api/useApiCreateGo';
 import useGoForm from 'hooks/useGoForm';
 import {useSnackbar} from 'notistack';
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 const CreateGoDialog = ({onClose, ...props}) => {
 	const {enqueueSnackbar} = useSnackbar();

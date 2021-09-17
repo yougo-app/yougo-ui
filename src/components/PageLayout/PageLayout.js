@@ -2,7 +2,6 @@ import {Box, Stack} from '@mui/material';
 import Container from '@mui/material/Container';
 import Header from 'components/Header';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const PageLayout = ({children}) => (
 	<Stack minHeight="100vh" spacing={2} alignItems="center">

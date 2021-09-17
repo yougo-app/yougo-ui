@@ -1,6 +1,6 @@
 import {Button} from '@mui/material';
 import {useSnackbar} from 'notistack';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 import useApiDeleteGo from './api/useApiDeleteGo';
 

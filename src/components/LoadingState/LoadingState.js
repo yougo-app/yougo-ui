@@ -1,7 +1,6 @@
 import {Box, Typography} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import EmptyState from 'components/EmptyState';
-import React from 'react';
 
 const LoadingState = ({...props}) => (
 	<EmptyState {...props}>

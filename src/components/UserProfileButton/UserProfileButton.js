@@ -4,7 +4,7 @@ import {Avatar, Menu, MenuItem} from '@mui/material';
 import Button from '@mui/material/Button';
 import {bindMenu, bindTrigger} from 'material-ui-popup-state';
 import {usePopupState} from 'material-ui-popup-state/hooks';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 const UserProfileButton = (props) => {
 	const {user, logout, loginWithRedirect, isAuthenticated} = useAuth0();

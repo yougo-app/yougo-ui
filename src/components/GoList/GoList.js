@@ -1,7 +1,6 @@
 import {List, Paper} from '@mui/material';
 import NoGosState from 'components/NoGosState';
 import PropTypes from 'prop-types';
-import React from 'react';
 import {goPropType} from 'util/types';
 
 import {GoListItem} from './components';

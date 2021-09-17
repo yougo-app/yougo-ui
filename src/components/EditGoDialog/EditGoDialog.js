@@ -5,7 +5,7 @@ import useGoForm from 'hooks/useGoForm';
 import {useSnackbar} from 'notistack';
 import diff from 'object-diff';
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
 const EditGoDialog = ({go, onClose, ...props}) => {

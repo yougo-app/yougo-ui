@@ -1,7 +1,6 @@
 import EmptyState from 'components/EmptyState';
 import LoadingState from 'components/LoadingState';
 import {useApiGetGo} from 'hooks';
-import React from 'react';
 import {useParams} from 'react-router-dom';
 import history from 'util/history';
 

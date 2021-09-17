@@ -7,7 +7,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useCopyGoUrl, useDeleteGo, useEditGo} from 'hooks';
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {goPropType} from 'util/types';
 
 const GoMenu = ({go, onClose, ...props}) => {
