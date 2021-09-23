@@ -1,30 +1,32 @@
-import {Auth0Provider} from '@auth0/auth0-react';
 import {CssBaseline} from '@mui/material';
 import {ThemeProvider} from '@mui/material/styles';
+import Auth0Provider from 'components/Auth0Provider';
 import {SearchProvider} from 'context/SearchContext';
 import {SnackbarProvider} from 'notistack';
 import {node} from 'prop-types';
 import {ModalProvider} from 'react-modal-hook';
 import {QueryClientProvider} from 'react-query';
-import authConfig from 'util/authConfig';
+import {BrowserRouter} from 'react-router-dom';
 import queryClient from 'util/queryClient';
 import theme from 'util/theme';
 
 const Providers = ({children}) => (
-	<Auth0Provider {...authConfig}>
-		<ThemeProvider theme={theme}>
+	<BrowserRouter>
+		<Auth0Provider>
 			<QueryClientProvider client={queryClient}>
-				<SnackbarProvider maxSnack={3}>
-					<ModalProvider>
-						<SearchProvider>
-							<CssBaseline />
-							{children}
-						</SearchProvider>
-					</ModalProvider>
-				</SnackbarProvider>
+				<SearchProvider>
+					<ThemeProvider theme={theme}>
+						<SnackbarProvider maxSnack={3}>
+							<ModalProvider>
+								<CssBaseline />
+								{children}
+							</ModalProvider>
+						</SnackbarProvider>
+					</ThemeProvider>
+				</SearchProvider>
 			</QueryClientProvider>
-		</ThemeProvider>
-	</Auth0Provider>
+		</Auth0Provider>
+	</BrowserRouter>
 );
 
 Providers.propTypes = {

@@ -1,19 +1,18 @@
-import 'ulog';
 import 'typeface-roboto';
+import 'ulog';
 
 import Application from 'components';
+import Providers from 'components/Providers';
 import {StrictMode} from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import history from 'util/history';
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<StrictMode>
-		<BrowserRouter history={history}>
+		<Providers>
 			<Application />
-		</BrowserRouter>
+		</Providers>
 	</StrictMode>,
 	document.getElementById('root')
 );

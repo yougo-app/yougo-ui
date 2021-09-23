@@ -1,4 +1,4 @@
 {
-	"/go/:name": "/gos?go=:name&singular=true",
+	"/gos/:name": "/gos?alias=:name&singular=1",
 	"/*": "/$1"
 }

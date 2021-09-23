@@ -41,7 +41,6 @@ const UserProfileButton = (props) => {
 				<ArrowDropDown />
 			</Button>
 			<Menu
-				getContentAnchorEl={null}
 				anchorOrigin={{
 					vertical: 'bottom',
 					horizontal: 'right',
