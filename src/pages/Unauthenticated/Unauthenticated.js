@@ -1,6 +1,5 @@
 import {Typography} from '@mui/material';
 import EmptyState from 'components/EmptyState';
-import LoginButton from 'components/LoginButton';
 
 const Unauthenticated = ({...props}) => (
 	<EmptyState {...props}>
@@ -8,7 +7,6 @@ const Unauthenticated = ({...props}) => (
 			Yougo
 		</Typography>
 		<Typography color="text.secondary">Please sign in to use this site</Typography>
-		<LoginButton />
 	</EmptyState>
 );
 

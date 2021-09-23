@@ -3,6 +3,7 @@ export {default as useApiDeleteGo} from './api/useApiDeleteGo';
 export {default as useApiGetGo} from './api/useApiGetGo';
 export {default as useApiGetGosFiltered} from './api/useApiGetGosFiltered';
 export {default as useApiPatchGo} from './api/useApiPatchGo';
+export {default as useAutoLogin} from './useAutoLogin';
 export {default as useCopyGoUrl} from './useCopyGoUrl';
 export {default as useCreateGo} from './useCreateGo';
 export {default as useDeleteGo} from './useDeleteGo';
