@@ -10,3 +10,8 @@ commonLabels:
 resources:
   - deployment.yml
   - service.yml
+
+configMapGenerator:
+  - name: ui-config
+    files:
+      - configs/config.js
