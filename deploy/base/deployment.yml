@@ -28,7 +28,16 @@ spec:
               protocol: TCP
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          volumeMounts:
+            - name: config
+              mountPath: /opt/app-root/src/config.js
+              subPath: config.js
+              readOnly: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
+      volumes:
+        - name: config
+          configMap:
+            name: ui-config
