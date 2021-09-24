@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"yougo-ui:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"yougo-ui\")].image"}]'
   name: yougo-ui
 spec:
   progressDeadlineSeconds: 600
@@ -12,27 +10,25 @@ spec:
     matchLabels:
       deployment: yougo-ui
   strategy:
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
-      annotations: {}
       labels:
         deployment: yougo-ui
     spec:
       containers:
-        - imagePullPolicy: IfNotPresent
-          name: yougo-ui
+        - name: yougo-ui
+          image: quay.io/yougo-app/yougo-ui:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
               protocol: TCP
-          resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: {}
       terminationGracePeriodSeconds: 30

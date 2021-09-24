@@ -1,17 +1,16 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
+  name: yougo-ui
   annotations:
     openshift.io/host.generated: 'true'
-  name: yougo-ui
-  namespace: yougo
 spec:
-  port:
-    targetPort: http
-  tls:
-    termination: edge
   to:
     kind: Service
     name: yougo-ui
     weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
   wildcardPolicy: None

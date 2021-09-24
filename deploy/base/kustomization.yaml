@@ -9,6 +9,4 @@ commonLabels:
 
 resources:
   - deployment.yml
-  - imagestream.yml
-  - route.yml
   - service.yml
