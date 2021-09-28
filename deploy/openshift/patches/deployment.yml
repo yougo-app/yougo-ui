@@ -7,8 +7,3 @@ spec:
     metadata:
       annotations:
         alpha.image.policy.openshift.io/resolve-names: '*'
-    spec:
-      containers:
-        - name: yougo-ui
-          image: yougo-ui:latest
-          imagePullPolicy: Always
