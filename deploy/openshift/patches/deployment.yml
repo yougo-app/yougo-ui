@@ -1,9 +1,0 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: yougo-ui
-spec:
-  template:
-    metadata:
-      annotations:
-        alpha.image.policy.openshift.io/resolve-names: '*'

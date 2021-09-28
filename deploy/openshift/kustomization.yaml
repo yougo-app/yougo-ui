@@ -9,13 +9,4 @@ commonLabels:
 
 resources:
   - ../base
-  - imagestream.yml
   - route.yml
-
-patches:
-  - path: patches/deployment.yml
-
-images:
-  - name: quay.io/yougo-app/yougo-ui
-    newName: yougo-ui
-    newTag: latest
