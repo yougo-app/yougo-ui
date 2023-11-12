@@ -29,7 +29,7 @@
 		"@mui/material": "^5.0.1",
 		"@mui/styles": "^5.0.1",
 		"anylogger": "^1.0.5",
-		"axios": "^0.21.4",
+		"axios": "^1.6.0",
 		"copy-to-clipboard": "^3.0.8",
 		"formik": "^2.2.9",
 		"history": "^5.0.1",
